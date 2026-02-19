@@ -17,7 +17,6 @@ import iotVideo from "@/assets/videos/IOT.mp4";
 import ndtVideo from "@/assets/videos/NDT.mp4";
 import geospatialVideo from "@/assets/videos/Geospatial.mp4";
 
-
 const services = [
   {
     icon: Smartphone,
@@ -135,29 +134,28 @@ const services = [
     ],
   },
   {
-  icon: Globe,
-  title: "Geospatial Intelligence",
-  slug: "geospatial-intelligence",
-  video: geospatialVideo, // make sure you import this
-  accentColor: "#06b6d4", // cyan-blue (map / satellite vibe)
-  glowColor: "rgba(6, 182, 212, 0.6)",
-  videoKeyword: "satellite mapping gis analytics",
-  longDescription:
-    "Our AI-powered Geospatial Intelligence solutions transform satellite imagery, GIS data, and spatial analytics into actionable insights. We help organizations monitor assets, optimize operations, and make smarter location-based decisions.",
-  features: [
-    "Satellite image analysis",
-    "GIS & spatial data modeling",
-    "AI-based terrain & object detection",
-    "Real-time geospatial dashboards",
-  ],
-  useCases: [
-    "Urban planning & smart cities",
-    "Agriculture monitoring",
-    "Disaster response & risk analysis",
-    "Defense & strategic intelligence",
-  ],
-},
-
+    icon: Globe,
+    title: "Geospatial Intelligence",
+    slug: "geospatial-intelligence",
+    video: geospatialVideo, // make sure you import this
+    accentColor: "#06b6d4", // cyan-blue (map / satellite vibe)
+    glowColor: "rgba(6, 182, 212, 0.6)",
+    videoKeyword: "satellite mapping gis analytics",
+    longDescription:
+      "Our AI-powered Geospatial Intelligence solutions transform satellite imagery, GIS data, and spatial analytics into actionable insights. We help organizations monitor assets, optimize operations, and make smarter location-based decisions.",
+    features: [
+      "Satellite image analysis",
+      "GIS & spatial data modeling",
+      "AI-based terrain & object detection",
+      "Real-time geospatial dashboards",
+    ],
+    useCases: [
+      "Urban planning & smart cities",
+      "Agriculture monitoring",
+      "Disaster response & risk analysis",
+      "Defense & strategic intelligence",
+    ],
+  },
 ];
 
 /* ── tiny hook: stagger-reveal on scroll ── */
@@ -168,8 +166,13 @@ function useReveal() {
     const el = ref.current;
     if (!el) return;
     const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect(); } },
-      { threshold: 0.15 }
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.15 },
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -209,11 +212,19 @@ const ServiceDetail = () => {
 
   const toggleVideo = () => {
     if (!videoRef.current) return;
-    if (videoPaused) { videoRef.current.play(); setVideoPaused(false); }
-    else { videoRef.current.pause(); setVideoPaused(true); }
+    if (videoPaused) {
+      videoRef.current.play();
+      setVideoPaused(false);
+    } else {
+      videoRef.current.pause();
+      setVideoPaused(true);
+    }
   };
 
-  if (!service) return <div className="pt-32 text-center text-white">Service not found</div>;
+  if (!service)
+    return (
+      <div className="pt-32 text-center text-white">Service not found</div>
+    );
 
   const Icon = service.icon;
   const accent = service.accentColor;
@@ -397,6 +408,8 @@ const ServiceDetail = () => {
       display: flex;
       align-items: center;
       gap: 10px;
+      height: 100%;
+  min-height: 90px; 
       transition: all 0.3s;
       cursor: default;
     }
@@ -539,44 +552,67 @@ const ServiceDetail = () => {
             poster="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260"
           >
             {/* Pexels free stock video – tech / abstract */}
-            <source
-              src={service.video}
-              type="video/mp4"
-            />
+            <source src={service.video} type="video/mp4" />
           </video>
           <div className="sd-video-overlay" />
         </div>
 
         {/* Video toggle button */}
-        <button className="sd-vid-toggle" onClick={toggleVideo} aria-label="Toggle video">
+        <button
+          className="sd-vid-toggle"
+          onClick={toggleVideo}
+          aria-label="Toggle video"
+        >
           {videoPaused ? <Play size={16} /> : <Pause size={16} />}
         </button>
 
         {/* Hero content */}
         <div
           style={{
-            position: "relative", zIndex: 2,
-            width: "100%", maxWidth: "1200px",
-            margin: "0 auto", padding: "120px 32px 64px",
+            position: "relative",
+            zIndex: 2,
+            width: "100%",
+            maxWidth: "1200px",
+            margin: "0 auto",
+            padding: "120px 32px 64px",
             opacity: heroOpacity,
             transform: `translateY(${heroY}px)`,
             transition: "opacity 0.9s ease, transform 0.9s ease",
           }}
         >
           {/* Breadcrumb */}
-          <p style={{ color: "rgba(255,255,255,0.35)", fontSize: "0.8rem", marginBottom: 32, letterSpacing: "0.1em", fontFamily: "'DM Sans', sans-serif" }}>
-            Services &nbsp;/&nbsp; <span style={{ color: accent }}>{service.title}</span>
+          <p
+            style={{
+              color: "rgba(255,255,255,0.35)",
+              fontSize: "0.8rem",
+              marginBottom: 32,
+              letterSpacing: "0.1em",
+              fontFamily: "'DM Sans', sans-serif",
+            }}
+          >
+            Services &nbsp;/&nbsp;{" "}
+            <span style={{ color: accent }}>{service.title}</span>
           </p>
 
           {/* Icon + title row */}
-          <div style={{ display: "flex", alignItems: "center", gap: 24, flexWrap: "wrap", marginBottom: 28 }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 24,
+              flexWrap: "wrap",
+              marginBottom: 28,
+            }}
+          >
             {/* Glowing icon */}
             <div
               className="sd-icon-wrap"
               onMouseEnter={() => setIconHovered(true)}
               onMouseLeave={() => setIconHovered(false)}
             >
-              <div className={`sd-icon-bg ${iconHovered ? "glowing" : "idle"}`} />
+              <div
+                className={`sd-icon-bg ${iconHovered ? "glowing" : "idle"}`}
+              />
               {iconHovered && <div className="sd-icon-pulse" />}
               <div className="sd-icon-ring" />
               <div className="sd-icon-inner">
@@ -585,9 +621,15 @@ const ServiceDetail = () => {
             </div>
 
             <h1 className="sd-title">
-              {service.title.split(" ").map((word, i, arr) =>
-                i === arr.length - 1 ? <span key={i}>{word}</span> : word + " "
-              )}
+              {service.title
+                .split(" ")
+                .map((word, i, arr) =>
+                  i === arr.length - 1 ? (
+                    <span key={i}>{word}</span>
+                  ) : (
+                    word + " "
+                  ),
+                )}
             </h1>
           </div>
 
@@ -597,19 +639,26 @@ const ServiceDetail = () => {
 
       {/* ════ BODY CONTENT ════ */}
       <div style={{ position: "relative", zIndex: 1 }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "72px 32px 0" }}>
-
+        <div
+          style={{ maxWidth: 1200, margin: "0 auto", padding: "72px 32px 0" }}
+        >
           {/* ── Features ── */}
           <RevealCard>
             <div style={{ marginBottom: 64 }}>
               <p className="sd-section-label">What we offer</p>
-              <h2 className="sd-section-title">Key Features &amp; Capabilities</h2>
+              <h2 className="sd-section-title">
+                Key Features &amp; Capabilities
+              </h2>
               <div className="sd-divider" />
               <div className="sd-grid-2">
                 {service.features.map((feature, i) => (
                   <RevealCard key={i} delay={i * 80}>
                     <div className="sd-feature-card">
-                      <CheckCircle color={accent} size={18} style={{ flexShrink: 0 }} />
+                      <CheckCircle
+                        color={accent}
+                        size={18}
+                        style={{ flexShrink: 0 }}
+                      />
                       <p>{feature}</p>
                     </div>
                   </RevealCard>
@@ -636,23 +685,24 @@ const ServiceDetail = () => {
               </div>
             </div>
           </RevealCard>
-
         </div>
 
         {/* ── CTA ── */}
         <RevealCard>
           <div className="sd-cta-section">
             <p className="sd-section-label">Let's work together</p>
-            <h3 className="sd-cta-title">Ready to build with {service.title}?</h3>
+            <h3 className="sd-cta-title">
+              Ready to build with {service.title}?
+            </h3>
             <p className="sd-cta-sub">
-              Let Attractify Technologies help you transform your ideas into scalable, intelligent solutions.
+              Let Attractify Technologies help you transform your ideas into
+              scalable, intelligent solutions.
             </p>
             <Link to="/contact" className="sd-cta-btn">
               Contact Us <ArrowRight size={16} />
             </Link>
           </div>
         </RevealCard>
-
       </div>
     </div>
   );
