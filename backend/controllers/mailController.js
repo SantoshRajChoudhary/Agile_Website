@@ -1,0 +1,131 @@
+import { createTransporter } from "../config/mailConfig.js";
+
+/* =========================
+   CONTACT FORM MAIL
+========================= */
+export const sendContactMail = async (req, res) => {
+  try {
+    const transporter = createTransporter();
+
+    const {
+      firstName = "",
+      lastName = "",
+      email = "",
+      phone = "",
+      subject = "Website Contact Message",
+      message = "",
+    } = req.body || {};
+
+    await transporter.sendMail({
+      from: `"Attractify Technologies" <${process.env.ADMIN_EMAIL}>`,
+      to: process.env.ADMIN_EMAIL,
+      replyTo: email,
+      subject: `New Contact Message - ${subject}`,
+      html: `
+        <h2>New Contact Message</h2>
+        <p><b>Name:</b> ${firstName} ${lastName}</p>
+        <p><b>Email:</b> ${email}</p>
+        <p><b>Phone:</b> ${phone}</p>
+        <p>${message}</p>
+      `,
+    });
+
+    res.status(200).json({ success: true });
+
+  } catch (error) {
+    console.log("CONTACT MAIL ERROR:", error);
+    res.status(500).json({ success: false });
+  }
+};
+
+
+/* =========================
+   CAREER FORM MAIL
+========================= */
+export const sendCareerMail = async (req, res) => {
+  try {
+    const transporter = createTransporter();
+
+    const {
+      name = "",
+      email = "",
+      phone = "",
+      position = "",
+      message = "",
+    } = req.body || {};
+
+    /* ======================
+       ADMIN MAIL
+    ====================== */
+
+    const attachments = [];
+
+    if (req.file) {
+      attachments.push({
+        filename: req.file.originalname,
+        content: req.file.buffer,
+      });
+    }
+
+    await transporter.sendMail({
+      from: `"Attractify Careers" <${process.env.ADMIN_EMAIL}>`,
+      to: process.env.ADMIN_EMAIL,
+      replyTo: email,
+      subject: `New Career Application - ${position}`,
+      html: `
+        <h2>New Career Application</h2>
+        <hr/>
+        <p><b>Name:</b> ${name}</p>
+        <p><b>Email:</b> ${email}</p>
+        <p><b>Phone:</b> ${phone}</p>
+        <p><b>Position:</b> ${position}</p>
+        <p><b>Message:</b></p>
+        <p>${message}</p>
+      `,
+      attachments,
+    });
+
+    /* ======================
+       AUTO REPLY TO CANDIDATE
+    ====================== */
+
+    // prevent sending if email missing
+    if (email) {
+      await transporter.sendMail({
+        from: `"Attractify Technologies" <${process.env.ADMIN_EMAIL}>`,
+        to: email,
+        subject: "Application Received - Attractify Technologies",
+        html: `
+          <div style="font-family: Arial, sans-serif;">
+            <h2>Thank you for applying, ${name}!</h2>
+
+            <p>
+              We have successfully received your application for the position
+              <b>${position}</b>.
+            </p>
+
+            <p>
+              Our team will review your profile and get back to you soon.
+            </p>
+
+            <br/>
+
+            <p>
+              Regards,<br/>
+              <b>Attractify Technologies Team</b>
+            </p>
+          </div>
+        `,
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "Application submitted successfully",
+    });
+
+  } catch (error) {
+    console.log("CAREER MAIL ERROR:", error);
+    res.status(500).json({ success: false });
+  }
+};
