@@ -14,7 +14,6 @@ import {
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import whyImage from "@/assets/why-attractify.webp";
 import imgNDT from "@/assets/ndt.jpg";
 import imgARVR from "@/assets/arvr.jpg";
 import imgIoT from "@/assets/iot.jpg";

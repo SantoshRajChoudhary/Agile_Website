@@ -133,7 +133,7 @@ function ContactForm() {
     setLoading(true);
     setStatus("");
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/mail/contact`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/mail/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),

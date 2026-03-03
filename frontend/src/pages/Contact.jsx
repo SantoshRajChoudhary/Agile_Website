@@ -2,10 +2,10 @@ import { useState, useEffect, useRef } from "react";
 import { Mail, Phone, MapPin, Clock, ArrowRight } from "lucide-react";
 
 const contactInfo = [
-  { icon: Mail,   title: "Email Us",       details: "info@attractifytechnology.com",          link: "mailto:info@attractifytechnology.com" },
-  { icon: Phone,  title: "Call Us",        details: "+1 (234) 567-890",                       link: "tel:+1234567890" },
-  { icon: MapPin, title: "Visit Us",       details: "123 Tech Avenue, Silicon Valley, CA",    link: "#" },
-  { icon: Clock,  title: "Working Hours",  details: "Mon – Fri: 9:00 AM – 6:00 PM",          link: "#" },
+  { icon: Mail, title: "Email Us", details: "info@attractifytechnology.com", link: "mailto:info@attractifytechnology.com" },
+  { icon: Phone, title: "Call Us", details: "+1 (234) 567-890", link: "tel:+1234567890" },
+  { icon: MapPin, title: "Visit Us", details: "123 Tech Avenue, Silicon Valley, CA", link: "#" },
+  { icon: Clock, title: "Working Hours", details: "Mon – Fri: 9:00 AM – 6:00 PM", link: "#" },
 ];
 
 /* ─── Hook ─── */
@@ -50,7 +50,7 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true); setStatus("");
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/mail/contact`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/mail/contact`, {
         method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(formData),
       });
       const data = await res.json();
