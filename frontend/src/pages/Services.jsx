@@ -174,7 +174,7 @@ function ServiceCard({ service, index }) {
 
         {/* Footer link */}
         <div style={{
-          display: "flex", alignItems: "center", gap: 6,
+          display: "flex", alignItems: "center",
           color: service.accent,
           fontFamily: "'Syne',sans-serif",
           fontWeight: 700,
@@ -197,72 +197,8 @@ const Services = () => {
   const [mounted, setMounted] = useState(false);
   useEffect(() => { setTimeout(() => setMounted(true), 60); }, []);
 
-  const css = `
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap");
-
-    .srv-root *, .srv-root *::before, .srv-root *::after { box-sizing: border-box; }
-    .srv-root {
-      font-family: 'DM Sans', sans-serif;
-      background: #050510;
-      color: #fff;
-      min-height: 100vh;
-    }
-
-    /* grid lines */
-    .srv-grid {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-      background-size: 72px 72px;
-      mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 0%, transparent 100%);
-      pointer-events: none;
-    }
-
-    /* marquee */
-    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    .srv-marquee { display: flex; width: max-content; animation: marquee 18s linear infinite; }
-    .srv-marquee:hover { animation-play-state: paused; }
-
-    /* pillar card */
-    .srv-pillar {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 16px;
-      padding: 28px 24px;
-      transition: all 0.3s ease;
-    }
-    .srv-pillar:hover {
-      background: rgba(255,255,255,0.04);
-      border-color: rgba(129,140,248,0.3);
-      transform: translateY(-4px);
-    }
-
-    /* CTA */
-    .srv-cta-btn {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: #fff;
-      color: #050510;
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 0.9rem;
-      padding: 13px 30px;
-      border-radius: 50px;
-      text-decoration: none;
-      transition: all 0.3s;
-      letter-spacing: 0.02em;
-    }
-    .srv-cta-btn:hover {
-      background: #818cf8;
-      color: #fff;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(129,140,248,0.35);
-    }
-  `;
-
   return (
     <div className="srv-root">
-      <style>{css}</style>
 
       {/* ════ HERO ════ */}
       <section style={{ position: "relative", padding: "130px 24px 100px", textAlign: "center", overflow: "hidden" }}>

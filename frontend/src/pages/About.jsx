@@ -133,7 +133,7 @@ function ContactForm() {
     setLoading(true);
     setStatus("");
     try {
-      const res = await fetch("http://localhost:5000/api/mail/contact", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/mail/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
@@ -296,74 +296,8 @@ const About = () => {
     setTimeout(() => setMounted(true), 60);
   }, []);
 
-  const css = `
-@import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700;800&display=swap");
-    .abt * { box-sizing: border-box; margin: 0; padding: 0; }
-    .abt { font-family: 'DM Sans', sans-serif; background: #050510; color: #fff; min-height: 100vh; }
-    .abt-grid {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-      background-size: 72px 72px;
-      mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black, transparent);
-      pointer-events: none;
-    }
-    .abt-value-card {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 18px;
-      padding: 32px 26px;
-      transition: all 0.3s ease;
-      cursor: default;
-    }
-    .abt-value-card:hover {
-      background: rgba(255,255,255,0.04);
-      transform: translateY(-5px);
-    }
-    .abt-stat-card {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 16px;
-      padding: 28px 20px;
-      text-align: center;
-      transition: border-color 0.3s, background 0.3s;
-    }
-    .abt-stat-card:hover {
-      background: rgba(129,140,248,0.05);
-      border-color: rgba(129,140,248,0.25);
-    }
-    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    .abt-marquee { display: flex; width: max-content; animation: marquee 20s linear infinite; }
-    .abt-marquee:hover { animation-play-state: paused; }
-    @keyframes float-a { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-20px) scale(1.03); } }
-    @keyframes float-b { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
-    .orb-a { animation: float-a 8s ease-in-out infinite; }
-    .orb-b { animation: float-b 10s ease-in-out infinite 2s; }
-    .abt-cta-btn {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: linear-gradient(135deg, #818cf8, #c084fc);
-      color: #fff; text-decoration: none;
-      font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.9rem;
-      padding: 14px 32px; border-radius: 50px;
-      box-shadow: 0 4px 20px rgba(129,140,248,0.35);
-      transition: all 0.3s;
-    }
-    .abt-cta-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(129,140,248,0.5); }
-    .abt-section-label {
-      font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 700;
-      letter-spacing: 0.3em; text-transform: uppercase; color: #818cf8; display: block; margin-bottom: 10px;
-    }
-    .abt-section-title {
-      font-family: 'Syne', sans-serif; font-weight: 800;
-      font-size: clamp(1.7rem, 3vw, 2.4rem); color: #fff; letter-spacing: -0.02em; line-height: 1.1;
-    }
-    input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.25); }
-  `;
-
   return (
     <div className="abt">
-      <style>{css}</style>
 
       {/* ════ HERO ════ */}
       <section

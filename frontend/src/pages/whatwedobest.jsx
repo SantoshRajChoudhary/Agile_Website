@@ -77,7 +77,7 @@ const approach = [
 ];
 
 const stats = [
-  { value: "50+", label: "Projects Delivered" },
+  { value: "53+", label: "Projects Delivered" },
   { value: "98%", label: "Client Satisfaction" },
   { value: "24/7", label: "Support Coverage" },
 ];
@@ -335,152 +335,8 @@ const WhatWeDoBest = () => {
     return () => window.removeEventListener("mousemove", handleMouse);
   }, []);
 
-  const css = `
-@import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap");
-
-    .wwdb-root * { box-sizing: border-box; margin: 0; padding: 0; }
-    .wwdb-root {
-      font-family: 'DM Sans', sans-serif;
-      background: #04040e;
-      color: #fff;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    /* ── cursor follower ── */
-    .wwdb-cursor {
-      position: fixed;
-      pointer-events: none;
-      z-index: 9999;
-      width: 320px; height: 320px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(124,58,237,0.08) 0%, transparent 70%);
-      transform: translate(-50%, -50%);
-      transition: left 0.12s ease, top 0.12s ease;
-    }
-
-    /* ── hero grid bg ── */
-    .wwdb-grid-bg {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 60px 60px;
-      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
-    }
-
-    /* ── approach card ── */
-    .wwdb-approach-card {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 20px;
-      padding: 36px 28px;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.35s ease;
-      cursor: default;
-    }
-    .wwdb-approach-card:hover {
-      background: rgba(255,255,255,0.05);
-      border-color: rgba(255,255,255,0.15);
-      transform: translateY(-6px);
-    }
-    .wwdb-approach-card .step-num {
-      font-family: 'Oxanium', sans-serif;
-      font-size: 4rem;
-      font-weight: 800;
-      color: rgba(255,255,255,0.04);
-      line-height: 1;
-      position: absolute;
-      top: 16px; right: 20px;
-      letter-spacing: -0.04em;
-      user-select: none;
-    }
-    .wwdb-approach-card:hover .step-num { color: rgba(255,255,255,0.07); }
-
-    /* ── CTA button ── */
-    .wwdb-cta-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: linear-gradient(135deg, #7c3aed, #0ea5e9);
-      color: #fff;
-      font-family: 'Oxanium', sans-serif;
-      font-weight: 700;
-      font-size: 0.95rem;
-      letter-spacing: 0.04em;
-      padding: 15px 36px;
-      border-radius: 50px;
-      text-decoration: none;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
-      box-shadow: 0 4px 24px rgba(124,58,237,0.4);
-    }
-    .wwdb-cta-btn::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
-      transform: translateX(-100%);
-      transition: transform 0.55s;
-    }
-    .wwdb-cta-btn:hover::before { transform: translateX(100%); }
-    .wwdb-cta-btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(124,58,237,0.5), 0 0 0 1px rgba(255,255,255,0.1);
-    }
-
-    /* ── label ── */
-    .wwdb-label {
-      font-family: 'Oxanium', sans-serif;
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: #7c3aed;
-      margin-bottom: 12px;
-      display: block;
-    }
-
-    /* ── section title ── */
-    .wwdb-section-title {
-      font-family: 'Oxanium', sans-serif;
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      font-weight: 800;
-      color: #fff;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-    }
-
-    /* ── divider ── */
-    .wwdb-divider {
-      width: 1px;
-      background: rgba(255,255,255,0.08);
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50%       { transform: translateY(-18px) rotate(3deg); }
-    }
-    @keyframes spin-slow {
-      from { transform: rotate(0deg); }
-      to   { transform: rotate(360deg); }
-    }
-    @keyframes marquee {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .wwdb-marquee-track {
-      display: flex;
-      width: max-content;
-      animation: marquee 22s linear infinite;
-    }
-    .wwdb-marquee-track:hover { animation-play-state: paused; }
-  `;
-
   return (
     <div className="wwdb-root">
-      <style>{css}</style>
 
       {/* Cursor follower */}
       <div
@@ -641,31 +497,8 @@ const WhatWeDoBest = () => {
             with confidence.
           </p>
 
-          {/*  */}
         </div>
       </section>
-
-      {/* ════ MARQUEE ════ */}
-      {/* <div style={{ borderTop: "1px solid rgba(255,255,255,0.05)", borderBottom: "1px solid rgba(255,255,255,0.05)", padding: "14px 0", overflow: "hidden", marginBottom: 0 }}>
-        <div className="wwdb-marquee-track">
-          {[...Array(2)].map((_, ri) =>
-            ["AI Automation", "Cloud Architecture", "Machine Learning", "IoT Solutions", "AR/VR", "Process Optimization", "Smart Systems", "DevOps", "Data Analytics"].map((t, i) => (
-              <span key={`${ri}-${i}`} style={{ display: "inline-flex", alignItems: "center", gap: 20, padding: "0 28px", color: "rgba(255,255,255,0.25)", fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: "0.72rem", letterSpacing: "0.2em", textTransform: "uppercase", whiteSpace: "nowrap" }}>
-                {t} <span style={{ width: 4, height: 4, borderRadius: "50%", background: "rgba(124,58,237,0.6)", display: "inline-block", flexShrink: 0 }} />
-              </span>
-            ))
-          )}
-        </div>
-      </div> */}
-
-      {/* ════ STATS ════ */}
-      {/* <section style={{ padding: "80px 24px" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 16 }}>
-            {stats.map((s, i) => <StatCard key={i} {...s} delay={i * 100} />)}
-          </div>
-        </div>
-      </section> */}
 
       {/* ════ INTRO ════ */}
       <section style={{ padding: "0 24px 80px" }}>

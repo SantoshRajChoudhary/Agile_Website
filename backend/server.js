@@ -7,17 +7,31 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+const allowedOrigins = process.env.ALLOWED_ORIGIN
+  ? process.env.ALLOWED_ORIGIN.split(",").map((o) => o.trim())
+  : ["http://localhost:5173"];
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+  })
+);
 app.use(express.json());
 
 app.use("/api/mail", mailRoutes);
 
+app.get("/", (req, res) => {
+  res.send("Mail API is running 🚀");
+});
+
 app.listen(process.env.PORT, () => {
   console.log(`Server running on port ${process.env.PORT}`);
 });
-
-console.log("EMAIL:", process.env.ADMIN_EMAIL);
-console.log("PASS:", process.env.ADMIN_PASS ? "Loaded" : "Missing");
-console.log("PASS LENGTH:", process.env.ADMIN_PASS.length);
 
 

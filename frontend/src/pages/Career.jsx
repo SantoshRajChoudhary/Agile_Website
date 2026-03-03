@@ -91,7 +91,7 @@ function ApplicationForm({ formData, setFormData }) {
     Object.keys(formData).forEach((k) => data.append(k, formData[k]));
     if (resume) data.append("resume", resume);
     try {
-      const res = await fetch("http://localhost:5000/api/mail/career", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/mail/career`, {
         method: "POST",
         body: data,
       });
@@ -320,133 +320,8 @@ const Career = () => {
     (j) => filter === "All" || j.category === filter,
   );
 
-  const css = `
-    @import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700;800&display=swap");
-
-    .cr-root *, .cr-root *::before, .cr-root *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    .cr-root {
-      font-family: 'Oxanium', sans-serif;
-      background: #05050f;
-      color: #fff;
-      min-height: 100vh;
-    }
-
-    /* grid */
-    .cr-grid {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 64px 64px;
-      mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black, transparent);
-      pointer-events: none;
-    }
-
-    /* label */
-    .cr-label {
-      font-size: 0.65rem; font-weight: 700;
-      letter-spacing: 0.3em; text-transform: uppercase;
-      color: #818cf8; display: block; margin-bottom: 10px;
-    }
-
-    /* perk card */
-    .cr-perk {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 14px;
-      padding: 24px 22px;
-      display: flex; align-items: center; gap: 14px;
-      transition: all 0.3s ease;
-       height: 100%;
-  min-height: 92px;
-    }
-    .cr-perk:hover {
-      background: rgba(129,140,248,0.05);
-      border-color: rgba(129,140,248,0.25);
-      transform: translateY(-3px);
-    }
-
-    /* filter btn */
-    .cr-filter-btn {
-      padding: 7px 20px;
-      border-radius: 50px;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: transparent;
-      color: rgba(255,255,255,0.45);
-      font-family: 'Oxanium', sans-serif;
-      font-size: 0.78rem; font-weight: 600;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      cursor: pointer;
-      transition: all 0.25s;
-    }
-    .cr-filter-btn:hover { border-color: rgba(129,140,248,0.4); color: #fff; }
-    .cr-filter-btn.active {
-      background: linear-gradient(135deg, #818cf8, #c084fc);
-      border-color: transparent; color: #fff;
-    }
-
-    /* job card */
-    .cr-job-card {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 14px;
-      padding: 22px 24px;
-      display: flex; justify-content: space-between; align-items: center; gap: 16px;
-      transition: all 0.3s ease;
-    }
-    .cr-job-card:hover {
-      background: rgba(255,255,255,0.04);
-      border-color: rgba(129,140,248,0.3);
-      transform: translateX(4px);
-    }
-
-    /* apply btn */
-    .cr-apply-btn {
-      display: inline-flex; align-items: center; gap: 6px;
-      border: 1px solid rgba(129,140,248,0.4);
-      color: #818cf8;
-      background: rgba(129,140,248,0.08);
-      border-radius: 50px;
-      padding: 8px 18px;
-      font-family: 'Oxanium', sans-serif;
-      font-size: 0.75rem; font-weight: 700;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      cursor: pointer; white-space: nowrap;
-      transition: all 0.25s;
-    }
-    .cr-apply-btn:hover {
-      background: linear-gradient(135deg, #818cf8, #c084fc);
-      border-color: transparent; color: #fff;
-    }
-
-    /* step */
-    .cr-step {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 14px;
-      padding: 22px 18px;
-      text-align: center;
-      position: relative;
-      transition: all 0.3s;
-    }
-    .cr-step:hover {
-      background: rgba(129,140,248,0.05);
-      border-color: rgba(129,140,248,0.25);
-      transform: translateY(-3px);
-    }
-
-    /* divider */
-    .cr-divider {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent);
-    }
-
-    input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.22); }
-  `;
-
   return (
     <div className="cr-root">
-      <style>{css}</style>
 
       {/* ════ HERO ════ */}
       <section

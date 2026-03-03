@@ -1,6 +1,11 @@
 import { createTransporter } from "../config/mailConfig.js";
 
 /* =========================
+   SANITIZE HELPER
+========================= */
+const sanitize = (str = "") => String(str).replace(/<[^>]*>/g, "");
+
+/* =========================
    CONTACT FORM MAIL
 ========================= */
 export const sendContactMail = async (req, res) => {
@@ -19,14 +24,14 @@ export const sendContactMail = async (req, res) => {
     await transporter.sendMail({
       from: `"Attractify Technologies" <${process.env.ADMIN_EMAIL}>`,
       to: process.env.ADMIN_EMAIL,
-      replyTo: email,
-      subject: `New Contact Message - ${subject}`,
+      replyTo: sanitize(email),
+      subject: `New Contact Message - ${sanitize(subject)}`,
       html: `
         <h2>New Contact Message</h2>
-        <p><b>Name:</b> ${firstName} ${lastName}</p>
-        <p><b>Email:</b> ${email}</p>
-        <p><b>Phone:</b> ${phone}</p>
-        <p>${message}</p>
+        <p><b>Name:</b> ${sanitize(firstName)} ${sanitize(lastName)}</p>
+        <p><b>Email:</b> ${sanitize(email)}</p>
+        <p><b>Phone:</b> ${sanitize(phone)}</p>
+        <p>${sanitize(message)}</p>
       `,
     });
 
@@ -54,10 +59,6 @@ export const sendCareerMail = async (req, res) => {
       message = "",
     } = req.body || {};
 
-    /* ======================
-       ADMIN MAIL
-    ====================== */
-
     const attachments = [];
 
     if (req.file) {
@@ -67,62 +68,68 @@ export const sendCareerMail = async (req, res) => {
       });
     }
 
-    await transporter.sendMail({
-      from: `"Attractify Careers" <${process.env.ADMIN_EMAIL}>`,
-      to: process.env.ADMIN_EMAIL,
-      replyTo: email,
-      subject: `New Career Application - ${position}`,
-      html: `
-        <h2>New Career Application</h2>
-        <hr/>
-        <p><b>Name:</b> ${name}</p>
-        <p><b>Email:</b> ${email}</p>
-        <p><b>Phone:</b> ${phone}</p>
-        <p><b>Position:</b> ${position}</p>
-        <p><b>Message:</b></p>
-        <p>${message}</p>
-      `,
-      attachments,
-    });
-
-    /* ======================
-       AUTO REPLY TO CANDIDATE
-    ====================== */
-
-    // prevent sending if email missing
-    if (email) {
-      await transporter.sendMail({
-        from: `"Attractify Technologies" <${process.env.ADMIN_EMAIL}>`,
-        to: email,
-        subject: "Application Received - Attractify Technologies",
-        html: `
-          <div style="font-family: Arial, sans-serif;">
-            <h2>Thank you for applying, ${name}!</h2>
-
-            <p>
-              We have successfully received your application for the position
-              <b>${position}</b>.
-            </p>
-
-            <p>
-              Our team will review your profile and get back to you soon.
-            </p>
-
-            <br/>
-
-            <p>
-              Regards,<br/>
-              <b>Attractify Technologies Team</b>
-            </p>
-          </div>
-        `,
-      });
-    }
-
+    // 🚀 SEND RESPONSE FIRST (VERY IMPORTANT)
     res.status(200).json({
       success: true,
       message: "Application submitted successfully",
     });
+
+    // 🚀 SEND EMAILS IN BACKGROUND
+    (async () => {
+      try {
+        /* ======================
+           ADMIN MAIL
+        ====================== */
+        await transporter.sendMail({
+          from: `"Attractify Careers" <${process.env.ADMIN_EMAIL}>`,
+          to: process.env.ADMIN_EMAIL,
+          replyTo: sanitize(email),
+          subject: `New Career Application - ${sanitize(position)}`,
+          html: `
+            <h2>New Career Application</h2>
+            <hr/>
+            <p><b>Name:</b> ${sanitize(name)}</p>
+            <p><b>Email:</b> ${sanitize(email)}</p>
+            <p><b>Phone:</b> ${sanitize(phone)}</p>
+            <p><b>Position:</b> ${sanitize(position)}</p>
+            <p><b>Message:</b></p>
+            <p>${sanitize(message)}</p>
+          `,
+          attachments,
+        });
+
+        /* ======================
+           AUTO REPLY TO CANDIDATE
+        ====================== */
+        if (email) {
+          await transporter.sendMail({
+            from: `"Attractify Technologies" <${process.env.ADMIN_EMAIL}>`,
+            to: sanitize(email),
+            subject: "Application Received - Attractify Technologies",
+            html: `
+              <div style="font-family: Arial, sans-serif;">
+                <h2>Thank you for applying, ${sanitize(name)}!</h2>
+                <p>
+                  We have successfully received your application for the position
+                  <b>${sanitize(position)}</b>.
+                </p>
+                <p>
+                  Our team will review your profile and get back to you soon.
+                </p>
+                <br/>
+                <p>
+                  Regards,<br/>
+                  <b>Attractify Technologies Team</b>
+                </p>
+              </div>
+            `,
+          });
+        }
+
+      } catch (err) {
+        console.log("Background mail error:", err);
+      }
+    })();
 
   } catch (error) {
     console.log("CAREER MAIL ERROR:", error);

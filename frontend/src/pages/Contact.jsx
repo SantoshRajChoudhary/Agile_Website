@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Mail, Phone, MapPin, Clock, ArrowRight } from "lucide-react";
 
 const contactInfo = [
-  { icon: Mail,   title: "Email Us",       details: "info@attractify.com",                    link: "mailto:info@attractify.com" },
+  { icon: Mail,   title: "Email Us",       details: "info@attractifytechnology.com",          link: "mailto:info@attractifytechnology.com" },
   { icon: Phone,  title: "Call Us",        details: "+1 (234) 567-890",                       link: "tel:+1234567890" },
   { icon: MapPin, title: "Visit Us",       details: "123 Tech Avenue, Silicon Valley, CA",    link: "#" },
   { icon: Clock,  title: "Working Hours",  details: "Mon – Fri: 9:00 AM – 6:00 PM",          link: "#" },
@@ -50,7 +50,7 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true); setStatus("");
     try {
-      const res = await fetch("http://localhost:5000/api/mail/contact", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/mail/contact`, {
         method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(formData),
       });
       const data = await res.json();
@@ -76,78 +76,8 @@ const Contact = () => {
     boxShadow: focused === name ? "0 0 0 3px rgba(129,140,248,0.1)" : "none",
   });
 
-  const css = `
-    @import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700;800&display=swap");
-
-    .ct-root *, .ct-root *::before, .ct-root *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    .ct-root {
-      font-family: 'Oxanium', sans-serif;
-      background: #05050f;
-      color: #fff;
-      min-height: 100vh;
-    }
-
-    .ct-grid {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 64px 64px;
-      mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black, transparent);
-      pointer-events: none;
-    }
-
-    .ct-label {
-      font-size: 0.65rem; font-weight: 700;
-      letter-spacing: 0.32em; text-transform: uppercase;
-      color: #818cf8; display: block; margin-bottom: 10px;
-    }
-
-    /* info card */
-    .ct-info-card {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 14px;
-      padding: 20px 18px;
-      text-decoration: none;
-      display: block;
-      transition: all 0.3s ease;
-    }
-    .ct-info-card:hover {
-      background: rgba(255,255,255,0.04);
-      border-color: rgba(129,140,248,0.35);
-      transform: translateY(-3px);
-    }
-
-    /* submit btn */
-    .ct-submit-btn {
-      width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px;
-      background: linear-gradient(135deg, #818cf8, #c084fc);
-      color: #fff; border: none; border-radius: 50px;
-      padding: 13px 24px;
-      font-family: 'Oxanium', sans-serif; font-weight: 700; font-size: 0.85rem;
-      letter-spacing: 0.06em; text-transform: uppercase;
-      cursor: pointer;
-      box-shadow: 0 4px 20px rgba(129,140,248,0.3);
-      transition: all 0.3s;
-    }
-    .ct-submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-    .ct-submit-btn:not(:disabled):hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(129,140,248,0.45);
-    }
-
-    .ct-divider {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent);
-    }
-
-    input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.22); }
-  `;
-
   return (
     <div className="ct-root">
-      <style>{css}</style>
 
       {/* ════ HERO ════ */}
       <section style={{ position: "relative", padding: "130px 24px 80px", overflow: "hidden", textAlign: "center" }}>

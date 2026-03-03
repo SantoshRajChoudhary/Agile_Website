@@ -127,78 +127,8 @@ const WhatWeDoBestDetail = () => {
 
   useEffect(() => { setTimeout(() => setMounted(true), 60); }, []);
 
-  const css = `
-    @import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700;800&display=swap");
-
-    .wwbd-root *, .wwbd-root *::before, .wwbd-root *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    .wwbd-root {
-      font-family: 'Oxanium', sans-serif;
-      background: #05050f;
-      color: #fff;
-      min-height: 100vh;
-    }
-
-    .wwbd-grid {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 64px 64px;
-      mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black, transparent);
-      pointer-events: none;
-    }
-
-    .wwbd-label {
-      font-size: 0.65rem; font-weight: 700;
-      letter-spacing: 0.32em; text-transform: uppercase;
-      display: block; margin-bottom: 10px;
-    }
-
-    .wwbd-back {
-      display: inline-flex; align-items: center; gap: 7px;
-      color: rgba(255,255,255,0.35);
-      font-size: 0.78rem; font-weight: 600;
-      letter-spacing: 0.06em; text-transform: uppercase;
-      text-decoration: none;
-      transition: color 0.25s, gap 0.25s;
-    }
-    .wwbd-back:hover { color: rgba(255,255,255,0.7); gap: 10px; }
-
-    .wwbd-cta-btn {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: linear-gradient(135deg, var(--accent-color), #c084fc);
-      color: #fff; text-decoration: none;
-      font-family: 'Oxanium', sans-serif; font-weight: 700; font-size: 0.85rem;
-      letter-spacing: 0.06em; text-transform: uppercase;
-      padding: 13px 30px; border-radius: 50px;
-      box-shadow: 0 4px 20px var(--accent-glow);
-      transition: all 0.3s;
-    }
-    .wwbd-cta-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 32px var(--accent-glow);
-    }
-
-    @keyframes icon-pulse {
-      0%, 100% { transform: scale(1); opacity: 0.4; }
-      50%       { transform: scale(1.3); opacity: 0; }
-    }
-    .wwbd-icon-pulse {
-      position: absolute; inset: -8px;
-      border-radius: 20px;
-      border: 1.5px solid var(--accent-color);
-      animation: icon-pulse 2.4s ease-in-out infinite;
-    }
-
-    .wwbd-divider {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent);
-    }
-  `;
-
   if (!service) return (
     <div style={{ background: "#05050f", minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <style>{css}</style>
       <div style={{ textAlign: "center" }}>
         <p style={{ color: "rgba(255,255,255,0.4)", fontFamily: "'Oxanium',sans-serif", marginBottom: 16 }}>Service not found</p>
         <Link to="/whatwedobest" style={{ color: "#818cf8", fontFamily: "'Oxanium',sans-serif", fontSize: "0.85rem" }}>← Back to Services</Link>
@@ -210,7 +140,6 @@ const WhatWeDoBestDetail = () => {
 
   return (
     <div className="wwbd-root" style={{ "--accent-color": service.accent, "--accent-glow": service.glow }}>
-      <style>{css}</style>
 
       {/* ════ HERO ════ */}
       <section style={{ position: "relative", padding: "120px 24px 80px", overflow: "hidden" }}>

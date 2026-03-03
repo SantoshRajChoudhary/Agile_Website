@@ -37,7 +37,6 @@ function App() {
           <Header />
 
           {/* MAIN CONTENT */}
-          {/* MAIN CONTENT */}
           <main className="pt-[72px] bg-background min-h-screen">
             <Routes>
               <Route path="/" element={<Index />} />

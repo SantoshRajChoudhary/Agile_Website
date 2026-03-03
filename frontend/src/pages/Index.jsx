@@ -86,7 +86,7 @@ const services = [
 ];
 
 const stats = [
-  { value: "52+", label: "Projects Delivered" },
+  { value: "53+", label: "Projects Delivered" },
   { value: "30+", label: "Happy Clients" },
   { value: "5+", label: "Years Experience" },
   { value: "13+", label: "AI Solutions Built" },
@@ -187,6 +187,8 @@ const VideoPanel = ({ src, label, index, total, fallbackGradient }) => {
     </div>
   );
 };
+
+
 
 /* ═══════════════════════════════════════════════════════════════
    HERO SECTION
@@ -407,6 +409,198 @@ const HeroSection = () => {
 };
 
 /* ═══════════════════════════════════════════════════════════════
+   3D SERVICE CARD
+═══════════════════════════════════════════════════════════════ */
+const ServiceCard = ({ service, Icon }) => {
+  const cardRef = useRef(null);
+  const [transform, setTransform] = useState(
+    "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)",
+  );
+  const [hovered, setHovered] = useState(false);
+
+  const handleMouseMove = (e) => {
+    const card = cardRef.current;
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const dx = (e.clientX - cx) / (rect.width / 2);
+    const dy = (e.clientY - cy) / (rect.height / 2);
+    const rotX = (-dy * 14).toFixed(2);
+    const rotY = (dx * 14).toFixed(2);
+    setTransform(
+      `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.04)`,
+    );
+  };
+
+  const handleMouseLeave = () => {
+    setTransform("perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)");
+    setHovered(false);
+  };
+
+  return (
+    <Link
+      ref={cardRef}
+      to={`/services/${service.slug}`}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        borderRadius: "16px",
+        overflow: "hidden",
+        textDecoration: "none",
+        position: "relative",
+        height: "100%",
+        transform: transform,
+        transition: hovered
+          ? "transform 0.08s ease-out"
+          : "transform 0.45s ease",
+        transformStyle: "preserve-3d",
+        boxShadow: hovered
+          ? `0 24px 48px rgba(0,0,0,0.5), 0 0 0 1px ${service.accent}55`
+          : "0 4px 16px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.06)",
+        willChange: "transform",
+      }}
+    >
+      {/* ── image (revealed on hover) ── */}
+      <div
+        style={{
+          position: "relative",
+          height: hovered ? "160px" : "0px",
+          overflow: "hidden",
+          transition: "height 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
+          flexShrink: 0,
+        }}
+      >
+        <img
+          src={service.image}
+          alt={service.title}
+          style={{
+            width: "100%",
+            height: "200px",
+            objectFit: "cover",
+            transform: hovered ? "scale(1.08)" : "scale(1.15)",
+            transition: "transform 0.6s ease",
+            marginTop: "-20px",
+          }}
+        />
+        {/* gradient over image */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: `linear-gradient(to bottom, transparent 40%, rgba(5,7,12,0.9) 100%)`,
+          }}
+        />
+        {/* accent glow */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: `radial-gradient(ellipse at 50% 0%, ${service.accent}33 0%, transparent 70%)`,
+            opacity: hovered ? 1 : 0,
+            transition: "opacity 0.4s",
+          }}
+        />
+      </div>
+
+      {/* ── card body ── */}
+      <div
+        style={{
+          padding: "20px",
+          background: hovered
+            ? `linear-gradient(135deg, ${service.accent}18 0%, rgba(5,7,12,0.95) 100%)`
+            : "rgba(255,255,255,0.03)",
+          border: `1px solid ${hovered ? service.accent + "44" : "rgba(255,255,255,0.07)"}`,
+          borderTop: hovered ? "none" : undefined,
+          borderRadius: hovered ? "0 0 16px 16px" : "16px",
+          transition: "all 0.4s ease",
+          flex: 1,
+          display: "flex",
+          flexDirection: "column",
+          gap: "10px",
+        }}
+      >
+        {/* icon */}
+        <div
+          style={{
+            width: "40px",
+            height: "40px",
+            borderRadius: "10px",
+            background: `${service.accent}22`,
+            border: `1px solid ${service.accent}44`,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            transition: "all 0.3s",
+            boxShadow: hovered ? `0 0 16px ${service.accent}44` : "none",
+          }}
+        >
+          <Icon size={20} style={{ color: service.accent }} />
+        </div>
+
+        <h3
+          style={{
+            fontSize: "15px",
+            fontWeight: 600,
+            color: "#fff",
+            margin: 0,
+          }}
+        >
+          {service.title}
+        </h3>
+
+        <p
+          style={{
+            fontSize: "13px",
+            color: "rgba(255,255,255,0.5)",
+            lineHeight: 1.65,
+            margin: 0,
+          }}
+        >
+          {service.description}
+        </p>
+
+        {/* learn more */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "4px",
+            fontSize: "12px",
+            fontWeight: 600,
+            color: service.accent,
+            marginTop: "auto",
+            paddingTop: "8px",
+            opacity: hovered ? 1 : 0,
+            transform: hovered ? "translateX(0)" : "translateX(-8px)",
+            transition: "all 0.3s ease",
+          }}
+        >
+          Learn more <ChevronRight size={13} />
+        </div>
+      </div>
+
+      {/* shimmer highlight on top edge */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: "10%",
+          right: "10%",
+          height: "1px",
+          background: `linear-gradient(90deg, transparent, ${service.accent}88, transparent)`,
+          opacity: hovered ? 1 : 0,
+          transition: "opacity 0.4s",
+        }}
+      />
+    </Link>
+  );
+};
+
+/* ═══════════════════════════════════════════════════════════════
    PAGE
 ═══════════════════════════════════════════════════════════════ */
 const Index = () => (
@@ -414,7 +608,6 @@ const Index = () => (
     {/* ── HERO ── */}
     <HeroSection />
 
-    {/* ── SERVICES ── */}
     {/* ── SERVICES ── */}
     <section className="py-24 overflow-hidden">
       <div className="section-container">
@@ -859,242 +1052,10 @@ const Index = () => (
           filter: "blur(1px)",
         }}
       />
-      {/* pulsing dot */}
-      {/* <span
-        style={{
-          position: "relative",
-          width: "6px",
-          height: "6px",
-          flexShrink: 0,
-        }}
-      >
-        <span
-          style={{
-            position: "absolute",
-            inset: 0,
-            borderRadius: "50%",
-            background: "linear-gradient(135deg, #60a5fa, #34d399)",
-            boxShadow: "0 0 8px rgba(96,165,250,0.9)",
-            animation: "liquidPulse 2s ease-in-out infinite",
-          }}
-        /> */}
-      {/* <span
-          style={{
-            position: "absolute",
-            inset: "-3px",
-            borderRadius: "50%",
-            background: "rgba(96,165,250,0.3)",
-            animation: "liquidRipple 2s ease-in-out infinite",
-          }}
-        />
-      </span> */}
       Contact Us
       <ChevronRight size={12} style={{ opacity: 0.6 }} />
-      {/* keyframes */}
-      <style>{`
-    @keyframes liquidPulse {
-      0%, 100% { transform: scale(1);   opacity: 1;   }
-      50%       { transform: scale(1.2); opacity: 0.8; }
-    }
-    @keyframes liquidRipple {
-      0%   { transform: scale(0.8); opacity: 0.6; }
-      100% { transform: scale(2);   opacity: 0;   }
-    }
-  `}</style>
     </Link>
   </div>
 );
-
-/* ═══════════════════════════════════════════════════════════════
-   3D SERVICE CARD
-═══════════════════════════════════════════════════════════════ */
-const ServiceCard = ({ service, Icon }) => {
-  const cardRef = useRef(null);
-  const [transform, setTransform] = useState(
-    "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)",
-  );
-  const [hovered, setHovered] = useState(false);
-
-  const handleMouseMove = (e) => {
-    const card = cardRef.current;
-    if (!card) return;
-    const rect = card.getBoundingClientRect();
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top + rect.height / 2;
-    const dx = (e.clientX - cx) / (rect.width / 2);
-    const dy = (e.clientY - cy) / (rect.height / 2);
-    const rotX = (-dy * 14).toFixed(2);
-    const rotY = (dx * 14).toFixed(2);
-    setTransform(
-      `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.04)`,
-    );
-  };
-
-  const handleMouseLeave = () => {
-    setTransform("perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)");
-    setHovered(false);
-  };
-
-  return (
-    <Link
-      ref={cardRef}
-      to={`/services/${service.slug}`}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        borderRadius: "16px",
-        overflow: "hidden",
-        textDecoration: "none",
-        position: "relative",
-        height: "100%",
-        transform: transform,
-        transition: hovered
-          ? "transform 0.08s ease-out"
-          : "transform 0.45s ease",
-        transformStyle: "preserve-3d",
-        boxShadow: hovered
-          ? `0 24px 48px rgba(0,0,0,0.5), 0 0 0 1px ${service.accent}55`
-          : "0 4px 16px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.06)",
-        willChange: "transform",
-      }}
-    >
-      {/* ── image (revealed on hover) ── */}
-      <div
-        style={{
-          position: "relative",
-          height: hovered ? "160px" : "0px",
-          overflow: "hidden",
-          transition: "height 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
-          flexShrink: 0,
-        }}
-      >
-        <img
-          src={service.image}
-          alt={service.title}
-          style={{
-            width: "100%",
-            height: "200px",
-            objectFit: "cover",
-            transform: hovered ? "scale(1.08)" : "scale(1.15)",
-            transition: "transform 0.6s ease",
-            marginTop: "-20px",
-          }}
-        />
-        {/* gradient over image */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: `linear-gradient(to bottom, transparent 40%, rgba(5,7,12,0.9) 100%)`,
-          }}
-        />
-        {/* accent glow */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: `radial-gradient(ellipse at 50% 0%, ${service.accent}33 0%, transparent 70%)`,
-            opacity: hovered ? 1 : 0,
-            transition: "opacity 0.4s",
-          }}
-        />
-      </div>
-
-      {/* ── card body ── */}
-      <div
-        style={{
-          padding: "20px",
-          background: hovered
-            ? `linear-gradient(135deg, ${service.accent}18 0%, rgba(5,7,12,0.95) 100%)`
-            : "rgba(255,255,255,0.03)",
-          border: `1px solid ${hovered ? service.accent + "44" : "rgba(255,255,255,0.07)"}`,
-          borderTop: hovered ? "none" : undefined,
-          borderRadius: hovered ? "0 0 16px 16px" : "16px",
-          transition: "all 0.4s ease",
-          flex: 1,
-          display: "flex",
-          flexDirection: "column",
-          gap: "10px",
-        }}
-      >
-        {/* icon */}
-        <div
-          style={{
-            width: "40px",
-            height: "40px",
-            borderRadius: "10px",
-            background: `${service.accent}22`,
-            border: `1px solid ${service.accent}44`,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            transition: "all 0.3s",
-            boxShadow: hovered ? `0 0 16px ${service.accent}44` : "none",
-          }}
-        >
-          <Icon size={20} style={{ color: service.accent }} />
-        </div>
-
-        <h3
-          style={{
-            fontSize: "15px",
-            fontWeight: 600,
-            color: "#fff",
-            margin: 0,
-          }}
-        >
-          {service.title}
-        </h3>
-
-        <p
-          style={{
-            fontSize: "13px",
-            color: "rgba(255,255,255,0.5)",
-            lineHeight: 1.65,
-            margin: 0,
-          }}
-        >
-          {service.description}
-        </p>
-
-        {/* learn more */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "4px",
-            fontSize: "12px",
-            fontWeight: 600,
-            color: service.accent,
-            marginTop: "auto",
-            paddingTop: "8px",
-            opacity: hovered ? 1 : 0,
-            transform: hovered ? "translateX(0)" : "translateX(-8px)",
-            transition: "all 0.3s ease",
-          }}
-        >
-          Learn more <ChevronRight size={13} />
-        </div>
-      </div>
-
-      {/* shimmer highlight on top edge */}
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: "10%",
-          right: "10%",
-          height: "1px",
-          background: `linear-gradient(90deg, transparent, ${service.accent}88, transparent)`,
-          opacity: hovered ? 1 : 0,
-          transition: "opacity 0.4s",
-        }}
-      />
-    </Link>
-  );
-};
 
 export default Index;

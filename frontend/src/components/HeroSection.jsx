@@ -7,7 +7,6 @@ import imgARVR from "@/assets/arvr.jpg";
 import imgIoT from "@/assets/IOT.jpg"; // ← uppercase IOT, not iot
 import imgAI from "@/assets/ai.jpg";
 
-console.log("Images:", imgNDT, imgARVR, imgIoT, imgAI);
 
 const panels = [
   {
