@@ -11,17 +11,22 @@ const allowedOrigins = process.env.ALLOWED_ORIGIN
   ? process.env.ALLOWED_ORIGIN.split(",").map((o) => o.trim())
   : ["http://localhost:5173"];
 
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-  })
-);
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
+
+// Handle CORS preflight for all routes (OPTIONS request browsers send before POST/PUT)
+app.options(/\/.*/, cors(corsOptions));
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use("/api/mail", mailRoutes);

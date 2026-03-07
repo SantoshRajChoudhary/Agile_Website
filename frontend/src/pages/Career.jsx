@@ -91,7 +91,7 @@ function ApplicationForm({ formData, setFormData }) {
     Object.keys(formData).forEach((k) => data.append(k, formData[k]));
     if (resume) data.append("resume", resume);
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/mail/career`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/mail/career`, {
         method: "POST",
         body: data,
       });

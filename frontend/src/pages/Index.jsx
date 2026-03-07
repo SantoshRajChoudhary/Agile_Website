@@ -187,8 +187,6 @@ const VideoPanel = ({ src, label, index, total, fallbackGradient }) => {
   );
 };
 
-
-
 /* ═══════════════════════════════════════════════════════════════
    HERO SECTION
 ═══════════════════════════════════════════════════════════════ */
@@ -290,23 +288,16 @@ const HeroSection = () => {
 
             {/* heading */}
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65, delay: 0.2 }}
-              className="text-white font-bold leading-[1.1] tracking-tight"
-              style={{ fontSize: "clamp(2.4rem, 5.5vw, 4rem)" }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="text-white font-extrabold leading-tight tracking-tight text-center"
+              style={{ fontSize: "clamp(2.6rem, 6vw, 4.2rem)" }}
             >
-              Empowering Industries
+              Driving Digital India
               <br />
-              <span
-                style={{
-                  background:
-                    "linear-gradient(90deg, #60a5fa 0%, #34d399 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}
-              >
-                with Advanced Digital Solutions
+              <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
+                With Precision & Intelligence
               </span>
             </motion.h1>
 
