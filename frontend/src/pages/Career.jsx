@@ -3,23 +3,29 @@ import { ArrowRight, MapPin, Clock, ChevronRight } from "lucide-react";
 
 const jobs = [
   {
-    title: "Frontend Developer (React)",
-    category: "Frontend",
+    title: "BI Developer",
+    category: "Data",
     location: "Remote / India",
     type: "Full Time",
   },
   {
-    title: "Node.js Backend Developer",
-    category: "Backend",
-    location: "Remote",
+    title: "Embedded Systems Engineer",
+    category: "Engineering",
+    location: "On-site",
     type: "Full Time",
   },
   {
-    title: "AR/VR Developer",
-    category: "AR/VR",
+    title: "Data Scientist (Predictive ML)",
+    category: "Data",
     location: "Hybrid",
     type: "Contract",
   },
+  {
+    title: "Full Stack Software Engineer",
+    category: "Software",
+    location: "Remote",
+    type: "Full Time",
+  }
 ];
 
 const perks = [
@@ -106,11 +112,11 @@ function ApplicationForm({ formData, setFormData }) {
   const inputStyle = (name) => ({
     width: "100%",
     background:
-      focused === name ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.02)",
-    border: `1px solid ${focused === name ? "rgba(129,140,248,0.5)" : "rgba(255,255,255,0.08)"}`,
+      focused === name ? "rgba(0,0,0,0.05)" : "rgba(0,0,0,0.02)",
+    border: `1px solid ${focused === name ? "rgba(129,140,248,0.5)" : "rgba(0,0,0,0.08)"}`,
     borderRadius: 10,
     padding: "12px 16px",
-    color: "#fff",
+    color: "#000",
     fontSize: "0.88rem",
     fontFamily: "'Oxanium', sans-serif",
     outline: "none",
@@ -183,12 +189,12 @@ function ApplicationForm({ formData, setFormData }) {
           display: "flex",
           alignItems: "center",
           gap: 12,
-          background: "rgba(255,255,255,0.02)",
-          border: "1px dashed rgba(255,255,255,0.12)",
+          background: "rgba(0,0,0,0.02)",
+          border: "1px dashed rgba(0,0,0,0.12)",
           borderRadius: 10,
           padding: "12px 16px",
           cursor: "pointer",
-          color: "rgba(255,255,255,0.35)",
+          color: "rgba(0,0,0,0.45)",
           fontSize: "0.83rem",
           fontFamily: "'Oxanium',sans-serif",
           transition: "border-color 0.25s",
@@ -202,7 +208,7 @@ function ApplicationForm({ formData, setFormData }) {
       >
         <span style={{ color: "#818cf8", fontSize: "0.8rem" }}>📎</span>
         {resume ? (
-          <span style={{ color: "rgba(255,255,255,0.6)" }}>{resume.name}</span>
+          <span style={{ color: "rgba(0,0,0,0.6)" }}>{resume.name}</span>
         ) : (
           "Attach Resume (PDF, DOC)"
         )}
@@ -387,7 +393,7 @@ const Career = () => {
                 fontWeight: 700,
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
-                color: "#a5b4fc",
+                color: "#6366f1",
               }}
             >
               We're Hiring
@@ -416,13 +422,13 @@ const Career = () => {
                 WebkitTextFillColor: "transparent",
               }}
             >
-              Attractify
+              Agile ICO
             </span>
           </h1>
 
           <p
             style={{
-              color: "rgba(255,255,255,0.42)",
+              color: "rgba(0,0,0,0.62)",
               fontSize: "0.97rem",
               lineHeight: 1.85,
               opacity: mounted ? 1 : 0,
@@ -430,8 +436,7 @@ const Career = () => {
               transition: "all 0.85s ease 0.2s",
             }}
           >
-            Join a team building cutting-edge solutions in AI, AR/VR, IoT, and
-            SaaS platforms.
+            Join a team building cutting-edge solutions in Business Intelligence, Predictive Analytics, and High-Performance Engineering.
           </p>
         </div>
       </section>
@@ -447,11 +452,11 @@ const Career = () => {
                   fontFamily: "'Oxanium',sans-serif",
                   fontWeight: 800,
                   fontSize: "clamp(1.6rem, 2.8vw, 2.2rem)",
-                  color: "#fff",
+                  color: "#1a1a1a",
                   letterSpacing: "-0.01em",
                 }}
               >
-                Why Join Attractify?
+                Why Join Agile ICO?
               </h2>
             </div>
           </Reveal>
@@ -468,7 +473,7 @@ const Career = () => {
                   <span style={{ fontSize: "1.4rem" }}>{p.emoji}</span>
                   <p
                     style={{
-                      color: "rgba(255,255,255,0.65)",
+                      color: "rgba(0,0,0,0.65)",
                       fontSize: "0.9rem",
                       fontWeight: 500,
                     }}
@@ -486,7 +491,7 @@ const Career = () => {
       <div style={{ padding: "0 24px", marginBottom: 72 }}>
         <div
           className="cr-divider"
-          style={{ maxWidth: 1000, margin: "0 auto" }}
+          style={{ maxWidth: 1000, margin: "0 auto", opacity: 0.15 }}
         />
       </div>
 
@@ -511,7 +516,7 @@ const Career = () => {
                     fontFamily: "'Oxanium',sans-serif",
                     fontWeight: 800,
                     fontSize: "clamp(1.6rem, 2.8vw, 2.2rem)",
-                    color: "#fff",
+                    color: "#1a1a1a",
                     letterSpacing: "-0.01em",
                   }}
                 >
@@ -520,7 +525,7 @@ const Career = () => {
               </div>
               {/* Filters */}
               <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-                {["All", "Frontend", "Backend", "AR/VR"].map((f) => (
+                {["All", "Data", "Engineering", "Software"].map((f) => (
                   <button
                     key={f}
                     onClick={() => setFilter(f)}
@@ -543,7 +548,7 @@ const Career = () => {
                         fontFamily: "'Oxanium',sans-serif",
                         fontWeight: 700,
                         fontSize: "0.98rem",
-                        color: "#fff",
+                        color: "#1a1a1a",
                         marginBottom: 6,
                       }}
                     >
@@ -562,7 +567,7 @@ const Career = () => {
                           display: "flex",
                           alignItems: "center",
                           gap: 5,
-                          color: "rgba(255,255,255,0.35)",
+                          color: "rgba(0,0,0,0.45)",
                           fontSize: "0.78rem",
                         }}
                       >
@@ -573,7 +578,7 @@ const Career = () => {
                           display: "flex",
                           alignItems: "center",
                           gap: 5,
-                          color: "rgba(255,255,255,0.35)",
+                          color: "rgba(0,0,0,0.45)",
                           fontSize: "0.78rem",
                         }}
                       >
@@ -586,7 +591,7 @@ const Career = () => {
                           borderRadius: 50,
                           padding: "2px 10px",
                           fontSize: "0.7rem",
-                          color: "#a5b4fc",
+                          color: "#4f46e5",
                           fontWeight: 600,
                           letterSpacing: "0.06em",
                         }}
@@ -597,6 +602,7 @@ const Career = () => {
                   </div>
                   <button
                     className="cr-apply-btn"
+                    style={{ background: "rgba(0,0,0,0.05)", border: "1px solid rgba(0,0,0,0.1)", color: "#000" }}
                     onClick={() => handleApplyClick(job.title)}
                   >
                     Apply <ChevronRight size={13} />
@@ -651,7 +657,7 @@ const Career = () => {
                       fontFamily: "'Oxanium',sans-serif",
                       fontSize: "2.2rem",
                       fontWeight: 800,
-                      color: "rgba(129,140,248,0.15)",
+                      color: "rgba(0,0,0,0.15)",
                       lineHeight: 1,
                       marginBottom: 10,
                     }}
@@ -660,7 +666,7 @@ const Career = () => {
                   </div>
                   <p
                     style={{
-                      color: "rgba(255,255,255,0.6)",
+                      color: "rgba(0,0,0,0.65)",
                       fontSize: "0.88rem",
                       fontWeight: 600,
                     }}
@@ -705,8 +711,8 @@ const Career = () => {
           <Reveal delay={80}>
             <div
               style={{
-                background: "rgba(255,255,255,0.02)",
-                border: "1px solid rgba(255,255,255,0.07)",
+                background: "rgba(0,0,0,0.02)",
+                border: "1px solid rgba(0,0,0,0.07)",
                 borderRadius: 20,
                 padding: "36px 32px",
               }}

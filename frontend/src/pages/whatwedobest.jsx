@@ -158,8 +158,8 @@ function StatCard({ value, label, delay }) {
           ? "translateY(0) scale(1)"
           : "translateY(24px) scale(0.95)",
         transition: `opacity 0.6s ease ${delay}ms, transform 0.6s ease ${delay}ms`,
-        background: "rgba(255,255,255,0.03)",
-        border: "1px solid rgba(255,255,255,0.08)",
+        background: "rgba(0,0,0,0.03)",
+        border: "1px solid rgba(0,0,0,0.08)",
         borderRadius: 16,
         padding: "28px 20px",
         textAlign: "center",
@@ -170,7 +170,7 @@ function StatCard({ value, label, delay }) {
           fontFamily: "'Syne',sans-serif",
           fontSize: "2.4rem",
           fontWeight: 800,
-          color: "#fff",
+          color: "#1a1a1a",
           lineHeight: 1,
         }}
       >
@@ -178,7 +178,7 @@ function StatCard({ value, label, delay }) {
       </div>
       <div
         style={{
-          color: "rgba(255,255,255,0.45)",
+          color: "rgba(0,0,0,0.55)",
           fontSize: "0.82rem",
           marginTop: 8,
           letterSpacing: "0.08em",
@@ -205,9 +205,9 @@ function ServiceCard({ service, index }) {
           flexDirection: "column",
           height: "100%",
           background: hovered
-            ? `linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02))`
-            : "rgba(255,255,255,0.02)",
-          border: `1px solid ${hovered ? service.accent : "rgba(255,255,255,0.07)"}`,
+            ? `linear-gradient(135deg, rgba(0,0,0,0.04), rgba(0,0,0,0.01))`
+            : "rgba(0,0,0,0.02)",
+          border: `1px solid ${hovered ? service.accent : "rgba(0,0,0,0.08)"}`,
           borderRadius: 20,
           padding: "32px 28px",
           textDecoration: "none",
@@ -215,7 +215,7 @@ function ServiceCard({ service, index }) {
           overflow: "hidden",
           transform: hovered ? "translateY(-8px)" : "translateY(0)",
           boxShadow: hovered
-            ? `0 20px 60px rgba(0,0,0,0.5), 0 0 40px ${service.glow}`
+            ? `0 20px 60px rgba(0,0,0,0.1), 0 0 40px ${service.glow}`
             : "none",
           transition: "all 0.35s cubic-bezier(.34,1.2,.64,1)",
         }}
@@ -280,7 +280,7 @@ function ServiceCard({ service, index }) {
             fontFamily: "'Syne',sans-serif",
             fontWeight: 700,
             fontSize: "1.1rem",
-            color: "#fff",
+            color: "#1a1a1a",
             marginBottom: 10,
             lineHeight: 1.3,
           }}
@@ -290,7 +290,7 @@ function ServiceCard({ service, index }) {
 
         <p
           style={{
-            color: "rgba(255,255,255,0.5)",
+            color: "rgba(0,0,0,0.6)",
             fontSize: "0.88rem",
             lineHeight: 1.7,
             marginBottom: 20,
@@ -397,7 +397,7 @@ const WhatWeDoBest = () => {
             width: 680,
             height: 680,
             borderRadius: "50%",
-            border: "1px dashed rgba(255,255,255,0.04)",
+            border: "1px dashed rgba(0,0,0,0.08)",
             animation: "spin-slow 40s linear infinite",
             pointerEvents: "none",
           }}
@@ -436,10 +436,10 @@ const WhatWeDoBest = () => {
                 fontWeight: 700,
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
-                color: "#a78bfa",
+                color: "#6d28d9",
               }}
             >
-              Attractify Technologies
+              Agile ICO
             </span>
           </div>
 
@@ -460,7 +460,7 @@ const WhatWeDoBest = () => {
             <span
               style={{
                 background:
-                  "linear-gradient(135deg, #fff 30%, rgba(255,255,255,0.5))",
+                  "linear-gradient(135deg, #1a1a1a 30%, rgba(0,0,0,0.5))",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
               }}
@@ -482,7 +482,7 @@ const WhatWeDoBest = () => {
           {/* Sub */}
           <p
             style={{
-              color: "rgba(255,255,255,0.5)",
+              color: "rgba(0,0,0,0.6)",
               fontSize: "1.05rem",
               lineHeight: 1.8,
               maxWidth: 580,
@@ -510,12 +510,12 @@ const WhatWeDoBest = () => {
             </h2>
             <p
               style={{
-                color: "rgba(255,255,255,0.45)",
+                color: "rgba(0,0,0,0.6)",
                 lineHeight: 1.9,
                 fontSize: "1rem",
               }}
             >
-              At Attractify Technologies, we focus on creating meaningful
+              At Agile ICO, we focus on creating meaningful
               solutions rather than just software. Our expertise spans
               artificial intelligence, cloud engineering, and intelligent
               automation, enabling businesses to operate faster, smarter, and
@@ -528,8 +528,8 @@ const WhatWeDoBest = () => {
       {/* ════ MARQUEE ════ */}
       <div
         style={{
-          borderTop: "1px solid rgba(255,255,255,0.05)",
-          borderBottom: "1px solid rgba(255,255,255,0.05)",
+          borderTop: "1px solid rgba(0,0,0,0.08)",
+          borderBottom: "1px solid rgba(0,0,0,0.08)",
           padding: "14px 0",
           overflow: "hidden",
           margin: "40px 0 20px",
@@ -538,15 +538,13 @@ const WhatWeDoBest = () => {
         <div className="wwdb-marquee-track">
           {[...Array(2)].map((_, ri) =>
             [
-              "AI Automation",
-              "Cloud Architecture",
-              "Machine Learning",
-              "IoT Solutions",
-              "AR/VR",
-              "Process Optimization",
-              "Smart Systems",
-              "DevOps",
-              "Data Analytics",
+              "Business Intelligence",
+              "Predictive Analysis",
+              "Microsoft Services",
+              "Axial Core Motors",
+              "Bi-Polar Switching Induction Motor",
+              "Electronic Controlled Module",
+              "Mobile App development",
             ].map((t, i) => (
               <span
                 key={`${ri}-${i}`}
@@ -555,7 +553,7 @@ const WhatWeDoBest = () => {
                   alignItems: "center",
                   gap: 20,
                   padding: "0 28px",
-                  color: "rgba(255,255,255,0.25)",
+                  color: "rgba(0,0,0,0.35)",
                   fontFamily: "'Syne',sans-serif",
                   fontWeight: 700,
                   fontSize: "0.72rem",
@@ -608,9 +606,9 @@ const WhatWeDoBest = () => {
       <section
         style={{
           padding: "80px 24px",
-          background: "rgba(255,255,255,0.01)",
-          borderTop: "1px solid rgba(255,255,255,0.04)",
-          borderBottom: "1px solid rgba(255,255,255,0.04)",
+          background: "rgba(0,0,0,0.01)",
+          borderTop: "1px solid rgba(0,0,0,0.04)",
+          borderBottom: "1px solid rgba(0,0,0,0.04)",
           height: "fit-content",
         }}
       >
@@ -661,7 +659,7 @@ const WhatWeDoBest = () => {
                         fontFamily: "'Syne',sans-serif",
                         fontWeight: 700,
                         fontSize: "1.05rem",
-                        color: "#fff",
+                        color: "#1a1a1a",
                         marginBottom: 10,
                       }}
                     >
@@ -669,7 +667,7 @@ const WhatWeDoBest = () => {
                     </h3>
                     <p
                       style={{
-                        color: "rgba(255,255,255,0.45)",
+                        color: "rgba(0,0,0,0.6)",
                         fontSize: "0.88rem",
                         lineHeight: 1.75,
                       }}
@@ -727,7 +725,7 @@ const WhatWeDoBest = () => {
               fontWeight: 800,
               fontSize: "clamp(2rem, 4vw, 3.2rem)",
               letterSpacing: "-0.03em",
-              color: "#fff",
+              color: "#1a1a1a",
               marginBottom: 16,
               lineHeight: 1.1,
             }}
@@ -746,7 +744,7 @@ const WhatWeDoBest = () => {
           </h2>
           <p
             style={{
-              color: "rgba(255,255,255,0.4)",
+              color: "rgba(0,0,0,0.55)",
               fontSize: "1rem",
               marginBottom: 44,
               maxWidth: 440,
@@ -754,7 +752,7 @@ const WhatWeDoBest = () => {
               marginRight: "auto",
             }}
           >
-            Partner with Attractify Technologies to transform ideas into
+            Partner with Agile ICO to transform ideas into
             scalable, intelligent solutions.
           </p>
           <Link to="/contact" className="wwdb-cta-btn">

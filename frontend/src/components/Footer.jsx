@@ -18,25 +18,25 @@ const Footer = () => {
   const [subscribed, setSubscribed] = useState(false);
 
   const quickLinks = [
-    { name: "Home",     path: "/"        },
-    { name: "About",    path: "/about"   },
-    { name: "Services", path: "/services"},
-    { name: "Products", path: "/products"},
-    { name: "Contact",  path: "/contact" },
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Services", path: "/services" },
+    { name: "Products", path: "/products" },
+    { name: "Contact", path: "/contact" },
   ];
 
   const services = [
-    { name: "NDT Inspection",    path: "/services/non-destructive-testing" },
-    { name: "AR / VR Solutions", path: "/services/ar-vr-applications"      },
-    { name: "IoT Integration",   path: "/services/iot-solutions"           },
-    { name: "AI Development",    path: "/services/ai-development"          },
-    { name: "Cloud Infrastructue",   path: "/services/cloud-infrastructure"},
+    { name: "Business Intelligence", path: "/services/business-intelligence" },
+    { name: "Predictive Analysis", path: "/services/predictive-analysis" },
+    { name: "Microsoft Services", path: "/services/microsoft-services" },
+    { name: "Axial Core Motors", path: "/services/axial-core-motors" },
+    { name: "Electronic Modules", path: "/services/electronic-controlled-module" },
   ];
 
   const socialLinks = [
-    { icon: Facebook,  href: "#", label: "Facebook",  color: "#1877f2" },
-    { icon: Twitter,   href: "#", label: "Twitter",   color: "#1da1f2" },
-    { icon: Linkedin,  href: "#", label: "LinkedIn",  color: "#0077b5" },
+    { icon: Facebook, href: "#", label: "Facebook", color: "#1877f2" },
+    { icon: Twitter, href: "#", label: "Twitter", color: "#1da1f2" },
+    { icon: Linkedin, href: "#", label: "LinkedIn", color: "#0077b5" },
     { icon: Instagram, href: "#", label: "Instagram", color: "#e1306c" },
   ];
 
@@ -46,29 +46,29 @@ const Footer = () => {
   };
 
   return (
-    <footer style={{ position: "relative", background: "#05070c", overflow: "hidden" }}>
+    <footer style={{ position: "relative", background: "#f8fafc", overflow: "hidden" }}>
 
       {/* ── top glow bar (matches screenshot) ── */}
       <div style={{
-        position:   "absolute",
-        top:        0,
-        left:       "50%",
-        transform:  "translateX(-50%)",
-        width:      "70%",
-        height:     "1px",
+        position: "absolute",
+        top: 0,
+        left: "50%",
+        transform: "translateX(-50%)",
+        width: "70%",
+        height: "1px",
         background: "linear-gradient(90deg, transparent 0%, rgba(96,165,250,0.8) 30%, rgba(139,92,246,0.8) 60%, rgba(52,211,153,0.5) 85%, transparent 100%)",
       }} />
 
       {/* top glow bloom */}
       <div style={{
-        position:   "absolute",
-        top:        "-60px",
-        left:       "50%",
-        transform:  "translateX(-50%)",
-        width:      "600px",
-        height:     "120px",
+        position: "absolute",
+        top: "-60px",
+        left: "50%",
+        transform: "translateX(-50%)",
+        width: "600px",
+        height: "120px",
         background: "radial-gradient(ellipse, rgba(99,102,241,0.18) 0%, rgba(96,165,250,0.10) 40%, transparent 70%)",
-        filter:     "blur(20px)",
+        filter: "blur(20px)",
         pointerEvents: "none",
       }} />
 
@@ -82,27 +82,12 @@ const Footer = () => {
 
           {/* Brand column */}
           <div style={{ gridColumn: "span 1", display: "flex", flexDirection: "column", gap: "20px" }}>
-            <Link to="/" style={{ display: "flex", alignItems: "center", gap: "12px", textDecoration: "none" }}>
-              <div style={{
-                width: "40px", height: "40px", borderRadius: "10px",
-                background: "rgba(255,255,255,0.06)",
-                border: "1px solid rgba(255,255,255,0.12)",
-                display: "flex", alignItems: "center", justifyContent: "center",
-              }}>
-                <img src={logo} alt="Attractify" style={{ width: "26px", height: "26px", objectFit: "contain" }} />
-              </div>
-              <div style={{ display: "flex", flexDirection: "column", lineHeight: 1 }}>
-                <span style={{
-                  fontSize: "1.1rem", fontWeight: 700,
-                  background: "linear-gradient(90deg, #4ade80, #22d3ee, #60a5fa)",
-                  WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
-                }}>Attractify</span>
-                <span style={{ fontSize: "9px", letterSpacing: "0.28em", color: "rgba(255,255,255,0.3)", textTransform: "uppercase", marginTop: "3px" }}>Technology</span>
-              </div>
+            <Link to="/" style={{ display: "inline-flex", textDecoration: "none", marginBotton: "8px" }}>
+              <img src={logo} alt="Agile ICO" style={{ height: "45px", width: "auto", objectFit: "contain" }} />
             </Link>
 
-            <p style={{ fontSize: "13px", lineHeight: 1.75, color: "rgba(255,255,255,0.4)", maxWidth: "240px" }}>
-              Building intelligent AI solutions that automate decision-making and transform industries.
+            <p style={{ fontSize: "13px", lineHeight: 1.75, color: "rgba(0,0,0,0.5)", maxWidth: "240px" }}>
+              Empowering operations with advanced Business Intelligence, predictive insights, and high-performance engineering solutions.
             </p>
 
             {/* Social icons */}
@@ -113,23 +98,23 @@ const Footer = () => {
                   <a key={s.label} href={s.href} aria-label={s.label}
                     style={{
                       width: "34px", height: "34px", borderRadius: "8px",
-                      background: "rgba(255,255,255,0.05)",
-                      border: "1px solid rgba(255,255,255,0.08)",
+                      background: "rgba(0,0,0,0.05)",
+                      border: "1px solid rgba(0,0,0,0.08)",
                       display: "flex", alignItems: "center", justifyContent: "center",
-                      color: "rgba(255,255,255,0.4)",
+                      color: "rgba(0,0,0,0.4)",
                       textDecoration: "none", transition: "all 0.2s",
                     }}
                     onMouseEnter={e => {
                       e.currentTarget.style.background = `${s.color}22`;
-                      e.currentTarget.style.border     = `1px solid ${s.color}55`;
-                      e.currentTarget.style.color      = s.color;
-                      e.currentTarget.style.boxShadow  = `0 0 12px ${s.color}33`;
+                      e.currentTarget.style.border = `1px solid ${s.color}55`;
+                      e.currentTarget.style.color = s.color;
+                      e.currentTarget.style.boxShadow = `0 0 12px ${s.color}33`;
                     }}
                     onMouseLeave={e => {
-                      e.currentTarget.style.background = "rgba(255,255,255,0.05)";
-                      e.currentTarget.style.border     = "1px solid rgba(255,255,255,0.08)";
-                      e.currentTarget.style.color      = "rgba(255,255,255,0.4)";
-                      e.currentTarget.style.boxShadow  = "none";
+                      e.currentTarget.style.background = "rgba(0,0,0,0.05)";
+                      e.currentTarget.style.border = "1px solid rgba(0,0,0,0.08)";
+                      e.currentTarget.style.color = "rgba(0,0,0,0.4)";
+                      e.currentTarget.style.boxShadow = "none";
                     }}
                   >
                     <Icon size={15} />
@@ -141,7 +126,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 style={{ fontSize: "12px", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)", marginBottom: "20px" }}>
+            <h4 style={{ fontSize: "12px", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(0,0,0,0.4)", marginBottom: "20px" }}>
               Quick Links
             </h4>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "10px" }}>
@@ -149,11 +134,11 @@ const Footer = () => {
                 <li key={link.path}>
                   <Link to={link.path} style={{
                     display: "flex", alignItems: "center", gap: "6px",
-                    fontSize: "13.5px", color: "rgba(255,255,255,0.45)",
+                    fontSize: "13.5px", color: "rgba(0,0,0,0.55)",
                     textDecoration: "none", transition: "all 0.2s",
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.color = "#60a5fa"; e.currentTarget.style.paddingLeft = "4px"; }}
-                  onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.45)"; e.currentTarget.style.paddingLeft = "0"; }}
+                    onMouseEnter={e => { e.currentTarget.style.color = "#60a5fa"; e.currentTarget.style.paddingLeft = "4px"; }}
+                    onMouseLeave={e => { e.currentTarget.style.color = "rgba(0,0,0,0.55)"; e.currentTarget.style.paddingLeft = "0"; }}
                   >
                     <ChevronRight size={12} style={{ opacity: 0.4 }} />
                     {link.name}
@@ -165,23 +150,24 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 style={{ fontSize: "12px", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)", marginBottom: "20px" }}>
+            <h4 style={{ fontSize: "12px", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(0,0,0,0.4)", marginBottom: "20px" }}>
               Services
             </h4>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "10px" }}>
               {services.map((s) => (
                 <li key={s.name}>
-                  <Link to={s.path} style={{
+                  <div style={{
                     display: "flex", alignItems: "center", gap: "6px",
-                    fontSize: "13.5px", color: "rgba(255,255,255,0.45)",
-                    textDecoration: "none", transition: "all 0.2s",
+                    fontSize: "13.5px", color: "rgba(0,0,0,0.55)",
+                    transition: "all 0.2s",
+                    cursor: "default"
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.color = "#34d399"; e.currentTarget.style.paddingLeft = "4px"; }}
-                  onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.45)"; e.currentTarget.style.paddingLeft = "0"; }}
+                    onMouseEnter={e => { e.currentTarget.style.color = "#34d399"; e.currentTarget.style.paddingLeft = "4px"; }}
+                    onMouseLeave={e => { e.currentTarget.style.color = "rgba(0,0,0,0.55)"; e.currentTarget.style.paddingLeft = "0"; }}
                   >
                     <ChevronRight size={12} style={{ opacity: 0.4 }} />
                     {s.name}
-                  </Link>
+                  </div>
                 </li>
               ))}
             </ul>
@@ -191,14 +177,14 @@ const Footer = () => {
           <div style={{ display: "flex", flexDirection: "column", gap: "28px" }}>
             {/* Contact */}
             <div>
-              <h4 style={{ fontSize: "12px", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)", marginBottom: "20px" }}>
+              <h4 style={{ fontSize: "12px", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(0,0,0,0.4)", marginBottom: "20px" }}>
                 Contact
               </h4>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "12px" }}>
                 {[
-                  { icon: Mail,   text: "info@attractifytechnology.com", href: "mailto:info@attractifytechnology.com" },
-                  { icon: Phone,  text: "+1 (234) 567-890",              href: "tel:+1234567890"                    },
-                  { icon: MapPin, text: "123 Tech Avenue, Silicon Valley, CA",   href: null                         },
+                  { icon: Mail, text: "bsdas@aicopl.com", href: "mailto:info@agileico.com" },
+                  { icon: Phone, text: "7008532672", href: "tel:+917008532672" },
+                  { icon: MapPin, text: "Bhubaneswar, OD, India", href: null },
                 ].map(({ icon: Icon, text, href }) => (
                   <li key={text} style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
                     <span style={{
@@ -209,10 +195,10 @@ const Footer = () => {
                       <Icon size={13} style={{ color: "#60a5fa" }} />
                     </span>
                     {href
-                      ? <a href={href} style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", textDecoration: "none", lineHeight: 1.5 }}
-                           onMouseEnter={e => e.currentTarget.style.color = "#60a5fa"}
-                           onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.45)"}>{text}</a>
-                      : <span style={{ fontSize: "13px", color: "rgba(255,255,255,0.4)", lineHeight: 1.5 }}>{text}</span>
+                      ? <a href={href} style={{ fontSize: "13px", color: "rgba(0,0,0,0.55)", textDecoration: "none", lineHeight: 1.5 }}
+                        onMouseEnter={e => e.currentTarget.style.color = "#60a5fa"}
+                        onMouseLeave={e => e.currentTarget.style.color = "rgba(0,0,0,0.55)"}>{text}</a>
+                      : <span style={{ fontSize: "13px", color: "rgba(0,0,0,0.55)", lineHeight: 1.5 }}>{text}</span>
                     }
                   </li>
                 ))}
@@ -221,7 +207,7 @@ const Footer = () => {
 
             {/* Newsletter */}
             <div>
-              <h4 style={{ fontSize: "12px", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)", marginBottom: "14px" }}>
+              <h4 style={{ fontSize: "12px", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(0,0,0,0.4)", marginBottom: "14px" }}>
                 Newsletter
               </h4>
               {subscribed ? (
@@ -241,11 +227,11 @@ const Footer = () => {
                     placeholder="Type your email..."
                     style={{
                       flex: 1, padding: "10px 14px",
-                      background: "rgba(255,255,255,0.05)",
-                      border: "1px solid rgba(255,255,255,0.1)",
+                      background: "rgba(0,0,0,0.03)",
+                      border: "1px solid rgba(0,0,0,0.1)",
                       borderRight: "none",
                       borderRadius: "8px 0 0 8px",
-                      color: "#fff", fontSize: "13px", outline: "none",
+                      color: "#000", fontSize: "13px", outline: "none",
                     }}
                   />
                   <button type="submit" style={{
@@ -258,14 +244,14 @@ const Footer = () => {
                     display: "flex", alignItems: "center",
                     transition: "opacity 0.2s",
                   }}
-                  onMouseEnter={e => e.currentTarget.style.opacity = "0.85"}
-                  onMouseLeave={e => e.currentTarget.style.opacity = "1"}
+                    onMouseEnter={e => e.currentTarget.style.opacity = "0.85"}
+                    onMouseLeave={e => e.currentTarget.style.opacity = "1"}
                   >
                     <ArrowRight size={15} />
                   </button>
                 </form>
               )}
-              <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", marginTop: "8px" }}>
+              <p style={{ fontSize: "11px", color: "rgba(0,0,0,0.3)", marginTop: "8px" }}>
                 No spam. Unsubscribe anytime.
               </p>
             </div>
@@ -276,24 +262,24 @@ const Footer = () => {
         <div style={{
           marginTop: "48px",
           paddingTop: "20px",
-          borderTop: "1px solid rgba(255,255,255,0.06)",
+          borderTop: "1px solid rgba(0,0,0,0.06)",
           display: "flex",
           flexWrap: "wrap",
           justifyContent: "space-between",
           alignItems: "center",
           gap: "12px",
         }}>
-          <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.25)" }}>
-            © {new Date().getFullYear()} Attractify Technology Pvt. Ltd. All rights reserved.
+          <p style={{ fontSize: "12px", color: "rgba(0,0,0,0.35)" }}>
+            © {new Date().getFullYear()} Agile ICO Pvt. Ltd. All rights reserved.
           </p>
           <div style={{ display: "flex", gap: "20px" }}>
             {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((t) => (
               <a key={t} href="#" style={{
-                fontSize: "12px", color: "rgba(255,255,255,0.25)",
+                fontSize: "12px", color: "rgba(0,0,0,0.35)",
                 textDecoration: "none", transition: "color 0.2s",
               }}
-              onMouseEnter={e => e.currentTarget.style.color = "rgba(255,255,255,0.6)"}
-              onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.25)"}
+                onMouseEnter={e => e.currentTarget.style.color = "rgba(0,0,0,0.6)"}
+                onMouseLeave={e => e.currentTarget.style.color = "rgba(0,0,0,0.35)"}
               >{t}</a>
             ))}
           </div>

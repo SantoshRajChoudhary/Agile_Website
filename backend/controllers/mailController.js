@@ -22,7 +22,7 @@ export const sendContactMail = async (req, res) => {
     } = req.body || {};
 
     await transporter.sendMail({
-      from: `"Attractify Technologies" <${process.env.ADMIN_EMAIL}>`,
+      from: `"Agile ICO" <${process.env.ADMIN_EMAIL}>`,
       to: process.env.ADMIN_EMAIL,
       replyTo: sanitize(email),
       subject: `New Contact Message - ${sanitize(subject)}`,
@@ -81,7 +81,7 @@ export const sendCareerMail = async (req, res) => {
            ADMIN MAIL
         ====================== */
         await transporter.sendMail({
-          from: `"Attractify Careers" <${process.env.ADMIN_EMAIL}>`,
+          from: `"Agile ICO Careers" <${process.env.ADMIN_EMAIL}>`,
           to: process.env.ADMIN_EMAIL,
           replyTo: sanitize(email),
           subject: `New Career Application - ${sanitize(position)}`,
@@ -103,9 +103,9 @@ export const sendCareerMail = async (req, res) => {
         ====================== */
         if (email) {
           await transporter.sendMail({
-            from: `"Attractify Technologies" <${process.env.ADMIN_EMAIL}>`,
+            from: `"Agile ICO" <${process.env.ADMIN_EMAIL}>`,
             to: sanitize(email),
-            subject: "Application Received - Attractify Technologies",
+            subject: "Application Received - Agile ICO",
             html: `
               <div style="font-family: Arial, sans-serif;">
                 <h2>Thank you for applying, ${sanitize(name)}!</h2>
@@ -119,7 +119,7 @@ export const sendCareerMail = async (req, res) => {
                 <br/>
                 <p>
                   Regards,<br/>
-                  <b>Attractify Technologies Team</b>
+                  <b>Agile ICO Team</b>
                 </p>
               </div>
             `,

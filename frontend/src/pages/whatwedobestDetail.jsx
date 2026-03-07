@@ -100,8 +100,8 @@ function FeatureCard({ text, accent, index }) {
         onMouseLeave={() => setHov(false)}
         style={{
           display: "flex", alignItems: "center", gap: 14,
-          background: hov ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.02)",
-          border: `1px solid ${hov ? `${accent}45` : "rgba(255,255,255,0.07)"}`,
+          background: hov ? "rgba(0,0,0,0.05)" : "rgba(0,0,0,0.02)",
+          border: `1px solid ${hov ? `${accent}45` : "rgba(0,0,0,0.08)"}`,
           borderRadius: 14,
           padding: "20px 22px",
           transform: hov ? "translateY(-3px)" : "none",
@@ -111,7 +111,7 @@ function FeatureCard({ text, accent, index }) {
         }}
       >
         <CheckCircle size={18} color={accent} strokeWidth={2} style={{ flexShrink: 0 }} />
-        <p style={{ color: "rgba(255,255,255,0.65)", fontSize: "0.9rem", fontFamily: "'Oxanium',sans-serif" }}>
+        <p style={{ color: "rgba(0,0,0,0.6)", fontSize: "0.9rem", fontFamily: "'Oxanium',sans-serif" }}>
           {text}
         </p>
       </div>
@@ -128,9 +128,9 @@ const WhatWeDoBestDetail = () => {
   useEffect(() => { setTimeout(() => setMounted(true), 60); }, []);
 
   if (!service) return (
-    <div style={{ background: "#05050f", minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+    <div style={{ background: "#ffffff", minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
       <div style={{ textAlign: "center" }}>
-        <p style={{ color: "rgba(255,255,255,0.4)", fontFamily: "'Oxanium',sans-serif", marginBottom: 16 }}>Service not found</p>
+        <p style={{ color: "rgba(0,0,0,0.6)", fontFamily: "'Oxanium',sans-serif", marginBottom: 16 }}>Service not found</p>
         <Link to="/whatwedobest" style={{ color: "#818cf8", fontFamily: "'Oxanium',sans-serif", fontSize: "0.85rem" }}>← Back to Services</Link>
       </div>
     </div>
@@ -175,7 +175,7 @@ const WhatWeDoBestDetail = () => {
                 borderRadius: 18,
                 background: `${service.accent}12`,
                 border: `1px solid ${iconHov ? service.accent : `${service.accent}35`}`,
-                boxShadow: iconHov ? `0 0 0 1px ${service.accent}, 0 0 30px ${service.glow}, 0 0 80px ${service.glow}` : `0 0 20px ${service.glow.replace("0.5","0.2")}`,
+                boxShadow: iconHov ? `0 0 0 1px ${service.accent}, 0 0 30px ${service.glow}, 0 0 80px ${service.glow}` : `0 0 20px ${service.glow.replace("0.5", "0.2")}`,
                 transition: "all 0.4s ease",
               }} />
               <div style={{ position: "relative", zIndex: 1, width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -188,7 +188,7 @@ const WhatWeDoBestDetail = () => {
               <h1 style={{
                 fontFamily: "'Oxanium',sans-serif", fontWeight: 800,
                 fontSize: "clamp(2rem, 4.5vw, 3.6rem)",
-                letterSpacing: "-0.02em", lineHeight: 1.05, color: "#fff",
+                letterSpacing: "-0.02em", lineHeight: 1.05, color: "#1a1a1a",
               }}>
                 {service.title}
               </h1>
@@ -200,7 +200,7 @@ const WhatWeDoBestDetail = () => {
             opacity: mounted ? 1 : 0, transform: mounted ? "none" : "translateY(14px)",
             transition: "all 0.85s ease 0.22s",
           }}>
-            <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "1rem", lineHeight: 1.9, maxWidth: 660 }}>
+            <p style={{ color: "rgba(0,0,0,0.6)", fontSize: "1rem", lineHeight: 1.9, maxWidth: 660 }}>
               {service.longDescription}
             </p>
           </div>
@@ -213,7 +213,7 @@ const WhatWeDoBestDetail = () => {
           <Reveal>
             <div style={{ marginBottom: 36 }}>
               <span className="wwbd-label" style={{ color: service.accent }}>What's Included</span>
-              <h2 style={{ fontFamily: "'Oxanium',sans-serif", fontWeight: 800, fontSize: "clamp(1.6rem, 2.8vw, 2.2rem)", color: "#fff", letterSpacing: "-0.01em" }}>
+              <h2 style={{ fontFamily: "'Oxanium',sans-serif", fontWeight: 800, fontSize: "clamp(1.6rem, 2.8vw, 2.2rem)", color: "#1a1a1a", letterSpacing: "-0.01em" }}>
                 Key Capabilities
               </h2>
             </div>
@@ -238,7 +238,7 @@ const WhatWeDoBestDetail = () => {
           <Reveal>
             <div style={{ marginBottom: 28 }}>
               <span className="wwbd-label" style={{ color: service.accent }}>Explore More</span>
-              <h2 style={{ fontFamily: "'Oxanium',sans-serif", fontWeight: 800, fontSize: "clamp(1.4rem, 2.5vw, 2rem)", color: "#fff", letterSpacing: "-0.01em" }}>
+              <h2 style={{ fontFamily: "'Oxanium',sans-serif", fontWeight: 800, fontSize: "clamp(1.4rem, 2.5vw, 2rem)", color: "#1a1a1a", letterSpacing: "-0.01em" }}>
                 Other Services
               </h2>
             </div>
@@ -251,12 +251,12 @@ const WhatWeDoBestDetail = () => {
                 <Reveal key={i} delay={i * 70}>
                   <Link to={`/whatwedobest/${s.slug}`} style={{
                     display: "inline-flex", alignItems: "center", gap: 10,
-                    background: "rgba(255,255,255,0.02)",
-                    border: "1px solid rgba(255,255,255,0.08)",
+                    background: "rgba(0,0,0,0.02)",
+                    border: "1px solid rgba(0,0,0,0.08)",
                     borderRadius: 50,
                     padding: "9px 18px",
                     textDecoration: "none",
-                    color: "rgba(255,255,255,0.5)",
+                    color: "rgba(0,0,0,0.5)",
                     fontSize: "0.82rem",
                     fontFamily: "'Oxanium',sans-serif",
                     fontWeight: 600,
@@ -280,7 +280,7 @@ const WhatWeDoBestDetail = () => {
         <div style={{ maxWidth: 1000, margin: "0 auto" }}>
           <Reveal>
             <div style={{
-              background: "rgba(255,255,255,0.02)",
+              background: "rgba(0,0,0,0.02)",
               border: `1px solid ${service.accent}25`,
               borderRadius: 20,
               padding: "52px 40px",
@@ -289,14 +289,14 @@ const WhatWeDoBestDetail = () => {
               overflow: "hidden",
             }}>
               {/* bg glow */}
-              <div style={{ position: "absolute", bottom: -60, left: "50%", transform: "translateX(-50%)", width: 400, height: 200, background: `radial-gradient(ellipse, ${service.glow.replace("0.5","0.12")} 0%, transparent 70%)`, pointerEvents: "none" }} />
+              <div style={{ position: "absolute", bottom: -60, left: "50%", transform: "translateX(-50%)", width: 400, height: 200, background: `radial-gradient(ellipse, ${service.glow.replace("0.5", "0.12")} 0%, transparent 70%)`, pointerEvents: "none" }} />
 
               <span className="wwbd-label" style={{ color: service.accent }}>Get Started</span>
-              <h3 style={{ fontFamily: "'Oxanium',sans-serif", fontWeight: 800, fontSize: "clamp(1.5rem, 2.8vw, 2.2rem)", color: "#fff", letterSpacing: "-0.01em", marginBottom: 14 }}>
+              <h3 style={{ fontFamily: "'Oxanium',sans-serif", fontWeight: 800, fontSize: "clamp(1.5rem, 2.8vw, 2.2rem)", color: "#1a1a1a", letterSpacing: "-0.01em", marginBottom: 14 }}>
                 Interested in {service.title}?
               </h3>
-              <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.93rem", lineHeight: 1.8, marginBottom: 36, maxWidth: 460, margin: "0 auto 36px" }}>
-                Let Attractify Technologies help you build scalable, intelligent solutions tailored to your business.
+              <p style={{ color: "rgba(0,0,0,0.55)", fontSize: "0.93rem", lineHeight: 1.8, marginBottom: 36, maxWidth: 460, margin: "0 auto 36px" }}>
+                Let Agile ICO help you build scalable, intelligent solutions tailored to your business.
               </p>
               <Link to="/contact" className="wwbd-cta-btn">
                 Contact Us <ArrowRight size={15} />

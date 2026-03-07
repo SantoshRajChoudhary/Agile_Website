@@ -127,16 +127,16 @@ function IndustryCard({ industry, index }) {
         onMouseEnter={() => setHov(true)}
         onMouseLeave={() => setHov(false)}
         style={{
-          background: "rgba(255,255,255,0.02)",
+          background: "rgba(0,0,0,0.02)",
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          border: `1px solid ${hov ? `${industry.accent}45` : "rgba(255,255,255,0.07)"}`,
+          border: `1px solid ${hov ? `${industry.accent}45` : "rgba(0,0,0,0.07)"}`,
           borderRadius: 18,
           overflow: "hidden",
           transform: hov ? "translateY(-6px)" : "none",
           boxShadow: hov
-            ? `0 20px 50px rgba(0,0,0,0.4), 0 0 0 0.5px ${industry.accent}25`
+            ? `0 20px 50px rgba(0,0,0,0.1), 0 0 0 0.5px ${industry.accent}25`
             : "none",
           transition: "all 0.35s cubic-bezier(.25,.8,.25,1)",
         }}
@@ -159,7 +159,7 @@ function IndustryCard({ industry, index }) {
             style={{
               position: "absolute",
               inset: 0,
-              background: `linear-gradient(to top, rgba(5,5,16,0.85) 0%, rgba(5,5,16,0.1) 60%)`,
+              background: `linear-gradient(to top, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.1) 60%)`,
             }}
           />
           {/* Icon badge */}
@@ -190,7 +190,7 @@ function IndustryCard({ industry, index }) {
               fontFamily: "'Oxanium', sans-serif",
               fontWeight: 700,
               fontSize: "1rem",
-              color: "#fff",
+              color: "#000",
               marginBottom: 10,
               letterSpacing: "0.01em",
             }}
@@ -199,7 +199,7 @@ function IndustryCard({ industry, index }) {
           </h3>
           <p
             style={{
-              color: "rgba(255,255,255,0.42)",
+              color: "rgba(0,0,0,0.6)",
               fontSize: "0.85rem",
               lineHeight: 1.75,
             }}
@@ -293,7 +293,7 @@ const Products = () => {
                 fontSize: "clamp(2.4rem, 5.5vw, 4.4rem)",
                 letterSpacing: "-0.02em",
                 lineHeight: 1.05,
-                color: "#fff",
+                color: "#1a1a1a",
                 marginBottom: 24,
               }}
             >
@@ -311,7 +311,7 @@ const Products = () => {
 
             <p
               style={{
-                color: "rgba(255,255,255,0.42)",
+                color: "rgba(0,0,0,0.62)",
                 fontSize: "1rem",
                 lineHeight: 1.85,
                 maxWidth: 520,
@@ -383,8 +383,8 @@ const Products = () => {
                         width: 44,
                         height: 44,
                         borderRadius: 11,
-                        background: "rgba(129,140,248,0.1)",
-                        border: "1px solid rgba(129,140,248,0.2)",
+                        background: "rgba(129,140,248,0.08)",
+                        border: "1px solid rgba(0,0,0,0.08)",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -398,7 +398,7 @@ const Products = () => {
                         fontFamily: "'Oxanium',sans-serif",
                         fontWeight: 700,
                         fontSize: "0.95rem",
-                        color: "#fff",
+                        color: "#1a1a1a",
                         marginBottom: 8,
                         letterSpacing: "0.01em",
                       }}
@@ -407,7 +407,7 @@ const Products = () => {
                     </h3>
                     <p
                       style={{
-                        color: "rgba(255,255,255,0.4)",
+                        color: "rgba(0,0,0,0.55)",
                         fontSize: "0.83rem",
                         lineHeight: 1.75,
                       }}
@@ -458,7 +458,7 @@ const Products = () => {
 
               <p
                 style={{
-                  color: "rgba(255,255,255,0.42)",
+                  color: "rgba(0,0,0,0.62)",
                   fontSize: "0.93rem",
                   lineHeight: 1.85,
                   marginBottom: 32,
@@ -485,7 +485,7 @@ const Products = () => {
                       display: "flex",
                       alignItems: "center",
                       gap: 12,
-                      color: "rgba(255,255,255,0.65)",
+                      color: "rgba(0,0,0,0.65)",
                       fontSize: "0.9rem",
                     }}
                   >
@@ -523,7 +523,7 @@ const Products = () => {
                 <div
                   style={{
                     borderRadius: 21,
-                    background: "#05050f",
+                    background: "#ffffff",
                     width: "100%",
                     height: "100%",
                   }}

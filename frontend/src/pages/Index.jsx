@@ -11,17 +11,20 @@ import {
   Target,
   Box,
   Cloud,
+  Settings,
+  Zap,
+  TrendingUp,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import imgNDT from "@/assets/ndt.jpg";
 import imgARVR from "@/assets/arvr.jpg";
-import imgIoT from "@/assets/iot.jpg";
-import imgAI from "@/assets/ai.avif";
-import imgAI1 from "@/assets/ai2.webp";
-import imgiot1 from "@/assets/iot2.jpg";
-import imgarvr1 from "@/assets/arvr2.jpg";
-import imgndt1 from "@/assets/ndt2.webp";
+import imgIoT from "@/assets/iot.png";
+import imgAI from "@/assets/ai.jpg";
+import imgAI1 from "@/assets/ai2.jpg";
+import imgiot1 from "@/assets/iot2.webp";
+import imgarvr1 from "@/assets/arvr2.png";
+import imgndt1 from "@/assets/ndt2.png";
 
 /* ═══════════════════════════════════════════════════════════════
    ANIMATIONS
@@ -58,29 +61,52 @@ const CountUp = ({ end, duration = 2000 }) => {
 ═══════════════════════════════════════════════════════════════ */
 const services = [
   {
+    icon: TrendingUp,
+    title: "Business Intelligence",
+    description: "Harness the power of data to drive informed business decisions and strategic planning.",
+    accent: "#818cf8",
+    image: imgAI,
+    points: ["Data Visualization & Reporting", "Operational Strategy Planning", "Actionable Insight Generation"],
+  },
+  {
     icon: Brain,
-    title: "AR/VR",
-    slug: "ar-vr-applications",
-    description:
-      "Transform complex data into intelligent decisions using advanced ML models.",
+    title: "Predictive Analysis",
+    description: "Leverage historical data and machine learning to forecast trends and optimize performance.",
+    accent: "#34d399",
+    image: imgAI1,
+    points: ["Statistical Modeling", "Machine Learning Trends", "Performance Optimization"],
+  },
+  {
+    icon: Cloud,
+    title: "Microsoft Services",
+    description: "Unlock the full potential of your data with tailored Microsoft solutions for the 'big picture'.",
+    accent: "#c084fc",
+    image: imgiot1,
+    points: ["Power BI Dashboards", "Azure Cloud Solutions", "Enterprise Data Management"],
+  },
+  {
+    icon: Settings,
+    title: "Axial Core Motors",
+    description: "High-torque, compact motors engineered for next-gen mobility in EVs and Drones.",
+    accent: "#38bdf8",
+    image: imgndt1,
+    points: ["140kg Load Output", "Aerospace & Automotive Grade", "High Power Density"],
+  },
+  {
+    icon: Zap,
+    title: "Bi-Polar Switching Induction Motor",
+    description: "Innovative module delivering immediate energy savings for induction systems with zero infrastructure changes.",
+    accent: "#fb923c",
+    image: imgarvr1,
+    points: ["Zero Infrastructure Change", "Immediate Energy Savings", "Performance Upgrades"],
   },
   {
     icon: Cpu,
-    title: "AI Development",
-    slug: "ai-development",
-    description: "Build intelligent systems that learn and adapt.",
-  },
-  {
-    icon: Globe,
-    title: "IoT Solutions",
-    slug: "iot-solutions",
-    description: "Connected systems for real-time monitoring and automation.",
-  },
-  {
-    icon: Shield,
-    title: "Non-Destructive Testing",
-    slug: "non-destructive-testing",
-    description: "AI-powered inspection ensuring safety and reliability.",
+    title: "Electronic Controlled Module",
+    description: "Smart retrofit solution reducing wattage consumption of induction ceiling fans by 40-50%.",
+    accent: "#10b981",
+    image: imgIoT,
+    points: ["40-50% Watts Reduction", "Smart Retrofit Design", "Cost-Effective Upgrades"],
   },
 ];
 
@@ -91,101 +117,6 @@ const stats = [
   { value: "13+", label: "AI Solutions Built" },
 ];
 
-/**
- * VIDEO PANELS
- * Place your videos in /public/videos/ and update src paths below.
- * Each panel has a `fallbackGradient` that shows while video loads
- * — so the hero always looks great even without videos.
- */
-const VIDEO_PANELS = [
-  {
-    src: imgARVR,
-    label: "AR / VR",
-    fallbackGradient:
-      "linear-gradient(160deg, #1a0533 0%, #2d0b5e 50%, #0f0320 100%)",
-  },
-  {
-    src: imgAI,
-    label: "AI / ML",
-    fallbackGradient:
-      "linear-gradient(160deg, #001a33 0%, #003366 50%, #000d1a 100%)",
-  },
-  {
-    src: imgIoT,
-    label: "IoT",
-    fallbackGradient:
-      "linear-gradient(160deg, #003322 0%, #005540 50%, #001a11 100%)",
-  },
-  {
-    src: imgNDT,
-    label: "NDT",
-    fallbackGradient:
-      "linear-gradient(160deg, #0f2027 0%, #1a3a4a 50%, #0d1f2d 100%)",
-  },
-];
-
-/* ═══════════════════════════════════════════════════════════════
-   SINGLE DIAGONAL VIDEO PANEL
-═══════════════════════════════════════════════════════════════ */
-const VideoPanel = ({ src, label, index, total, fallbackGradient }) => {
-  const [loaded, setLoaded] = useState(false);
-  const SKEW = -7;
-
-  return (
-    <div
-      className="relative flex-1 overflow-hidden"
-      style={{
-        transform: `skewX(${SKEW}deg)`,
-        marginLeft: index === 0 ? "0" : "-20px",
-        marginRight: index === total - 1 ? "0" : "-20px",
-        background: fallbackGradient,
-      }}
-    >
-      <img
-        src={src}
-        alt={label}
-        onLoad={() => setLoaded(true)}
-        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
-        style={{
-          transform: `skewX(${-SKEW}deg) scale(1.18)`,
-          opacity: loaded ? 1 : 0,
-        }}
-      />
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(to right, rgba(5,7,12,0.92) 0%, rgba(5,7,12,0.45) 35%, rgba(5,7,12,0.15) 75%, rgba(5,7,12,0.35) 100%)",
-        }}
-      />
-      <div
-        className="absolute inset-0 opacity-[0.04] pointer-events-none"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.3) 2px, rgba(255,255,255,0.3) 3px)",
-          transform: `skewX(${-SKEW}deg) scale(1.18)`,
-        }}
-      />
-      <div
-        className="absolute top-0 left-0 right-0 h-px opacity-30"
-        style={{
-          background:
-            "linear-gradient(to right, transparent, rgba(99,179,237,0.8), transparent)",
-          transform: `skewX(${-SKEW}deg) scale(1.18)`,
-        }}
-      />
-      <div
-        className="absolute bottom-6 left-1/2 flex flex-col items-center gap-1"
-        style={{ transform: `translateX(-50%) skewX(${-SKEW}deg)` }}
-      >
-        <span className="text-[9px] font-bold tracking-[0.25em] uppercase text-white/40">
-          {label}
-        </span>
-        <div className="w-4 h-px bg-white/20" />
-      </div>
-    </div>
-  );
-};
 
 /* ═══════════════════════════════════════════════════════════════
    HERO SECTION
@@ -205,7 +136,7 @@ const HeroSection = () => {
   const hintOpacity = useTransform(scrollYProgress, [0, 0.1], [1, 0]);
 
   /* the ONE dark bg color used everywhere — matches a typical dark Tailwind theme */
-  const BG = "#05070c";
+  const BG = "#ffffff";
 
   return (
     <section
@@ -222,40 +153,7 @@ const HeroSection = () => {
         }}
       />
 
-      {/* ── diagonal video panels ── */}
-      <motion.div
-        className="absolute inset-y-0 right-0 flex"
-        style={{
-          width: "65%",
-          opacity: panelsOpacity,
-          x: panelsX,
-        }}
-      >
-        {VIDEO_PANELS.map((panel, i) => (
-          <VideoPanel
-            key={i}
-            {...panel}
-            index={i}
-            total={VIDEO_PANELS.length}
-          />
-        ))}
 
-        {/* left-edge bleed into dark bg */}
-        <div
-          className="absolute inset-y-0 left-0 w-[45%] pointer-events-none z-10"
-          style={{
-            background: `linear-gradient(to right, ${BG} 0%, transparent 100%)`,
-          }}
-        />
-
-        {/* right-edge vignette */}
-        <div
-          className="absolute inset-y-0 right-0 w-[12%] pointer-events-none z-10"
-          style={{
-            background: `linear-gradient(to left, ${BG} 0%, transparent 100%)`,
-          }}
-        />
-      </motion.div>
 
       {/* top edge */}
       <div
@@ -274,11 +172,11 @@ const HeroSection = () => {
 
       {/* ── hero text ── */}
       <motion.div
-        className="relative z-30 w-full pt-28 pb-20"
+        className="relative z-30 w-full pt-28 pb-20 flex justify-center items-center"
         style={{ opacity: textOpacity, y: textY }}
       >
-        <div className="section-container">
-          <div className="max-w-[560px] space-y-8">
+        <div className="section-container w-full flex justify-center">
+          <div className="max-w-[760px] space-y-8 text-center">
             {/* badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -291,25 +189,23 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-white font-extrabold leading-tight tracking-tight text-center"
+              className="text-black font-extrabold leading-tight tracking-tight text-center"
               style={{ fontSize: "clamp(2.6rem, 6vw, 4.2rem)" }}
             >
               Driving Digital India
               <br />
-              <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-600 via-cyan-600 to-emerald-600 bg-clip-text text-transparent">
                 With Precision & Intelligence
               </span>
             </motion.h1>
 
-            {/* description */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.35 }}
-              className="text-white/55 text-base md:text-lg leading-relaxed"
+              className="text-black/60 text-base md:text-lg leading-relaxed"
             >
-              Pioneering solutions in NDT, AR/VR, IoT, AI/ML, and Custom SaaS to
-              transform your vision into reality.
+              Empowering operations with advanced Business Intelligence, predictive insights, and high-performance engineering solutions to drive your success.
             </motion.p>
 
             {/* CTAs */}
@@ -317,7 +213,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.48 }}
-              className="flex flex-wrap gap-4"
+              className="flex justify-center flex-wrap gap-4"
             >
               {/* primary */}
               <Link
@@ -329,12 +225,12 @@ const HeroSection = () => {
                   boxShadow: "0 0 24px rgba(37,99,235,0.35)",
                 }}
                 onMouseEnter={(e) =>
-                  (e.currentTarget.style.boxShadow =
-                    "0 0 36px rgba(37,99,235,0.6)")
+                (e.currentTarget.style.boxShadow =
+                  "0 0 36px rgba(37,99,235,0.6)")
                 }
                 onMouseLeave={(e) =>
-                  (e.currentTarget.style.boxShadow =
-                    "0 0 24px rgba(37,99,235,0.35)")
+                (e.currentTarget.style.boxShadow =
+                  "0 0 24px rgba(37,99,235,0.35)")
                 }
               >
                 Explore Our Universe
@@ -344,7 +240,7 @@ const HeroSection = () => {
               {/* secondary */}
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 h-12 px-8 rounded-lg font-semibold text-sm text-white/80 border border-white/15 bg-white/5 hover:bg-white/10 hover:text-white hover:border-white/30 transition-all duration-200"
+                className="inline-flex items-center gap-2 h-12 px-8 rounded-lg font-semibold text-sm text-black/80 border border-black/15 bg-black/5 hover:bg-black/10 hover:text-black hover:border-black/30 transition-all duration-200"
               >
                 Get Started
               </Link>
@@ -355,7 +251,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.65 }}
-              className="flex gap-8 pt-4 border-t border-white/8"
+              className="flex justify-center flex-wrap gap-12 pt-8 border-t border-black/10 mt-8"
             >
               {[
                 { val: "53+", lbl: "Projects" },
@@ -374,7 +270,7 @@ const HeroSection = () => {
                   >
                     {s.val}
                   </span>
-                  <span className="text-[10px] text-white/35 tracking-widest uppercase">
+                  <span className="text-[10px] text-black/40 tracking-widest uppercase">
                     {s.lbl}
                   </span>
                 </div>
@@ -389,10 +285,10 @@ const HeroSection = () => {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2"
         style={{ opacity: hintOpacity }}
       >
-        <span className="text-[9px] tracking-[0.22em] uppercase text-white/30">
+        <span className="text-[9px] tracking-[0.22em] uppercase text-black/40">
           Scroll
         </span>
-        <div className="w-px h-10 bg-gradient-to-b from-white/30 to-transparent animate-pulse" />
+        <div className="w-px h-10 bg-gradient-to-b from-black/30 to-transparent animate-pulse" />
       </motion.div>
     </section>
   );
@@ -406,7 +302,6 @@ const ServiceCard = ({ service, Icon }) => {
   const [transform, setTransform] = useState(
     "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)",
   );
-  const [hovered, setHovered] = useState(false);
 
   const handleMouseMove = (e) => {
     const card = cardRef.current;
@@ -425,15 +320,12 @@ const ServiceCard = ({ service, Icon }) => {
 
   const handleMouseLeave = () => {
     setTransform("perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)");
-    setHovered(false);
   };
 
   return (
-    <Link
+    <div
       ref={cardRef}
-      to={`/services/${service.slug}`}
       onMouseMove={handleMouseMove}
-      onMouseEnter={() => setHovered(true)}
       onMouseLeave={handleMouseLeave}
       style={{
         display: "flex",
@@ -444,23 +336,18 @@ const ServiceCard = ({ service, Icon }) => {
         position: "relative",
         height: "100%",
         transform: transform,
-        transition: hovered
-          ? "transform 0.08s ease-out"
-          : "transform 0.45s ease",
+        transition: "transform 0.45s ease",
         transformStyle: "preserve-3d",
-        boxShadow: hovered
-          ? `0 24px 48px rgba(0,0,0,0.5), 0 0 0 1px ${service.accent}55`
-          : "0 4px 16px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.06)",
         willChange: "transform",
+        boxShadow: `0 24px 48px rgba(0,0,0,0.5), 0 0 0 1px ${service.accent}55`,
       }}
     >
-      {/* ── image (revealed on hover) ── */}
+      {/* ── image (always revealed) ── */}
       <div
         style={{
           position: "relative",
-          height: hovered ? "160px" : "0px",
+          height: "160px",
           overflow: "hidden",
-          transition: "height 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
           flexShrink: 0,
         }}
       >
@@ -471,8 +358,7 @@ const ServiceCard = ({ service, Icon }) => {
             width: "100%",
             height: "200px",
             objectFit: "cover",
-            transform: hovered ? "scale(1.08)" : "scale(1.15)",
-            transition: "transform 0.6s ease",
+            transform: "scale(1.08)",
             marginTop: "-20px",
           }}
         />
@@ -481,7 +367,7 @@ const ServiceCard = ({ service, Icon }) => {
           style={{
             position: "absolute",
             inset: 0,
-            background: `linear-gradient(to bottom, transparent 40%, rgba(5,7,12,0.9) 100%)`,
+            background: `linear-gradient(to bottom, transparent 40%, rgba(255,255,255,0.9) 100%)`,
           }}
         />
         {/* accent glow */}
@@ -490,8 +376,6 @@ const ServiceCard = ({ service, Icon }) => {
             position: "absolute",
             inset: 0,
             background: `radial-gradient(ellipse at 50% 0%, ${service.accent}33 0%, transparent 70%)`,
-            opacity: hovered ? 1 : 0,
-            transition: "opacity 0.4s",
           }}
         />
       </div>
@@ -500,13 +384,10 @@ const ServiceCard = ({ service, Icon }) => {
       <div
         style={{
           padding: "20px",
-          background: hovered
-            ? `linear-gradient(135deg, ${service.accent}18 0%, rgba(5,7,12,0.95) 100%)`
-            : "rgba(255,255,255,0.03)",
-          border: `1px solid ${hovered ? service.accent + "44" : "rgba(255,255,255,0.07)"}`,
-          borderTop: hovered ? "none" : undefined,
-          borderRadius: hovered ? "0 0 16px 16px" : "16px",
-          transition: "all 0.4s ease",
+          background: `linear-gradient(135deg, ${service.accent}18 0%, rgba(255,255,255,0.95) 100%)`,
+          border: `1px solid ${service.accent}44`,
+          borderTop: "none",
+          borderRadius: "0 0 16px 16px",
           flex: 1,
           display: "flex",
           flexDirection: "column",
@@ -524,8 +405,7 @@ const ServiceCard = ({ service, Icon }) => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            transition: "all 0.3s",
-            boxShadow: hovered ? `0 0 16px ${service.accent}44` : "none",
+            boxShadow: `0 0 16px ${service.accent}44`,
           }}
         >
           <Icon size={20} style={{ color: service.accent }} />
@@ -535,7 +415,7 @@ const ServiceCard = ({ service, Icon }) => {
           style={{
             fontSize: "15px",
             fontWeight: 600,
-            color: "#fff",
+            color: "#000",
             margin: 0,
           }}
         >
@@ -545,32 +425,23 @@ const ServiceCard = ({ service, Icon }) => {
         <p
           style={{
             fontSize: "13px",
-            color: "rgba(255,255,255,0.5)",
+            color: "rgba(0,0,0,0.6)",
             lineHeight: 1.65,
-            margin: 0,
+            margin: "0 0 15px 0",
           }}
         >
           {service.description}
         </p>
 
-        {/* learn more */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "4px",
-            fontSize: "12px",
-            fontWeight: 600,
-            color: service.accent,
-            marginTop: "auto",
-            paddingTop: "8px",
-            opacity: hovered ? 1 : 0,
-            transform: hovered ? "translateX(0)" : "translateX(-8px)",
-            transition: "all 0.3s ease",
-          }}
-        >
-          Learn more <ChevronRight size={13} />
-        </div>
+        <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "8px" }}>
+          {service.points.map((pt, i) => (
+            <li key={i} style={{ display: "flex", alignItems: "center", gap: "10px", color: "rgba(0,0,0,0.5)", fontSize: "0.78rem" }}>
+              <span style={{ width: "5px", height: "5px", borderRadius: "50%", background: service.accent, flexShrink: 0, boxShadow: `0 0 6px ${service.accent}` }} />
+              {pt}
+            </li>
+          ))}
+        </ul>
+
       </div>
 
       {/* shimmer highlight on top edge */}
@@ -582,11 +453,9 @@ const ServiceCard = ({ service, Icon }) => {
           right: "10%",
           height: "1px",
           background: `linear-gradient(90deg, transparent, ${service.accent}88, transparent)`,
-          opacity: hovered ? 1 : 0,
-          transition: "opacity 0.4s",
         }}
       />
-    </Link>
+    </div>
   );
 };
 
@@ -610,45 +479,8 @@ const Index = () => (
         >
           What We Do
         </motion.h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[
-            {
-              icon: Shield,
-              title: "NDT Inspection",
-              slug: "non-destructive-testing",
-              description:
-                "AI-powered inspection ensuring safety and reliability without damage.",
-              image: imgndt1,
-              accent: "#0891b2",
-            },
-            {
-              icon: Globe,
-              title: "AR / VR",
-              slug: "ar-vr-applications",
-              description:
-                "Immersive experiences that transform training, design, and remote collaboration.",
-              image: imgarvr1,
-              accent: "#7c3aed",
-            },
-            {
-              icon: Brain,
-              title: "AI Development",
-              slug: "ai-development",
-              description:
-                "Build intelligent systems that learn, adapt, and make smarter decisions.",
-              image: imgAI1,
-              accent: "#2563eb",
-            },
-            {
-              icon: Cpu,
-              title: "IoT Solutions",
-              slug: "iot-solutions",
-              description:
-                "Connected systems for real-time monitoring and automation at scale.",
-              image: imgiot1,
-              accent: "#059669",
-            },
-          ].map((service, i) => {
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((service, i) => {
             const Icon = service.icon;
             return (
               <motion.div
@@ -680,7 +512,7 @@ const Index = () => (
           </h2>
 
           <p className="text-muted-foreground">
-            At Attractify Technologies, we combine advanced technologies with a
+            At Agile ICO, we combine advanced technologies with a
             structured engineering approach to build scalable, intelligent and
             future-ready solutions for modern industries.
           </p>
@@ -689,12 +521,12 @@ const Index = () => (
         {/* ───── TECHNOLOGIES GRID ───── */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-20">
           {[
-            { name: "Artificial Intelligence", icon: Brain, color: "#22d3ee" },
-            { name: "AR / VR", icon: Box, color: "#a78bfa" },
-            { name: "IoT Systems", icon: Cpu, color: "#60a5fa" },
-            { name: "Geospatial Tech", icon: Globe, color: "#34d399" },
-            { name: "NDT", icon: Shield, color: "#38bdf8" },
-            { name: "Custom SaaS", icon: Layers, color: "#10b981" },
+            { name: "Business Intelligence", icon: Brain, color: "#22d3ee" },
+            { name: "Predictive Analysis", icon: Box, color: "#a78bfa" },
+            { name: "Microsoft Services", icon: Cpu, color: "#60a5fa" },
+            { name: "Axial Core Motors", icon: Globe, color: "#34d399" },
+            { name: "Bi-Polar Switching Induction Motor", icon: Shield, color: "#38bdf8" },
+            { name: "Electronic Controlled Module", icon: Layers, color: "#10b981" },
           ].map((tech, i) => {
             const Icon = tech.icon;
 
@@ -712,8 +544,8 @@ const Index = () => (
                   className="
             h-[150px]
             rounded-xl
-            bg-[#05070c]
-            border border-white/5
+            bg-white
+            border border-black/5
             flex flex-col items-center justify-center
             text-center
           "
@@ -729,7 +561,7 @@ const Index = () => (
                   />
 
                   {/* TEXT */}
-                  <p className="text-sm font-medium text-white/90 leading-tight px-2">
+                  <p className="text-sm font-semibold text-black/80 leading-tight px-2">
                     {tech.name}
                   </p>
                 </div>
@@ -805,7 +637,7 @@ const Index = () => (
       <div className="section-container grid lg:grid-cols-2 gap-12 items-center">
         <div className="space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold">
-            Why Choose <span className="text-primary">Attractify</span>?
+            Why Choose <span className="text-primary">Agile ICO</span>?
           </h2>
           <p className="text-muted-foreground">
             We combine deep technical expertise with industry understanding to
@@ -850,42 +682,16 @@ const Index = () => (
         {/* heading */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Featured Solutions
+            What We Build
           </h2>
           <p className="text-muted-foreground">
-            Intelligent platforms designed to enhance efficiency, automate
-            workflows, and enable smarter industrial decision-making.
+            Explore our cutting-edge technologies and specialized services.
           </p>
         </div>
 
         {/* cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[
-            {
-              title: "AI Inspection Systems",
-              desc: "AI-powered inspection and defect detection for industrial safety and accuracy.",
-              icon: Brain,
-              color: "#60a5fa",
-            },
-            {
-              title: "Industrial AR Training",
-              desc: "Immersive AR environments for workforce training and remote assistance.",
-              icon: Box,
-              color: "#a855f7",
-            },
-            {
-              title: "IoT Monitoring Platform",
-              desc: "Real-time monitoring and predictive maintenance using connected devices.",
-              icon: Cpu,
-              color: "#22c55e",
-            },
-            {
-              title: "Predictive Analytics",
-              desc: "Data-driven insights that help industries forecast and optimize performance.",
-              icon: Globe,
-              color: "#f59e0b",
-            },
-          ].map((item, i) => {
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((item, i) => {
             const Icon = item.icon;
 
             return (
@@ -901,7 +707,7 @@ const Index = () => (
                 <div
                   className="absolute inset-0 rounded-xl opacity-40 pointer-events-none"
                   style={{
-                    background: `radial-gradient(circle at 20% 10%, ${item.color}22, transparent 70%)`,
+                    background: `radial-gradient(circle at 20% 10%, ${item.accent}22, transparent 70%)`,
                   }}
                 />
 
@@ -909,20 +715,30 @@ const Index = () => (
                 <div
                   className="w-12 h-12 rounded-lg flex items-center justify-center mb-4"
                   style={{
-                    background: `${item.color}15`,
-                    boxShadow: `0 0 18px ${item.color}40`,
+                    background: `${item.accent}15`,
+                    boxShadow: `0 0 18px ${item.accent}40`,
                   }}
                 >
-                  <Icon size={24} style={{ color: item.color }} />
+                  <Icon size={24} style={{ color: item.accent }} />
                 </div>
 
                 {/* title */}
-                <h3 className="font-semibold mb-2">{item.title}</h3>
+                <h2 className="font-semibold mb-3">{item.title}</h2>
 
                 {/* description */}
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {item.desc}
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                  {item.description}
                 </p>
+
+                {/* points */}
+                <ul className="space-y-2 mt-auto">
+                  {item.points.map((pt, idx) => (
+                    <li key={idx} className="flex items-center gap-3 text-[0.78rem] text-muted-foreground">
+                      <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: item.accent, boxShadow: `0 0 6px ${item.accent}` }} />
+                      {pt}
+                    </li>
+                  ))}
+                </ul>
               </div>
             );
           })}
@@ -930,20 +746,7 @@ const Index = () => (
       </div>
     </section>
 
-    {/* ── STATS ── */}
-    <section className="py-16 border-y border-border/40">
-      <div className="section-container grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-        {stats.map((stat, i) => (
-          <div key={i}>
-            <h3 className="text-3xl font-bold text-primary">
-              <CountUp end={parseInt(stat.value)} />
-              {stat.value.includes("+") && "+"}
-            </h3>
-            <p className="text-muted-foreground text-sm">{stat.label}</p>
-          </div>
-        ))}
-      </div>
-    </section>
+
 
     {/* ── CTA ── */}
     <section className="py-24 text-center">
@@ -959,92 +762,6 @@ const Index = () => (
         </Link>
       </Button>
     </section>
-
-    {/* FLOATING CONTACT BUTTON */}
-    {/* FLOATING CONTACT BUTTON — Glassmorphic */}
-    {/* FLOATING CONTACT BUTTON — Apple Liquid Glass */}
-    <Link
-      to="/contact"
-      className="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-4 py-2 text-xs font-semibold"
-      style={{
-        borderRadius: "980px",
-        color: "rgba(255,255,255,0.92)",
-        textDecoration: "none",
-        letterSpacing: "0.01em",
-        // layered liquid glass
-        background: `
-  radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.30) 0%, transparent 60%),
-  radial-gradient(ellipse at 70% 80%, rgba(255,255,255,0.12) 0%, transparent 50%),
-  linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.10) 50%, rgba(255,255,255,0.18) 100%)
-`,
-        backdropFilter: "blur(28px) saturate(180%) brightness(1.1)",
-        WebkitBackdropFilter: "blur(28px) saturate(180%) brightness(1.1)",
-        border: "1px solid rgba(255,255,255,0.28)",
-        boxShadow: `
-  0 1.5px 0 0 rgba(255,255,255,0.5) inset,
-  0 -1px 0 0 rgba(0,0,0,0.08) inset,
-  0 4px 16px rgba(0,0,0,0.12),
-  0 1px 4px rgba(0,0,0,0.08),
-  0 0 0 0.5px rgba(255,255,255,0.15)
-`,
-        transition: "all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)",
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.transform = "scale(1.06) translateY(-2px)";
-        e.currentTarget.style.boxShadow = `
-      0 2px 0 0 rgba(255,255,255,0.45) inset,
-      0 -1px 0 0 rgba(0,0,0,0.15) inset,
-      0 16px 48px rgba(0,0,0,0.3),
-      0 4px 16px rgba(0,0,0,0.2),
-      0 0 0 0.5px rgba(255,255,255,0.2),
-      0 0 32px rgba(96,165,250,0.2)
-    `;
-        e.currentTarget.style.background = `
-      radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.30) 0%, transparent 60%),
-      radial-gradient(ellipse at 70% 80%, rgba(255,255,255,0.12) 0%, transparent 50%),
-      linear-gradient(135deg, rgba(255,255,255,0.24) 0%, rgba(255,255,255,0.10) 50%, rgba(255,255,255,0.18) 100%)
-    `;
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.transform = "scale(1) translateY(0)";
-        e.currentTarget.style.boxShadow = `
-      0 2px 0 0 rgba(255,255,255,0.35) inset,
-      0 -1px 0 0 rgba(0,0,0,0.15) inset,
-      0 8px 32px rgba(0,0,0,0.25),
-      0 2px 8px rgba(0,0,0,0.15),
-      0 0 0 0.5px rgba(255,255,255,0.1)
-    `;
-        e.currentTarget.style.background = `
-      radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.22) 0%, transparent 60%),
-      radial-gradient(ellipse at 70% 80%, rgba(255,255,255,0.08) 0%, transparent 50%),
-      linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.06) 50%, rgba(255,255,255,0.12) 100%)
-    `;
-      }}
-      onMouseDown={(e) =>
-        (e.currentTarget.style.transform = "scale(0.97) translateY(0px)")
-      }
-      onMouseUp={(e) =>
-        (e.currentTarget.style.transform = "scale(1.06) translateY(-2px)")
-      }
-    >
-      {/* liquid inner highlight bubble */}
-      <span
-        style={{
-          position: "absolute",
-          top: "2px",
-          left: "12%",
-          right: "12%",
-          height: "40%",
-          borderRadius: "0 0 50% 50%",
-          background:
-            "linear-gradient(to bottom, rgba(255,255,255,0.45) 0%, transparent 100%)",
-          pointerEvents: "none",
-          filter: "blur(1px)",
-        }}
-      />
-      Contact Us
-      <ChevronRight size={12} style={{ opacity: 0.6 }} />
-    </Link>
   </div>
 );
 
