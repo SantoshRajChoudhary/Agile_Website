@@ -1,0 +1,22 @@
+Technical Specifications
+Lenses: 6 x F2.4 fisheye lenses
+Video Resolution: 8K 3D @ 30fps / 8K 2D @ 60fps / 4K 3D @ 120fps
+Audio: 4 x Built-in microphones (spatial audio support) + 3.5mm external input
+Storage: 6 x MicroSD cards + 1 x SD card (required for high-bitrate recording)
+ISO Range: 100~6400
+Bitrate: Up to 120Mbps per lens
+Weight: 1.55kg (Portable enough for drone or car mounting) 
+
+What’s in the Pro 2 Bundle?
+1 x Insta360 Pro 2 Camera Body
+1 x Farsight Transmitter & Receiver System
+1 x 5000mAh Rechargeable Battery
+1 x Protective Lens Cover & Rugged Carrying Case
+1 x Power Adapter & Ethernet Cable
+1 x USB-C Cable 
+
+Ideal For:
+VR Cinema: Creating narrative 3D 360 documentaries and films.
+Real Estate & Tourism: High-fidelity virtual tours for luxury properties.
+Live Events: Professional 4K 360 live-streaming to YouTube and Facebook.
+Google Street View: High-speed, high-resolution mapping and surveying.

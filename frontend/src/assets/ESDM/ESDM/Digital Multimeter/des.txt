@@ -1,0 +1,14 @@
+Technical Specifications
+DC Voltage: 0.1mV to 1000V [Accuracy: ±0.5% + 3]
+AC Voltage (True RMS): 0.1mV to 750V [Frequency: 45Hz–1kHz]
+Current Range: 10A (AC/DC) with internal fuse protection
+Resistance: Up to 60 M
+Safety Standards: IEC 61010-1, [CE/UL] Certified
+Battery Life: Approx. 200+ hours (Auto Power-Off enabled) 
+
+What’s in the Box?
+1 x Professional Digital Multimeter
+1 x Pair of High-Quality Test Leads (Red/Black)
+1 x K-Type Thermocouple (for temperature)
+1 x Protective Rubber Holster
+1 x User Manual & Quick Start Guide 

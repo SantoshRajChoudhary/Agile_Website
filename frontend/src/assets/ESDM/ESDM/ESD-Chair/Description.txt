@@ -1,0 +1,15 @@
+An ESD (Electrostatic Discharge) chair is a specialized seating solution designed to safely dissipate static electricity from a person to a grounded floor, preventing the buildup of charges that could damage sensitive electronic components
+
+Technical Specifications
+Surface Resistivity: 
+ 
+ (Static Dissipative)
+Decay Time: < 0.5 seconds (from 5000V to 0V)
+Base Material: Polished Aluminum / Chrome-Plated Steel
+Adjustment: Pneumatic Gas Lift (ESD-protected)
+Cleanroom Rating: [ISO Class 5 / Class 6] (Optional)
+Ideal For:
+Electronics & Semiconductor Assembly
+Medical Device Manufacturing
+Aerospace Engineering Labs
+Testing & Calibration Stations
