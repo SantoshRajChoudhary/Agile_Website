@@ -1,0 +1,13 @@
+Technical Specifications
+Voltage Range: 0 to [e.g., 30V] (Adjustable per channel)
+Current Range: 0 to [e.g., 5A] (Adjustable per channel)
+Line/Load Regulation: e.g., ≤0.01% + 3mV / ≤0.02% + 5mA
+Display Resolution: 10mV / 1mA
+Tracking Mode: Symmetrical tracking for ± polarity applications
+Cooling: Temperature-controlled low-noise cooling fan 
+
+Ideal For:
+Analog Circuit Design: Perfect for Operational Amplifiers (Op-Amps) requiring ±12V or ±15V rails.
+Repair & Troubleshooting: Testing smartphones, laptops, and complex industrial PCBs.
+Education & STEM: An essential tool for university electronics labs and hobbyist projects.
+Manufacturing QA: Reliable for long-term burn-in testing and quality control.

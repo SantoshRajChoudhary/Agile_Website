@@ -1,0 +1,13 @@
+Technical Specifications
+Measurement Parameters: L, C, R, Z, ESR, D, Q, 
+Test Speed: Fast (up to [e.g., 10 meas/sec]), Medium, and Slow
+Capacitance Range: [e.g., 0.01pF to 20mF]
+Inductance Range: [e.g., 0.001µH to 1000H]
+Resistance Range: [e.g., 0.001 Ohm to 20 Ohm]
+Interface: [USB / RS-232] for PC data logging and remote control 
+
+Ideal For:
+PCB Repair: Identifying "leaky" or high-ESR capacitors.
+Production Lines: Incoming component inspection and sorting.
+Audio Engineering: Matching components for crossover networks and amplifiers.
+Educational Labs: Teaching impedance and phase angle concepts.

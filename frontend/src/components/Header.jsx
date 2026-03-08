@@ -8,8 +8,9 @@ const SEARCH_DATA = [
   // Pages
   { title: "Home", category: "Page", path: "/", keywords: "home landing welcome agile ico", Icon: Home },
   { title: "What We Do Best", category: "Page", path: "/whatwedobest", keywords: "what we do services solutions overview", Icon: Layers },
-  { title: "Who We Serve", category: "Page", path: "/products", keywords: "products industries clients manufacturing iot ai digital", Icon: Users },
+  { title: "Who We Serve", category: "Page", path: "/who-we-serve", keywords: "industries clients manufacturing iot ai digital", Icon: Users },
   { title: "Our Thinking", category: "Page", path: "/services", keywords: "thinking services offerings technology", Icon: FileText },
+  { title: "Our Products", category: "Page", path: "/products", keywords: "products platforms dashboard analytics iot ai", Icon: Layers },
   { title: "About Us", category: "Page", path: "/about", keywords: "about company team mission vision story", Icon: Info },
   { title: "Careers", category: "Page", path: "/career", keywords: "careers jobs hiring work join team", Icon: Briefcase },
   { title: "Contact", category: "Page", path: "/contact", keywords: "contact get in touch reach us email phone", Icon: Mail },
@@ -29,9 +30,9 @@ const SEARCH_DATA = [
   { title: "Geospatial Intelligence", category: "Service", path: "/services/geospatial-intelligence", keywords: "geospatial mapping gis spatial analysis monitoring environment", Icon: FileText },
 
   // Industries
-  { title: "Manufacturing & Industrial", category: "Industry", path: "/products", keywords: "manufacturing industrial predictive maintenance inspection factory automation", Icon: Users },
-  { title: "AI & Digital Startups", category: "Industry", path: "/products", keywords: "startups digital ai platform growth scalable product", Icon: Users },
-  { title: "Smart Cities & IoT", category: "Industry", path: "/products", keywords: "smart cities iot infrastructure connected real time decision", Icon: Users },
+  { title: "Manufacturing & Industrial", category: "Industry", path: "/who-we-serve", keywords: "manufacturing industrial predictive maintenance inspection factory automation", Icon: Users },
+  { title: "AI & Digital Startups", category: "Industry", path: "/who-we-serve", keywords: "startups digital ai platform growth scalable product", Icon: Users },
+  { title: "Smart Cities & IoT", category: "Industry", path: "/who-we-serve", keywords: "smart cities iot infrastructure connected real time decision", Icon: Users },
 ];
 
 function matchScore(item, query) {
@@ -138,9 +139,11 @@ const Header = () => {
   };
 
   const navLinks = [
+    { name: "Home", path: "/" },
     { name: "What We Do", path: "/whatwedobest" },
-    { name: "Who We Serve", path: "/products" },
+    { name: "Who We Serve", path: "/who-we-serve" },
     { name: "Our Thinking", path: "/services" },
+    { name: "Our Products", path: "/products" },
     { name: "About Us", path: "/about" },
   ];
 

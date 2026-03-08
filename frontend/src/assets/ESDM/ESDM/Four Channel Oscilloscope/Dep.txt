@@ -1,0 +1,14 @@
+Technical Specifications
+Bandwidth: [e.g., 70MHz / 100MHz / 200MHz]
+Vertical Resolution: [e.g., 8-bit / 12-bit] (for high-precision signal analysis)
+Waveform Capture Rate: [e.g., 30,000 to 1,000,000] wfms/s
+Connectivity: USB Host/Device, LAN (LXI compliant), and HDMI Output
+Math Functions: FFT, Add, Subtract, Multiply, and Advanced Calculus
+Safety Rating: CAT II 300V / Compliance with CE/RoHS 
+
+What’s in the Box?
+1 x 4-Channel Digital Storage Oscilloscope
+4 x High-Impedance Passive Probes (1X/10X attenuation)
+1 x USB Communication Cable
+1 x Power Cord (Region Specific)
+1 x Calibration Certificate & User Manual

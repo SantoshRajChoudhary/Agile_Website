@@ -1,0 +1,15 @@
+Technical Specifications
+Max Flight Time: 55 Minutes.
+Ingress Protection: IP55 (Aircraft) / IP54 (Remote Controller).
+Max Payload: 2.7 kg.
+Operating Temperature: -20°C to 50°C (-4°F to 122°F).
+Battery Cycle Life: Up to 400 cycles with the new TB65 Intelligent Flight Battery.
+Transmission Range: Up to 20 km (unobstructed).
+Sensing System: 6-directional binocular vision and infrared sensing. 
+Compatible Payloads 
+
+The M350 RTK integrates seamlessly with a wide range of DJI Enterprise payloads and third-party sensors via the DJI SDK: 
+Zenmuse H30/H20 Series: All-in-one thermal, zoom, and laser rangefinder sensors.
+Zenmuse L1/L2: High-accuracy LiDAR for real-time 3D data and topographic surveys.
+Zenmuse P1: Full-frame photogrammetry sensor for efficient mapping missions.
+Third-Party Payloads: Support for gas detectors, loudspeakers, and multispectral sensors.

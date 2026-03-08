@@ -214,6 +214,11 @@ function IndustryCard({ industry, index }) {
 
 /* ─── Main ─── */
 const Products = () => {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setTimeout(() => setMounted(true), 60);
+  }, []);
+
   return (
     <div className="prd-root">
 

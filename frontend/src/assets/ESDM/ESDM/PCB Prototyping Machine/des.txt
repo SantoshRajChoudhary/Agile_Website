@@ -1,0 +1,14 @@
+Technical Specifications
+Working Area: e.g., 229mm x 305mm (9" x 12")
+Minimum Trace/Space: e.g., 0.1mm / 4 mil
+Drilling Speed: Up to e.g., 120 strokes/min
+File Compatibility: Standard Gerber (RS-274X), Excellon Drill, and DXF files.
+Supported Materials: FR4, FR1, CEM1, G-10, Polyimide, and PTFE (RT/duroid).
+Connectivity: USB 2.0 with galvanic isolation. 
+
+
+Ideal For:
+Electronics R&D Labs: Rapidly validating circuit theories and embedded systems.
+Aerospace & Defense: Keeping sensitive intellectual property (IP) entirely in-house.
+Universities: Teaching PCB design and fabrication in a clean, hands-on environment.
+Medical Startups: Fast prototyping of imaging and diagnostic equipment controls.

@@ -1,0 +1,15 @@
+Technical Specifications
+Power Consumption: [e.g., 90W – 140W]
+Temperature Range: [e.g., 160°C to 480°C / 320°F to 896°F]
+Vacuum Pressure: [e.g., 600mm Hg / 0.05MPa]
+Heating Element: Ceramic (for longer life and faster recovery)
+Display: Digital LED/LCD showing set and actual temperatures
+Safety Functions: Auto-sleep and Auto-shutoff (adjustable) 
+
+What’s in the Box?
+1 x Desoldering Station Power Unit
+1 x Desoldering Gun with pre-installed nozzle
+2-3 x Additional Spare Nozzles (various sizes)
+1 x Set of Cleaning Pins & Filters
+1 x Heat-Resistant Stand with Cleaning Sponge
+1 x User Manual 

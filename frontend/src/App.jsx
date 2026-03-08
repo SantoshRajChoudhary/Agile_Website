@@ -10,12 +10,14 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Products from "./pages/Products";
+import ProductDetails from "./pages/ProductDetails";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import WhatWeDoBest from "./pages/whatwedobest";
 import ServiceDetail from "./pages/ServiceDetail";
 import IndexJsDetails from "./pages/indexjsDetails";
 import Career from "./pages/Career";
+import WhoWeServe from "./pages/WhoWeServe";
 
 import ScrollToTop from "./components/ScrollToTop";
 import Header from "./components/Header";
@@ -43,7 +45,9 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/services" element={<Services />} />
               <Route path="/services/:slug" element={<ServiceDetail />} />
+              <Route path="/who-we-serve" element={<WhoWeServe />} />
               <Route path="/products" element={<Products />} />
+              <Route path="/product/:id" element={<ProductDetails />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/career" element={<Career />} />
               <Route path="/whatwedobest" element={<WhatWeDoBest />} />
