@@ -10,60 +10,61 @@ import {
   Workflow,
   TrendingUp,
   ArrowRight,
-  ArrowUpRight,
+  Brain,
+  Settings,
+  Zap,
 } from "lucide-react";
 import geospatialVideo from "@/assets/videos/Geospatial.mp4";
 
 /* ─── Data ─── */
 const services = [
   {
-    icon: Cpu,
-    title: "AI & Machine Learning",
-    slug: "ai-machine-learning",
+    icon: TrendingUp,
+    title: "Business Intelligence",
+    slug: "business-intelligence",
     accent: "#818cf8",
-    description: "Build intelligent systems that learn from data, automate decisions, and improve business efficiency.",
-    points: ["Predictive analytics & automation", "Computer vision & NLP solutions", "Custom ML model development"],
+    description: "Harness the power of data to drive informed business decisions and strategic planning.",
+    points: ["Data Visualization & Reporting", "Operational Strategy Planning", "Actionable Insight Generation"],
   },
   {
-    icon: Globe,
-    title: "IoT Solutions",
-    slug: "iot-solutions",
+    icon: Brain,
+    title: "Predictive Analysis",
+    slug: "predictive-analysis",
     accent: "#34d399",
-    description: "Connect devices and systems for real-time monitoring, automation, and intelligent insights.",
-    points: ["Real-time device monitoring", "Sensor data analytics", "Smart automation systems"],
-  },
-  {
-    icon: Smartphone,
-    title: "AR/VR Applications",
-    slug: "ar-vr-applications",
-    accent: "#c084fc",
-    description: "Create immersive digital experiences for training, visualization, and engagement.",
-    points: ["Virtual training simulations", "3D visualization", "Interactive AR experiences"],
+    description: "Leverage historical data and machine learning to forecast trends and optimize performance.",
+    points: ["Statistical Modeling", "Machine Learning Trends", "Performance Optimization"],
   },
   {
     icon: Cloud,
-    title: "Cloud Infrastructure",
-    slug: "cloud-infrastructure",
+    title: "Microsoft Services",
+    slug: "microsoft-services",
+    accent: "#c084fc",
+    description: "Unlock the full potential of your data with tailored Microsoft solutions for the 'big picture'.",
+    points: ["Power BI Dashboards", "Azure Cloud Solutions", "Enterprise Data Management"],
+  },
+  {
+    icon: Settings,
+    title: "Axial Core Motors",
+    slug: "axial-core-motors",
     accent: "#38bdf8",
-    description: "Scalable and secure cloud architecture designed for performance and reliability.",
-    points: ["Cloud migration & deployment", "Scalable architecture", "DevOps & CI/CD pipelines"],
+    description: "High-torque, compact motors engineered for next-gen mobility in EVs and Drones.",
+    points: ["140kg Load Output", "Aerospace & Automotive Grade", "High Power Density"],
   },
   {
-    icon: Shield,
-    title: "Non-Destructive Testing",
-    slug: "non-destructive-testing",
+    icon: Zap,
+    title: "Bi-Polar Switching Induction Motor",
+    slug: "bipolar-switching-motor",
     accent: "#fb923c",
-    description: "AI-powered inspection solutions ensuring safety and quality without damaging materials.",
-    points: ["AI-based defect detection", "Automated inspection", "Industrial safety monitoring"],
+    description: "Innovative module delivering immediate energy savings for induction systems with zero infrastructure changes.",
+    points: ["Zero Infrastructure Change", "Immediate Energy Savings", "Performance Upgrades"],
   },
   {
-    icon: Globe,
-    title: "Geospatial Intelligence",
-    slug: "geospatial-intelligence",
-    video: geospatialVideo,
+    icon: Cpu,
+    title: "Electronic Controlled Module",
+    slug: "electronic-controlled-module",
     accent: "#10b981",
-    description: "AI-powered geospatial analytics for mapping, monitoring, and decision-making.",
-    points: ["AI-based spatial analysis", "Real-time mapping", "Environmental monitoring"],
+    description: "Smart retrofit solution reducing wattage consumption of induction ceiling fans by 40-50%.",
+    points: ["40-50% Watts Reduction", "Smart Retrofit Design", "Cost-Effective Upgrades"],
   },
 ];
 
@@ -73,7 +74,7 @@ const pillars = [
   { icon: TrendingUp, title: "Business Impact", desc: "Solutions designed to deliver measurable, lasting growth." },
 ];
 
-const techNames = ["Kubernetes", "React Native", "AWS", "Firebase", "TensorFlow", "PyTorch", "Docker", "Next.js"];
+const techNames = ["Business Intelligence", "Predictive Analysis", "Microsoft Services", "Axial Core Motors", "Bi-Polar Switching Induction Motor", "Electronic Controlled Module", "Mobile App development"];
 
 /* ─── Hook ─── */
 function useReveal(delay = 0) {
@@ -111,23 +112,21 @@ function ServiceCard({ service, index }) {
   const Icon = service.icon;
   return (
     <Reveal delay={index * 80}>
-      <Link
-        to={`/services/${service.slug}`}
+      <div
         onMouseEnter={() => setHov(true)}
         onMouseLeave={() => setHov(false)}
         style={{
           display: "flex",
           flexDirection: "column",
           gap: 0,
-          background: hov ? "rgba(255,255,255,0.04)" : "rgba(255,255,255,0.02)",
-          border: `1px solid ${hov ? `${service.accent}50` : "rgba(255,255,255,0.07)"}`,
+          background: hov ? "rgba(0,0,0,0.04)" : "rgba(0,0,0,0.02)",
+          border: `1px solid ${hov ? `${service.accent}50` : "rgba(0,0,0,0.07)"}`,
           borderRadius: 18,
           padding: "28px 26px",
-          textDecoration: "none",
           position: "relative",
           overflow: "hidden",
           transform: hov ? "translateY(-5px)" : "none",
-          boxShadow: hov ? `0 16px 48px rgba(0,0,0,0.35), 0 0 0 0.5px ${service.accent}30` : "none",
+          boxShadow: hov ? `0 16px 48px rgba(0,0,0,0.15), 0 0 0 0.5px ${service.accent}30` : "none",
           transition: "all 0.3s cubic-bezier(.25,.8,.25,1)",
           height: "100%",
         }}
@@ -155,39 +154,23 @@ function ServiceCard({ service, index }) {
           <Icon size={20} color={service.accent} strokeWidth={1.6} />
         </div>
 
-        <h3 style={{ fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: "1rem", color: "#fff", marginBottom: 10, lineHeight: 1.3 }}>
+        <h3 style={{ fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: "1rem", color: "#000", marginBottom: 10, lineHeight: 1.3 }}>
           {service.title}
         </h3>
 
-        <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.85rem", lineHeight: 1.75, marginBottom: 20, flex: 1 }}>
+        <p style={{ color: "rgba(0,0,0,0.55)", fontSize: "0.85rem", lineHeight: 1.75, marginBottom: 20, flex: 1 }}>
           {service.description}
         </p>
 
         <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 7, marginBottom: 22 }}>
           {service.points.map((pt, i) => (
-            <li key={i} style={{ display: "flex", alignItems: "center", gap: 10, color: "rgba(255,255,255,0.4)", fontSize: "0.78rem" }}>
+            <li key={i} style={{ display: "flex", alignItems: "center", gap: 10, color: "rgba(0,0,0,0.5)", fontSize: "0.78rem" }}>
               <span style={{ width: 5, height: 5, borderRadius: "50%", background: service.accent, flexShrink: 0, boxShadow: `0 0 6px ${service.accent}` }} />
               {pt}
             </li>
           ))}
         </ul>
-
-        {/* Footer link */}
-        <div style={{
-          display: "flex", alignItems: "center",
-          color: service.accent,
-          fontFamily: "'Syne',sans-serif",
-          fontWeight: 700,
-          fontSize: "0.75rem",
-          letterSpacing: "0.06em",
-          textTransform: "uppercase",
-          opacity: hov ? 1 : 0.5,
-          transition: "opacity 0.3s, gap 0.3s",
-          gap: hov ? 8 : 4,
-        }}>
-          Explore <ArrowUpRight size={13} />
-        </div>
-      </Link>
+      </div>
     </Reveal>
   );
 }
@@ -223,7 +206,7 @@ const Services = () => {
               fontSize: "clamp(2.6rem, 6vw, 5rem)",
               letterSpacing: "-0.03em",
               lineHeight: 1.05,
-              color: "#fff",
+              color: "#1a1a1a",
               marginBottom: 24,
               opacity: mounted ? 1 : 0,
               transform: mounted ? "none" : "translateY(20px)",
@@ -237,7 +220,7 @@ const Services = () => {
           </Reveal>
 
           <Reveal delay={160}>
-            <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "1rem", lineHeight: 1.8, maxWidth: 520, margin: "0 auto" }}>
+            <p style={{ color: "rgba(0,0,0,0.6)", fontSize: "1rem", lineHeight: 1.8, maxWidth: 520, margin: "0 auto" }}>
               We combine engineering excellence, artificial intelligence, and industry insight to build solutions that create measurable business impact.
             </p>
           </Reveal>
@@ -255,8 +238,8 @@ const Services = () => {
                   <div style={{ width: 40, height: 40, borderRadius: 10, background: "rgba(129,140,248,0.1)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16 }}>
                     <Icon size={18} color="#818cf8" strokeWidth={1.6} />
                   </div>
-                  <h3 style={{ fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: "0.95rem", color: "#fff", marginBottom: 8 }}>{p.title}</h3>
-                  <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.83rem", lineHeight: 1.7 }}>{p.desc}</p>
+                  <h3 style={{ fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: "0.95rem", color: "#1a1a1a", marginBottom: 8 }}>{p.title}</h3>
+                  <p style={{ color: "rgba(0,0,0,0.55)", fontSize: "0.83rem", lineHeight: 1.7 }}>{p.desc}</p>
                 </div>
               </Reveal>
             );
@@ -266,7 +249,7 @@ const Services = () => {
 
       {/* ════ THIN DIVIDER ════ */}
       <div style={{ maxWidth: 1100, margin: "0 auto 80px", padding: "0 24px" }}>
-        <div style={{ height: 1, background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent)" }} />
+        <div style={{ height: 1, background: "linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)" }} />
       </div>
 
       {/* ════ SERVICES ════ */}
@@ -275,7 +258,7 @@ const Services = () => {
           <Reveal>
             <div style={{ marginBottom: 48 }}>
               <p style={{ fontFamily: "'Syne',sans-serif", fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.3em", textTransform: "uppercase", color: "#818cf8", marginBottom: 10 }}>Services</p>
-              <h2 style={{ fontFamily: "'Syne',sans-serif", fontWeight: 800, fontSize: "clamp(1.7rem, 3vw, 2.4rem)", color: "#fff", letterSpacing: "-0.02em" }}>
+              <h2 style={{ fontFamily: "'Syne',sans-serif", fontWeight: 800, fontSize: "clamp(1.7rem, 3vw, 2.4rem)", color: "#1a1a1a", letterSpacing: "-0.02em" }}>
                 What We Build
               </h2>
             </div>
@@ -288,14 +271,14 @@ const Services = () => {
       </section>
 
       {/* ════ TECH MARQUEE ════ */}
-      <section style={{ borderTop: "1px solid rgba(255,255,255,0.05)", borderBottom: "1px solid rgba(255,255,255,0.05)", padding: "0", overflow: "hidden" }}>
+      <section style={{ borderTop: "1px solid rgba(0,0,0,0.08)", borderBottom: "1px solid rgba(0,0,0,0.08)", padding: "0", overflow: "hidden" }}>
         <div style={{ padding: "18px 0" }}>
           <div className="srv-marquee">
             {[...techNames, ...techNames].map((name, i) => (
               <div key={i} style={{
                 display: "inline-flex", alignItems: "center", gap: 16,
                 padding: "0 32px",
-                color: "rgba(255,255,255,0.25)",
+                color: "rgba(0,0,0,0.35)",
                 fontFamily: "'Syne',sans-serif",
                 fontWeight: 700,
                 fontSize: "0.7rem",
@@ -317,11 +300,11 @@ const Services = () => {
 
         <Reveal>
           <div style={{ position: "relative", zIndex: 1, maxWidth: 540, margin: "0 auto" }}>
-            <h2 style={{ fontFamily: "'Syne',sans-serif", fontWeight: 800, fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", color: "#fff", letterSpacing: "-0.02em", lineHeight: 1.15, marginBottom: 16 }}>
+            <h2 style={{ fontFamily: "'Syne',sans-serif", fontWeight: 800, fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", color: "#1a1a1a", letterSpacing: "-0.02em", lineHeight: 1.15, marginBottom: 16 }}>
               Want to transform your idea into a success story?
             </h2>
 
-            <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.95rem", marginBottom: 40, lineHeight: 1.7 }}>
+            <p style={{ color: "rgba(0,0,0,0.55)", fontSize: "0.95rem", marginBottom: 40, lineHeight: 1.7 }}>
               Let's build scalable, intelligent solutions together.
             </p>
 

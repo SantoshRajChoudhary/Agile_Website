@@ -6,7 +6,7 @@ import logo1 from "@/assets/logo1.png";
 /* ─── Searchable site-wide data ─── */
 const SEARCH_DATA = [
   // Pages
-  { title: "Home", category: "Page", path: "/", keywords: "home landing welcome attractify", Icon: Home },
+  { title: "Home", category: "Page", path: "/", keywords: "home landing welcome agile ico", Icon: Home },
   { title: "What We Do Best", category: "Page", path: "/whatwedobest", keywords: "what we do services solutions overview", Icon: Layers },
   { title: "Who We Serve", category: "Page", path: "/who-we-serve", keywords: "industries clients manufacturing iot ai digital", Icon: Users },
   { title: "Our Thinking", category: "Page", path: "/services", keywords: "thinking services offerings technology", Icon: FileText },
@@ -158,18 +158,18 @@ const Header = () => {
       fontSize: "13.5px",
       fontWeight: 500,
       letterSpacing: "0.01em",
-      color: active ? "#93c5fd" : isHovered ? "#fff" : "rgba(255,255,255,0.6)",
+      color: active ? "#2563eb" : isHovered ? "#000" : "rgba(0,0,0,0.6)",
       textDecoration: "none",
       background: active
-        ? "rgba(255,255,255,0.08)"
+        ? "rgba(0,0,0,0.04)"
         : isHovered
-        ? "rgba(255,255,255,0.06)"
-        : "transparent",
+          ? "rgba(0,0,0,0.03)"
+          : "transparent",
       border: active
-        ? "1px solid rgba(255,255,255,0.1)"
+        ? "1px solid rgba(0,0,0,0.1)"
         : isHovered
-        ? "1px solid rgba(255,255,255,0.08)"
-        : "1px solid transparent",
+          ? "1px solid rgba(0,0,0,0.08)"
+          : "1px solid transparent",
       transition: "all 0.2s ease",
       position: "relative",
       whiteSpace: "nowrap",
@@ -214,12 +214,12 @@ const Header = () => {
           alignItems: "center",
           justifyContent: "space-between",
           background: scrolled
-            ? "rgba(10,10,20,0.85)"
-            : "rgba(10,10,20,0.6)",
+            ? "rgba(255,255,255,0.95)"
+            : "rgba(255,255,255,0.8)",
           backdropFilter: "blur(16px)",
           WebkitBackdropFilter: "blur(16px)",
           borderBottom: scrolled
-            ? "1px solid rgba(255,255,255,0.08)"
+            ? "1px solid rgba(0,0,0,0.08)"
             : "1px solid transparent",
           transition: "all 0.3s ease",
         }}
@@ -230,44 +230,15 @@ const Header = () => {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "10px",
             textDecoration: "none",
             flexShrink: 0,
           }}
         >
           <img
             src={logo1}
-            alt="Attractify Logo"
-            style={{ height: "40px", width: "auto" }}
+            alt="Agile ICO Logo"
+            style={{ height: "45px", width: "auto", objectFit: "contain" }}
           />
-          <div style={{ display: "flex", flexDirection: "column", lineHeight: "1.1" }}>
-            <span
-              style={{
-                fontSize: "25px",
-                fontWeight: 700,
-                letterSpacing: "0.02em",
-                background: "linear-gradient(90deg, #60a5fa, #22d3ee)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              Attractify
-            </span>
-            <span
-              style={{
-                fontSize: "15px",
-                fontWeight: 500,
-                letterSpacing: "0.08em",
-                textTransform: "uppercase",
-                background: "linear-gradient(90deg, #34d399, #60a5fa)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                opacity: 0.9,
-              }}
-            >
-              Technology
-            </span>
-          </div>
         </Link>
 
         {/* ── NAV + CAREERS (desktop) ── */}
@@ -296,7 +267,7 @@ const Header = () => {
             style={{
               width: "1px",
               height: "18px",
-              background: "rgba(255,255,255,0.12)",
+              background: "rgba(0,0,0,0.12)",
               margin: "0 6px",
             }}
           />
@@ -325,15 +296,15 @@ const Header = () => {
               alignItems: "center",
               gap: "6px",
               background: dropdownOpen
-                ? "rgba(255,255,255,0.08)"
-                : "rgba(255,255,255,0.05)",
+                ? "rgba(0,0,0,0.04)"
+                : "rgba(0,0,0,0.02)",
               border: dropdownOpen
-                ? "1px solid rgba(255,255,255,0.18)"
-                : "1px solid rgba(255,255,255,0.09)",
+                ? "1px solid rgba(0,0,0,0.1)"
+                : "1px solid rgba(0,0,0,0.06)",
               borderRadius: dropdownOpen && results.length > 0 ? "8px 8px 0 0" : "8px",
               padding: "5px 6px 5px 10px",
               transition: "all 0.2s ease",
-              boxShadow: dropdownOpen ? "0 0 0 3px rgba(96,165,250,0.08)" : "none",
+              boxShadow: dropdownOpen ? "0 0 0 3px rgba(37,99,235,0.05)" : "none",
             }}
           >
             <input
@@ -350,10 +321,10 @@ const Header = () => {
                 background: "transparent",
                 border: "none",
                 outline: "none",
-                color: "#fff",
+                color: "#000",
                 fontSize: "13px",
                 width: "150px",
-                caretColor: "#60a5fa",
+                caretColor: "#2563eb",
               }}
             />
             <button
@@ -367,23 +338,23 @@ const Header = () => {
                 }
               }}
               style={{
-                background: "rgba(255,255,255,0.07)",
+                background: "rgba(0,0,0,0.04)",
                 border: "none",
                 borderRadius: "5px",
                 padding: "4px",
-                color: "rgba(255,255,255,0.45)",
+                color: "rgba(0,0,0,0.45)",
                 cursor: "pointer",
                 display: "flex",
                 alignItems: "center",
                 transition: "all 0.2s ease",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(255,255,255,0.14)";
-                e.currentTarget.style.color = "#fff";
+                e.currentTarget.style.background = "rgba(0,0,0,0.08)";
+                e.currentTarget.style.color = "#000";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = "rgba(255,255,255,0.07)";
-                e.currentTarget.style.color = "rgba(255,255,255,0.45)";
+                e.currentTarget.style.background = "rgba(0,0,0,0.04)";
+                e.currentTarget.style.color = "rgba(0,0,0,0.45)";
               }}
             >
               <Search size={15} />
@@ -438,9 +409,9 @@ const Header = () => {
             width: "36px",
             height: "36px",
             borderRadius: "8px",
-            border: "1px solid rgba(255,255,255,0.1)",
-            background: "rgba(255,255,255,0.06)",
-            color: "#fff",
+            border: "1px solid rgba(0,0,0,0.1)",
+            background: "rgba(0,0,0,0.04)",
+            color: "#000",
             display: "none",
             alignItems: "center",
             justifyContent: "center",
@@ -460,10 +431,10 @@ const Header = () => {
           left: 0,
           right: 0,
           zIndex: 998,
-          background: "rgba(10,10,20,0.97)",
+          background: "rgba(255,255,255,0.98)",
           backdropFilter: "blur(20px)",
           WebkitBackdropFilter: "blur(20px)",
-          borderBottom: "1px solid rgba(255,255,255,0.08)",
+          borderBottom: "1px solid rgba(0,0,0,0.08)",
           padding: mobileOpen ? "16px 20px 20px" : "0 20px",
           maxHeight: mobileOpen ? "500px" : "0px",
           overflow: "hidden",
@@ -488,9 +459,9 @@ const Header = () => {
                 borderRadius: "8px",
                 fontSize: "14px",
                 fontWeight: 500,
-                color: isActive ? "#93c5fd" : "rgba(255,255,255,0.65)",
+                color: isActive ? "#2563eb" : "rgba(0,0,0,0.65)",
                 textDecoration: "none",
-                background: isActive ? "rgba(255,255,255,0.07)" : "transparent",
+                background: isActive ? "rgba(0,0,0,0.04)" : "transparent",
                 marginBottom: "4px",
                 transition: "all 0.2s ease",
                 position: "relative",
@@ -537,13 +508,13 @@ function MobileSearch({ navigate }) {
           display: "flex",
           alignItems: "center",
           gap: "8px",
-          background: "rgba(255,255,255,0.05)",
-          border: "1px solid rgba(255,255,255,0.09)",
+          background: "rgba(0,0,0,0.03)",
+          border: "1px solid rgba(0,0,0,0.06)",
           borderRadius: open && results.length > 0 ? "8px 8px 0 0" : "8px",
           padding: "8px 12px",
         }}
       >
-        <Search size={15} style={{ color: "rgba(255,255,255,0.4)" }} />
+        <Search size={15} style={{ color: "rgba(0,0,0,0.4)" }} />
         <input
           type="text"
           placeholder="Search…"
@@ -554,10 +525,10 @@ function MobileSearch({ navigate }) {
             background: "transparent",
             border: "none",
             outline: "none",
-            color: "#fff",
+            color: "#000",
             fontSize: "13px",
             width: "100%",
-            caretColor: "#60a5fa",
+            caretColor: "#2563eb",
           }}
         />
       </div>

@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Mail, Phone, MapPin, Clock, ArrowRight } from "lucide-react";
 
 const contactInfo = [
-  { icon: Mail, title: "Email Us", details: "info@attractifytechnology.com", link: "mailto:info@attractifytechnology.com" },
+  { icon: Mail, title: "Email Us", details: "info@agileico.com", link: "mailto:info@agileico.com" },
   { icon: Phone, title: "Call Us", details: "+1 (234) 567-890", link: "tel:+1234567890" },
   { icon: MapPin, title: "Visit Us", details: "123 Tech Avenue, Silicon Valley, CA", link: "#" },
   { icon: Clock, title: "Working Hours", details: "Mon – Fri: 9:00 AM – 6:00 PM", link: "#" },
@@ -64,11 +64,11 @@ const Contact = () => {
 
   const inputStyle = (name) => ({
     width: "100%",
-    background: focused === name ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.02)",
-    border: `1px solid ${focused === name ? "rgba(129,140,248,0.5)" : "rgba(255,255,255,0.08)"}`,
+    background: focused === name ? "rgba(0,0,0,0.05)" : "rgba(0,0,0,0.02)",
+    border: `1px solid ${focused === name ? "rgba(129,140,248,0.5)" : "rgba(0,0,0,0.08)"}`,
     borderRadius: 10,
     padding: "12px 16px",
-    color: "#fff",
+    color: "#000",
     fontSize: "0.88rem",
     fontFamily: "'Oxanium', sans-serif",
     outline: "none",
@@ -93,14 +93,14 @@ const Contact = () => {
             transition: "all 0.7s ease",
           }}>
             <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#818cf8", boxShadow: "0 0 8px #818cf8" }} />
-            <span style={{ fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#a5b4fc" }}>Get In Touch</span>
+            <span style={{ fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#6366f1" }}>Get In Touch</span>
           </div>
 
           <h1 style={{
             fontFamily: "'Oxanium',sans-serif", fontWeight: 800,
             fontSize: "clamp(2.6rem, 6vw, 4.8rem)",
             letterSpacing: "-0.02em", lineHeight: 1.0,
-            color: "#fff", marginBottom: 20,
+            color: "#1a1a1a", marginBottom: 20,
             opacity: mounted ? 1 : 0, transform: mounted ? "none" : "translateY(20px)",
             transition: "all 0.85s ease 0.1s",
           }}>
@@ -111,7 +111,7 @@ const Contact = () => {
           </h1>
 
           <p style={{
-            color: "rgba(255,255,255,0.42)", fontSize: "0.97rem", lineHeight: 1.85,
+            color: "rgba(0,0,0,0.6)", fontSize: "0.97rem", lineHeight: 1.85,
             opacity: mounted ? 1 : 0, transform: mounted ? "none" : "translateY(14px)",
             transition: "all 0.85s ease 0.2s",
           }}>
@@ -126,9 +126,9 @@ const Contact = () => {
 
           {/* ── Form ── */}
           <Reveal>
-            <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 20, padding: "36px 32px" }}>
+            <div style={{ background: "rgba(0,0,0,0.02)", border: "1px solid rgba(0,0,0,0.07)", borderRadius: 20, padding: "36px 32px" }}>
               <span className="ct-label">Send a Message</span>
-              <h2 style={{ fontFamily: "'Oxanium',sans-serif", fontWeight: 800, fontSize: "1.5rem", color: "#fff", marginBottom: 28, letterSpacing: "-0.01em" }}>
+              <h2 style={{ fontFamily: "'Oxanium',sans-serif", fontWeight: 800, fontSize: "1.5rem", color: "#1a1a1a", marginBottom: 28, letterSpacing: "-0.01em" }}>
                 Contact Our Team
               </h2>
 
@@ -160,7 +160,7 @@ const Contact = () => {
                   required style={{ ...inputStyle("message"), resize: "vertical", minHeight: 120 }} />
 
                 {/* divider */}
-                <div style={{ height: 1, background: "rgba(255,255,255,0.06)", margin: "4px 0" }} />
+                <div style={{ height: 1, background: "rgba(0,0,0,0.08)", margin: "4px 0" }} />
 
                 <button type="submit" disabled={loading} className="ct-submit-btn">
                   {loading ? "Sending…" : <><ArrowRight size={14} /> Send Message</>}
@@ -187,10 +187,10 @@ const Contact = () => {
               <div style={{ background: "rgba(129,140,248,0.05)", border: "1px solid rgba(129,140,248,0.15)", borderRadius: 20, padding: "32px 28px", position: "relative", overflow: "hidden" }}>
                 <div style={{ position: "absolute", top: -40, right: -40, width: 160, height: 160, borderRadius: "50%", background: "radial-gradient(circle, rgba(129,140,248,0.2) 0%, transparent 70%)", pointerEvents: "none" }} />
                 <span className="ct-label">Why Reach Out</span>
-                <p style={{ fontFamily: "'Oxanium',sans-serif", fontWeight: 700, fontSize: "1.1rem", color: "#fff", marginBottom: 10, lineHeight: 1.4 }}>
+                <p style={{ fontFamily: "'Oxanium',sans-serif", fontWeight: 700, fontSize: "1.1rem", color: "#1a1a1a", marginBottom: 10, lineHeight: 1.4 }}>
                   Let's build something intelligent together
                 </p>
-                <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.85rem", lineHeight: 1.8 }}>
+                <p style={{ color: "rgba(0,0,0,0.55)", fontSize: "0.85rem", lineHeight: 1.8 }}>
                   Whether you have a project in mind, a question about our services, or just want to say hello — we're here and happy to help.
                 </p>
               </div>
@@ -206,8 +206,8 @@ const Contact = () => {
                       <div style={{ width: 38, height: 38, borderRadius: 10, background: "rgba(129,140,248,0.1)", border: "1px solid rgba(129,140,248,0.2)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 14 }}>
                         <Icon size={16} color="#818cf8" strokeWidth={1.8} />
                       </div>
-                      <h3 style={{ fontFamily: "'Oxanium',sans-serif", fontWeight: 700, fontSize: "0.85rem", color: "#fff", marginBottom: 6 }}>{info.title}</h3>
-                      <p style={{ color: "rgba(255,255,255,0.38)", fontSize: "0.78rem", lineHeight: 1.6 }}>{info.details}</p>
+                      <h3 style={{ fontFamily: "'Oxanium',sans-serif", fontWeight: 700, fontSize: "0.85rem", color: "#1a1a1a", marginBottom: 6 }}>{info.title}</h3>
+                      <p style={{ color: "rgba(0,0,0,0.5)", fontSize: "0.78rem", lineHeight: 1.6 }}>{info.details}</p>
                     </a>
                   </Reveal>
                 );

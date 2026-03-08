@@ -69,9 +69,9 @@ const ImagePanel = ({ src, label, fallback, index, total }) => {
         style={{
           background: `linear-gradient(
             to right,
-            rgba(9,11,17,0.82) 0%,
-            rgba(9,11,17,0.30) 35%,
-            rgba(9,11,17,0.10) 100%
+            rgba(255,255,255,0.85) 0%,
+            rgba(255,255,255,0.30) 35%,
+            rgba(255,255,255,0.10) 100%
           )`,
         }}
       />
@@ -92,7 +92,7 @@ const ImagePanel = ({ src, label, fallback, index, total }) => {
 
       {/* bottom label */}
       <div
-        className="absolute bottom-5 left-1/2 text-xs font-medium tracking-widest uppercase text-white/50 whitespace-nowrap"
+        className="absolute bottom-5 left-1/2 text-xs font-semibold tracking-widest uppercase text-black/60 whitespace-nowrap"
         style={{ transform: `translateX(-50%) skewX(${-skew}deg)` }}
       >
         {label}

@@ -224,7 +224,7 @@ const ServiceDetail = () => {
 
   if (!service)
     return (
-      <div className="pt-32 text-center text-white">Service not found</div>
+      <div className="pt-32 text-center text-black">Service not found</div>
     );
 
   const Icon = service.icon;
@@ -284,7 +284,7 @@ const ServiceDetail = () => {
           {/* Breadcrumb */}
           <p
             style={{
-              color: "rgba(255,255,255,0.35)",
+              color: "rgba(0,0,0,0.5)",
               fontSize: "0.8rem",
               marginBottom: 32,
               letterSpacing: "0.1em",
@@ -396,7 +396,7 @@ const ServiceDetail = () => {
               Ready to build with {service.title}?
             </h3>
             <p className="sd-cta-sub">
-              Let Attractify Technologies help you transform your ideas into
+              Let Agile ICO help you transform your ideas into
               scalable, intelligent solutions.
             </p>
             <Link to="/contact" className="sd-cta-btn">

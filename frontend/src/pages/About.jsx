@@ -40,15 +40,13 @@ const values = [
 ];
 
 const techNames = [
-  "Kubernetes",
-  "React Native",
-  "AWS",
-  "Firebase",
-  "TensorFlow",
-  "PyTorch",
-  "Docker",
-  "Next.js",
-  "OpenAI",
+  "Business Intelligence",
+  "Predictive Analysis",
+  "Microsoft Services",
+  "Axial Core Motors",
+  "Bi-Polar Switching Induction Motor",
+  "Electronic Controlled Module",
+  "Mobile App development",
 ];
 
 /* ─── Hooks ─── */
@@ -152,11 +150,11 @@ function ContactForm() {
   const inputStyle = (name) => ({
     width: "100%",
     background:
-      focused === name ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.02)",
-    border: `1px solid ${focused === name ? "rgba(129,140,248,0.5)" : "rgba(255,255,255,0.08)"}`,
+      focused === name ? "rgba(0,0,0,0.05)" : "rgba(0,0,0,0.02)",
+    border: `1px solid ${focused === name ? "rgba(129,140,248,0.5)" : "rgba(0,0,0,0.08)"}`,
     borderRadius: 10,
     padding: "13px 16px",
-    color: "#fff",
+    color: "#000",
     fontSize: "0.9rem",
     fontFamily: "'DM Sans', sans-serif",
     outline: "none",
@@ -376,7 +374,7 @@ const About = () => {
                   fontWeight: 700,
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
-                  color: "#a5b4fc",
+                  color: "#6366f1",
                 }}
               >
                 About Us
@@ -390,7 +388,7 @@ const About = () => {
                 fontSize: "clamp(2.4rem, 5vw, 4rem)",
                 letterSpacing: "-0.03em",
                 lineHeight: 1.05,
-                color: "#fff",
+                color: "#1a1a1a",
                 marginBottom: 22,
                 opacity: mounted ? 1 : 0,
                 transform: mounted ? "none" : "translateY(20px)",
@@ -413,7 +411,7 @@ const About = () => {
 
             <p
               style={{
-                color: "rgba(255,255,255,0.45)",
+                color: "rgba(0,0,0,0.6)",
                 fontSize: "1rem",
                 lineHeight: 1.8,
                 maxWidth: 440,
@@ -422,7 +420,7 @@ const About = () => {
                 transition: "all 0.8s ease 0.22s",
               }}
             >
-              Attractify Technologies helps businesses innovate using Artificial
+              Agile ICO helps businesses innovate using Artificial
               Intelligence, Machine Learning, AR/VR, IoT and advanced digital
               solutions.
             </p>
@@ -449,8 +447,8 @@ const About = () => {
                 style={{
                   position: "absolute",
                   inset: 0,
-                  background: "rgba(255,255,255,0.03)",
-                  border: "1px solid rgba(255,255,255,0.08)",
+                  background: "rgba(0,0,0,0.03)",
+                  border: "1px solid rgba(0,0,0,0.08)",
                   borderRadius: 22,
                   padding: 32,
                   display: "flex",
@@ -461,7 +459,7 @@ const About = () => {
                 <div>
                   <p
                     style={{
-                      color: "rgba(255,255,255,0.3)",
+                      color: "rgba(0,0,0,0.3)",
                       fontSize: "0.72rem",
                       fontFamily: "'Syne',sans-serif",
                       fontWeight: 700,
@@ -473,11 +471,11 @@ const About = () => {
                     Our Focus
                   </p>
                   {[
-                    { text: "Artificial Intelligence", color: "#818cf8" },
-                    { text: "IoT & Automation", color: "#34d399" },
-                    { text: "AR/VR Experiences", color: "#c084fc" },
-                    { text: "Cloud Infrastructure", color: "#38bdf8" },
-                    { text: "Non Destructive Testing", color: "#f87171" }, // 🔥 red glow
+                    { text: "Business Intelligence", color: "#818cf8" },
+                    { text: "Predictive Analytics", color: "#34d399" },
+                    { text: "Microsoft Services", color: "#c084fc" },
+                    { text: "Axial Core Motors", color: "#38bdf8" },
+                    { text: "Bi-Polar Switching Induction Motor", color: "#f87171" }, // 🔥 red glow
                   ].map((item, i) => (
                     <div
                       key={i}
@@ -486,7 +484,7 @@ const About = () => {
                         alignItems: "center",
                         gap: 12,
                         padding: "10px 0",
-                        borderBottom: "1px solid rgba(255,255,255,0.05)",
+                        borderBottom: "1px solid rgba(0,0,0,0.05)",
                       }}
                     >
                       <div
@@ -501,7 +499,7 @@ const About = () => {
                       />
                       <span
                         style={{
-                          color: "rgba(255,255,255,0.65)",
+                          color: "rgba(0,0,0,0.65)",
                           fontSize: "0.9rem",
                         }}
                       >
@@ -513,11 +511,11 @@ const About = () => {
                 <div style={{ marginTop: 12 }}>
                   <span
                     style={{
-                      color: "rgba(255,255,255,0.25)",
+                      color: "rgba(0,0,0,0.35)",
                       fontSize: "0.75rem",
                     }}
                   >
-                    Attractify Technologies
+                    Agile ICO
                   </span>
                 </div>
               </div>
@@ -526,58 +524,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* ════ STATS ════ */}
-      <section
-        style={{
-          padding: "60px 24px",
-          borderTop: "1px solid rgba(255,255,255,0.05)",
-          borderBottom: "1px solid rgba(255,255,255,0.05)",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: 1100,
-            margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(180px,1fr))",
-            gap: 16,
-          }}
-        >
-          {stats.map((s, i) => (
-            <Reveal key={i} delay={i * 80}>
-              <div className="abt-stat-card">
-                <div
-                  style={{
-                    fontFamily: "'Syne',sans-serif",
-                    fontWeight: 800,
-                    fontSize: "2.6rem",
-                    lineHeight: 1,
-                    background:
-                      "linear-gradient(135deg, #fff, rgba(255,255,255,0.6))",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    marginBottom: 6,
-                  }}
-                >
-                  <CountUp end={s.end} suffix={s.suffix} delay={i * 80} />
-                </div>
-                <p
-                  style={{
-                    color: "rgba(255,255,255,0.35)",
-                    fontSize: "0.78rem",
-                    letterSpacing: "0.06em",
-                    textTransform: "uppercase",
-                    fontFamily: "'Syne',sans-serif",
-                    fontWeight: 700,
-                  }}
-                >
-                  {s.label}
-                </p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
+
 
       {/* ════ MISSION & VISION ════ */}
       <section style={{ padding: "90px 24px" }}>
@@ -611,8 +558,8 @@ const About = () => {
               <Reveal key={i} delay={i * 100}>
                 <div
                   style={{
-                    background: "rgba(255,255,255,0.02)",
-                    border: "1px solid rgba(255,255,255,0.07)",
+                    background: "rgba(0,0,0,0.02)",
+                    border: "1px solid rgba(0,0,0,0.07)",
                     borderRadius: 20,
                     padding: "36px 32px",
                     height: "100%",
@@ -639,7 +586,7 @@ const About = () => {
                       fontFamily: "'Syne',sans-serif",
                       fontWeight: 800,
                       fontSize: "1.5rem",
-                      color: "#fff",
+                      color: "#1a1a1a",
                       marginBottom: 14,
                       letterSpacing: "-0.01em",
                     }}
@@ -648,7 +595,7 @@ const About = () => {
                   </h2>
                   <p
                     style={{
-                      color: "rgba(255,255,255,0.45)",
+                      color: "rgba(0,0,0,0.6)",
                       lineHeight: 1.8,
                       fontSize: "0.92rem",
                     }}
@@ -703,7 +650,7 @@ const About = () => {
                         fontFamily: "'Syne',sans-serif",
                         fontWeight: 700,
                         fontSize: "1rem",
-                        color: "#fff",
+                        color: "#1a1a1a",
                         marginBottom: 10,
                       }}
                     >
@@ -711,7 +658,7 @@ const About = () => {
                     </h3>
                     <p
                       style={{
-                        color: "rgba(255,255,255,0.4)",
+                        color: "rgba(0,0,0,0.55)",
                         fontSize: "0.85rem",
                         lineHeight: 1.75,
                       }}
@@ -729,8 +676,8 @@ const About = () => {
       {/* ════ TECH MARQUEE ════ */}
       <section
         style={{
-          borderTop: "1px solid rgba(255,255,255,0.05)",
-          borderBottom: "1px solid rgba(255,255,255,0.05)",
+          borderTop: "1px solid rgba(0,0,0,0.08)",
+          borderBottom: "1px solid rgba(0,0,0,0.08)",
           overflow: "hidden",
         }}
       >
@@ -744,7 +691,7 @@ const About = () => {
                   alignItems: "center",
                   gap: 16,
                   padding: "0 30px",
-                  color: "rgba(255,255,255,0.22)",
+                  color: "rgba(0,0,0,0.35)",
                   fontFamily: "'Syne',sans-serif",
                   fontWeight: 700,
                   fontSize: "0.68rem",
@@ -812,7 +759,7 @@ const About = () => {
               </p>
 
               {/* Info pills */}
-              {["hello@attractify.tech", "Available Mon–Fri, 9am–6pm IST"].map(
+              {["hello@agileico.com", "Available Mon–Fri, 9am–6pm IST"].map(
                 (text, i) => (
                   <div
                     key={i}

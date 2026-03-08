@@ -7,14 +7,14 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: attractify-backend
+    container_name: agileico-backend
     restart: unless-stopped
     env_file:
       - ./backend/.env           # PORT, ADMIN_EMAIL, ADMIN_PASS, ALLOWED_ORIGIN
     ports:
       - "5000:5000"
     networks:
-      - attractify-net
+      - agileico-net
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://localhost:5000/api/mail"]
       interval: 15s
@@ -27,15 +27,15 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    container_name: attractify-frontend
+    container_name: agileico-frontend
     restart: unless-stopped
     ports:
       - "80:80"
     depends_on:
       - backend
     networks:
-      - attractify-net
+      - agileico-net
 
 networks:
-  attractify-net:
+  agileico-net:
     driver: bridge
