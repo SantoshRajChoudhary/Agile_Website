@@ -130,21 +130,13 @@ function ContactForm() {
     e.preventDefault();
     setLoading(true);
     setStatus("");
-    try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/mail/contact`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      const result = await res.json();
-      if (result.success) {
-        setStatus("success");
-        setForm({ firstName: "", email: "", subject: "", message: "" });
-      } else setStatus("error");
-    } catch {
-      setStatus("error");
-    }
-    setLoading(false);
+
+    // DEMO MODE: Simulate a successful submission
+    setTimeout(() => {
+      setStatus("success");
+      setForm({ firstName: "", email: "", subject: "", message: "" });
+      setLoading(false);
+    }, 1200);
   };
 
   const inputStyle = (name) => ({

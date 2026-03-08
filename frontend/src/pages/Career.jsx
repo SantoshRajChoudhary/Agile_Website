@@ -93,20 +93,14 @@ function ApplicationForm({ formData, setFormData }) {
     e.preventDefault();
     setLoading(true);
     setStatus("");
-    const data = new FormData();
-    Object.keys(formData).forEach((k) => data.append(k, formData[k]));
-    if (resume) data.append("resume", resume);
-    try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/mail/career`, {
-        method: "POST",
-        body: data,
-      });
-      const result = await res.json();
-      setStatus(result.success ? "success" : "error");
-    } catch {
-      setStatus("error");
-    }
-    setLoading(false);
+
+    // DEMO MODE: Simulate successful submission without hitting the backend
+    setTimeout(() => {
+      setStatus("success");
+      setFormData({ name: "", email: "", phone: "", position: "", message: "" });
+      setResume(null);
+      setLoading(false);
+    }, 1200);
   };
 
   const inputStyle = (name) => ({

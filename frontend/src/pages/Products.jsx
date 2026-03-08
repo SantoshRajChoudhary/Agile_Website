@@ -17,6 +17,8 @@ import img2 from "@/assets/illustration-generative-ai-homepage.webp";
 import img3 from "@/assets/futuristic-digital-dashboard-illustrating-iot-internet-things-technology-central-smartphone-icon-surrounded-circular-392171365.webp";
 import img4 from "@/assets/architecture-blueprint.webp";
 
+import { products } from "@/data/products";
+
 /* ─── Data ─── */
 const industries = [
   {
@@ -117,6 +119,48 @@ function Reveal({ children, delay = 0, y = 24 }) {
   );
 }
 
+/* ─── Product Card ─── */
+function ProductCard({ product, index }) {
+  const [hov, setHov] = useState(false);
+  return (
+    <Reveal delay={index * 50}>
+      <Link
+        to={`/product/${product.id}`}
+        onMouseEnter={() => setHov(true)}
+        onMouseLeave={() => setHov(false)}
+        className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.2)]"
+      >
+        <div className="relative h-[220px] overflow-hidden bg-gray-100 dark:bg-gray-800">
+          {product.image ? (
+            <img
+              src={product.image}
+              alt={product.name}
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          ) : (
+            <div className="flex h-full w-full items-center justify-center text-gray-400">
+              No Image
+            </div>
+          )}
+          {/* Overlay gradient */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        </div>
+        <div className="flex flex-1 flex-col p-6">
+          <h3 className="mb-3 font-oxanium text-[1.15rem] font-bold tracking-wide text-gray-900 dark:text-white">
+            {product.name}
+          </h3>
+          <p className="line-clamp-3 text-[0.9rem] leading-relaxed text-gray-600 dark:text-gray-400">
+            {product.shortDescription || product.description}
+          </p>
+          <div className="mt-auto pt-6 flex w-fit items-center text-sm font-semibold text-[#818cf8] transition-transform duration-300 group-hover:translate-x-1">
+            View Details <ArrowRight size={16} className="ml-2" />
+          </div>
+        </div>
+      </Link>
+    </Reveal>
+  );
+}
+
 /* ─── Industry Card ─── */
 function IndustryCard({ industry, index }) {
   const [hov, setHov] = useState(false);
@@ -214,111 +258,39 @@ function IndustryCard({ industry, index }) {
 
 /* ─── Main ─── */
 const Products = () => {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
-    <div className="prd-root">
+    <div className="prd-root pt-20">
 
-      {/* ════ HERO ════ */}
-      <section
-        style={{
-          position: "relative",
-          minHeight: "100vh", // full screen height
-          display: "flex",
-          alignItems: "center", // vertical center
-          justifyContent: "center", // horizontal center (optional)
-          padding: "0 24px",
-          overflow: "hidden",
-        }}
-      >
-        <div className="prd-grid" />
+      {/* ════ OUR PRODUCTS ════ */}
+      <section style={{ padding: "0 24px 90px" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+          <Reveal>
+            <div style={{ marginBottom: 48, textAlign: "center" }}>
+              {/* <span className="prd-label">Our Solutions</span> */}
+              <h2 className="prd-section-title">Explore Our Products</h2>
+            </div>
+          </Reveal>
 
-        {/* Orbs */}
-        <div
-          className="prd-orb"
-          style={{
-            position: "absolute",
-            top: -100,
-            left: "12%",
-            width: 420,
-            height: 420,
-            borderRadius: "50%",
-            background:
-              "radial-gradient(circle, rgba(129,140,248,0.14) 0%, transparent 70%)",
-            filter: "blur(50px)",
-            pointerEvents: "none",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            top: -60,
-            right: "14%",
-            width: 300,
-            height: 300,
-            borderRadius: "50%",
-            background:
-              "radial-gradient(circle, rgba(52,211,153,0.1) 0%, transparent 70%)",
-            filter: "blur(40px)",
-            pointerEvents: "none",
-            animation: "float-slow 12s ease-in-out infinite 3s",
-          }}
-        />
-
-        <div
-          style={{
-            maxWidth: 1100,
-            margin: "0 auto",
-            position: "relative",
-            zIndex: 1,
-          }}
-        >
           <div
-            style={{
-              maxWidth: 680,
-              opacity: mounted ? 1 : 0,
-              transform: mounted ? "none" : "translateY(24px)",
-              transition: "all 0.85s ease",
-            }}
+            className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+            style={{ alignItems: "stretch" }}
           >
-            <span className="prd-label">Industries We Serve</span>
-
-            <h1
-              style={{
-                fontFamily: "'Oxanium', sans-serif",
-                fontWeight: 800,
-                fontSize: "clamp(2.4rem, 5.5vw, 4.4rem)",
-                letterSpacing: "-0.02em",
-                lineHeight: 1.05,
-                color: "#fff",
-                marginBottom: 24,
-              }}
-            >
-              Empowering Industries Through{" "}
-              <span
-                style={{
-                  background: "linear-gradient(135deg, #818cf8, #c084fc)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}
-              >
-                Intelligent Technology
-              </span>
-            </h1>
-
-            <p
-              style={{
-                color: "rgba(255,255,255,0.42)",
-                fontSize: "1rem",
-                lineHeight: 1.85,
-                maxWidth: 520,
-              }}
-            >
-              We partner with organizations that aim to innovate, automate, and
-              scale using artificial intelligence, IoT, and modern digital
-              engineering practices.
-            </p>
+            {products.map((prod, i) => (
+              <ProductCard key={prod.id} product={prod} index={i} />
+            ))}
           </div>
         </div>
       </section>
+
+      {/* ════ DIVIDER ════ */}
+      <div style={{ padding: "0 24px", marginBottom: 80 }}>
+        <div className="prd-divider" style={{ maxWidth: 1100 }} />
+      </div>
 
       {/* ════ INDUSTRIES ════ */}
       <section style={{ padding: "0 24px 90px" }}>

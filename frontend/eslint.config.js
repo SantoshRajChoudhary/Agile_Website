@@ -7,12 +7,20 @@ export default [
   {
     ignores: ["dist"],
   },
+  js.configs.recommended,
   {
-    extends: [js.configs.recommended],
     files: ["**/*.{js,jsx}"],
     languageOptions: {
       ecmaVersion: 2020,
-      globals: globals.browser,
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
     },
     plugins: {
       "react-hooks": reactHooks,
