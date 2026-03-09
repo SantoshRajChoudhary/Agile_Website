@@ -159,7 +159,7 @@ function ContactForm() {
       onSubmit={handleSubmit}
       style={{ display: "flex", flexDirection: "column", gap: 14 }}
     >
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 250px), 1fr))", gap: 14 }}>
         <input
           name="firstName"
           placeholder="Your Name"
@@ -210,7 +210,7 @@ function ContactForm() {
           background: loading
             ? "rgba(129,140,248,0.5)"
             : "linear-gradient(135deg, #818cf8, #c084fc)",
-          color: "#fff",
+          color: "#0f172a",
           border: "none",
           borderRadius: 50,
           padding: "13px 32px",
@@ -331,12 +331,12 @@ const About = () => {
 
         <div
           style={{
-            maxWidth: 1100,
+            width: "90%", maxWidth: "1100px",
             margin: "0 auto",
             position: "relative",
             zIndex: 1,
             display: "grid",
-            gridTemplateColumns: "1fr 1fr",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 350px), 1fr))",
             gap: 64,
             alignItems: "center",
           }}
@@ -380,7 +380,7 @@ const About = () => {
                 fontSize: "clamp(2.4rem, 5vw, 4rem)",
                 letterSpacing: "-0.03em",
                 lineHeight: 1.05,
-                color: "#1a1a1a",
+                color: "#0f172a",
                 marginBottom: 22,
                 opacity: mounted ? 1 : 0,
                 transform: mounted ? "none" : "translateY(20px)",
@@ -403,10 +403,10 @@ const About = () => {
 
             <p
               style={{
-                color: "rgba(0,0,0,0.6)",
+                color: "#475569",
                 fontSize: "1rem",
                 lineHeight: 1.8,
-                maxWidth: 440,
+                width: "100%", maxWidth: "440px",
                 opacity: mounted ? 1 : 0,
                 transform: mounted ? "none" : "translateY(16px)",
                 transition: "all 0.8s ease 0.22s",
@@ -491,7 +491,7 @@ const About = () => {
                       />
                       <span
                         style={{
-                          color: "rgba(0,0,0,0.65)",
+                          color: "#334155",
                           fontSize: "0.9rem",
                         }}
                       >
@@ -525,7 +525,7 @@ const About = () => {
             maxWidth: 1100,
             margin: "0 auto",
             display: "grid",
-            gridTemplateColumns: "1fr 1fr",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 350px), 1fr))",
             gap: 24,
           }}
         >
@@ -578,7 +578,7 @@ const About = () => {
                       fontFamily: "'Syne',sans-serif",
                       fontWeight: 800,
                       fontSize: "1.5rem",
-                      color: "#1a1a1a",
+                      color: "#0f172a",
                       marginBottom: 14,
                       letterSpacing: "-0.01em",
                     }}
@@ -587,7 +587,7 @@ const About = () => {
                   </h2>
                   <p
                     style={{
-                      color: "rgba(0,0,0,0.6)",
+                      color: "#475569",
                       lineHeight: 1.8,
                       fontSize: "0.92rem",
                     }}
@@ -603,7 +603,7 @@ const About = () => {
 
       {/* ════ CORE VALUES ════ */}
       <section style={{ padding: "0 24px 90px" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+        <div style={{ width: "90%", maxWidth: "1100px", margin: "0 auto" }}>
           <Reveal>
             <div style={{ marginBottom: 48 }}>
               <span className="abt-section-label">What We Stand For</span>
@@ -642,7 +642,7 @@ const About = () => {
                         fontFamily: "'Syne',sans-serif",
                         fontWeight: 700,
                         fontSize: "1rem",
-                        color: "#1a1a1a",
+                        color: "#0f172a",
                         marginBottom: 10,
                       }}
                     >
@@ -650,7 +650,7 @@ const About = () => {
                     </h3>
                     <p
                       style={{
-                        color: "rgba(0,0,0,0.55)",
+                        color: "#64748b",
                         fontSize: "0.85rem",
                         lineHeight: 1.75,
                       }}
@@ -712,10 +712,10 @@ const About = () => {
       <section style={{ padding: "90px 24px" }}>
         <div
           style={{
-            maxWidth: 1100,
+            width: "90%", maxWidth: "1100px",
             margin: "0 auto",
             display: "grid",
-            gridTemplateColumns: "1fr 1fr",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 350px), 1fr))",
             gap: 40,
             alignItems: "start",
           }}
@@ -739,11 +739,11 @@ const About = () => {
               </h2>
               <p
                 style={{
-                  color: "rgba(255,255,255,0.4)",
+                  color: "#64748b",
                   fontSize: "0.93rem",
                   lineHeight: 1.8,
                   marginBottom: 36,
-                  maxWidth: 380,
+                  width: "100%", maxWidth: "380px",
                 }}
               >
                 Have an idea or project in mind? We'd love to hear from you.
@@ -774,7 +774,7 @@ const About = () => {
                     />
                     <span
                       style={{
-                        color: "rgba(255,255,255,0.4)",
+                        color: "#64748b",
                         fontSize: "0.85rem",
                       }}
                     >
@@ -790,8 +790,8 @@ const About = () => {
           <Reveal delay={100}>
             <div
               style={{
-                background: "rgba(255,255,255,0.02)",
-                border: "1px solid rgba(255,255,255,0.07)",
+                background: "rgba(0,0,0,0.02)",
+                border: "1px solid rgba(0,0,0,0.07)",
                 borderRadius: 22,
                 padding: "36px 32px",
               }}
@@ -827,7 +827,7 @@ const About = () => {
                 fontFamily: "'Syne',sans-serif",
                 fontWeight: 800,
                 fontSize: "clamp(1.8rem,3.5vw,2.8rem)",
-                color: "#fff",
+                color: "#0f172a",
                 letterSpacing: "-0.02em",
                 marginBottom: 14,
               }}
@@ -836,7 +836,7 @@ const About = () => {
             </h2>
             <p
               style={{
-                color: "rgba(255,255,255,0.38)",
+                color: "#94a3b8",
                 fontSize: "0.95rem",
                 marginBottom: 36,
               }}

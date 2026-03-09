@@ -158,13 +158,13 @@ function ServiceCard({ service, index }) {
           {service.title}
         </h3>
 
-        <p style={{ color: "rgba(0,0,0,0.55)", fontSize: "0.85rem", lineHeight: 1.75, marginBottom: 20, flex: 1 }}>
+        <p style={{ color: "#64748b", fontSize: "0.85rem", lineHeight: 1.75, marginBottom: 20, flex: 1 }}>
           {service.description}
         </p>
 
         <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 7, marginBottom: 22 }}>
           {service.points.map((pt, i) => (
-            <li key={i} style={{ display: "flex", alignItems: "center", gap: 10, color: "rgba(0,0,0,0.5)", fontSize: "0.78rem" }}>
+            <li key={i} style={{ display: "flex", alignItems: "center", gap: 10, color: "#64748b", fontSize: "0.78rem" }}>
               <span style={{ width: 5, height: 5, borderRadius: "50%", background: service.accent, flexShrink: 0, boxShadow: `0 0 6px ${service.accent}` }} />
               {pt}
             </li>
@@ -190,7 +190,7 @@ const Services = () => {
         {/* Orb */}
         <div style={{ position: "absolute", top: -100, left: "50%", transform: "translateX(-50%)", width: 600, height: 400, borderRadius: "50%", background: "radial-gradient(ellipse, rgba(129,140,248,0.15) 0%, transparent 70%)", filter: "blur(30px)", pointerEvents: "none" }} />
 
-        <div style={{ position: "relative", zIndex: 1, maxWidth: 680, margin: "0 auto" }}>
+        <div style={{ position: "relative", zIndex: 1, width: "100%", maxWidth: "680px", margin: "0 auto" }}>
           {/* Label */}
           <Reveal>
             <p style={{ fontFamily: "'Syne',sans-serif", fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.3em", textTransform: "uppercase", color: "#818cf8", marginBottom: 24 }}>
@@ -206,7 +206,7 @@ const Services = () => {
               fontSize: "clamp(2.6rem, 6vw, 5rem)",
               letterSpacing: "-0.03em",
               lineHeight: 1.05,
-              color: "#1a1a1a",
+              color: "#0f172a",
               marginBottom: 24,
               opacity: mounted ? 1 : 0,
               transform: mounted ? "none" : "translateY(20px)",
@@ -220,7 +220,7 @@ const Services = () => {
           </Reveal>
 
           <Reveal delay={160}>
-            <p style={{ color: "rgba(0,0,0,0.6)", fontSize: "1rem", lineHeight: 1.8, maxWidth: 520, margin: "0 auto" }}>
+            <p style={{ color: "#475569", fontSize: "1rem", lineHeight: 1.8, width: "100%", maxWidth: "520px", margin: "0 auto" }}>
               We combine engineering excellence, artificial intelligence, and industry insight to build solutions that create measurable business impact.
             </p>
           </Reveal>
@@ -229,7 +229,7 @@ const Services = () => {
 
       {/* ════ PILLARS ════ */}
       <section style={{ padding: "0 24px 80px" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px,1fr))", gap: 16 }}>
+        <div style={{ width: "90%", maxWidth: "1100px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px,1fr))", gap: 16 }}>
           {pillars.map((p, i) => {
             const Icon = p.icon;
             return (
@@ -238,8 +238,8 @@ const Services = () => {
                   <div style={{ width: 40, height: 40, borderRadius: 10, background: "rgba(129,140,248,0.1)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16 }}>
                     <Icon size={18} color="#818cf8" strokeWidth={1.6} />
                   </div>
-                  <h3 style={{ fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: "0.95rem", color: "#1a1a1a", marginBottom: 8 }}>{p.title}</h3>
-                  <p style={{ color: "rgba(0,0,0,0.55)", fontSize: "0.83rem", lineHeight: 1.7 }}>{p.desc}</p>
+                  <h3 style={{ fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: "0.95rem", color: "#0f172a", marginBottom: 8 }}>{p.title}</h3>
+                  <p style={{ color: "#64748b", fontSize: "0.83rem", lineHeight: 1.7 }}>{p.desc}</p>
                 </div>
               </Reveal>
             );
@@ -248,17 +248,17 @@ const Services = () => {
       </section>
 
       {/* ════ THIN DIVIDER ════ */}
-      <div style={{ maxWidth: 1100, margin: "0 auto 80px", padding: "0 24px" }}>
+      <div style={{ width: "90%", maxWidth: "1100px", margin: "0 auto 80px", padding: "0 24px" }}>
         <div style={{ height: 1, background: "linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)" }} />
       </div>
 
       {/* ════ SERVICES ════ */}
       <section style={{ padding: "0 24px 100px" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+        <div style={{ width: "90%", maxWidth: "1100px", margin: "0 auto" }}>
           <Reveal>
             <div style={{ marginBottom: 48 }}>
               <p style={{ fontFamily: "'Syne',sans-serif", fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.3em", textTransform: "uppercase", color: "#818cf8", marginBottom: 10 }}>Services</p>
-              <h2 style={{ fontFamily: "'Syne',sans-serif", fontWeight: 800, fontSize: "clamp(1.7rem, 3vw, 2.4rem)", color: "#1a1a1a", letterSpacing: "-0.02em" }}>
+              <h2 style={{ fontFamily: "'Syne',sans-serif", fontWeight: 800, fontSize: "clamp(1.7rem, 3vw, 2.4rem)", color: "#0f172a", letterSpacing: "-0.02em" }}>
                 What We Build
               </h2>
             </div>
@@ -299,12 +299,12 @@ const Services = () => {
         <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 50% 60% at 50% 100%, rgba(129,140,248,0.1) 0%, transparent 70%)", pointerEvents: "none" }} />
 
         <Reveal>
-          <div style={{ position: "relative", zIndex: 1, maxWidth: 540, margin: "0 auto" }}>
-            <h2 style={{ fontFamily: "'Syne',sans-serif", fontWeight: 800, fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", color: "#1a1a1a", letterSpacing: "-0.02em", lineHeight: 1.15, marginBottom: 16 }}>
+          <div style={{ position: "relative", zIndex: 1, width: "100%", maxWidth: "540px", margin: "0 auto" }}>
+            <h2 style={{ fontFamily: "'Syne',sans-serif", fontWeight: 800, fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", color: "#0f172a", letterSpacing: "-0.02em", lineHeight: 1.15, marginBottom: 16 }}>
               Want to transform your idea into a success story?
             </h2>
 
-            <p style={{ color: "rgba(0,0,0,0.55)", fontSize: "0.95rem", marginBottom: 40, lineHeight: 1.7 }}>
+            <p style={{ color: "#64748b", fontSize: "0.95rem", marginBottom: 40, lineHeight: 1.7 }}>
               Let's build scalable, intelligent solutions together.
             </p>
 

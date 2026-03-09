@@ -284,7 +284,7 @@ const ServiceDetail = () => {
           {/* Breadcrumb */}
           <p
             style={{
-              color: "rgba(0,0,0,0.5)",
+              color: "#64748b",
               fontSize: "0.8rem",
               marginBottom: 32,
               letterSpacing: "0.1em",

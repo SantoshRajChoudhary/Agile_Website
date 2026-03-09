@@ -158,7 +158,7 @@ const Header = () => {
       fontSize: "13.5px",
       fontWeight: 500,
       letterSpacing: "0.01em",
-      color: active ? "#2563eb" : isHovered ? "#000" : "rgba(0,0,0,0.6)",
+      color: active ? "#2563eb" : isHovered ? "#000" : "#475569",
       textDecoration: "none",
       background: active
         ? "rgba(0,0,0,0.04)"
@@ -342,7 +342,7 @@ const Header = () => {
                 border: "none",
                 borderRadius: "5px",
                 padding: "4px",
-                color: "rgba(0,0,0,0.45)",
+                color: "#64748b",
                 cursor: "pointer",
                 display: "flex",
                 alignItems: "center",
@@ -354,7 +354,7 @@ const Header = () => {
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = "rgba(0,0,0,0.04)";
-                e.currentTarget.style.color = "rgba(0,0,0,0.45)";
+                e.currentTarget.style.color = "#64748b";
               }}
             >
               <Search size={15} />
@@ -440,6 +440,7 @@ const Header = () => {
           overflow: "hidden",
           transition: "all 0.3s ease",
           display: "none",
+          flexDirection: "column",
         }}
       >
         {/* Mobile search */}
@@ -459,7 +460,7 @@ const Header = () => {
                 borderRadius: "8px",
                 fontSize: "14px",
                 fontWeight: 500,
-                color: isActive ? "#2563eb" : "rgba(0,0,0,0.65)",
+                color: isActive ? "#2563eb" : "#334155",
                 textDecoration: "none",
                 background: isActive ? "rgba(0,0,0,0.04)" : "transparent",
                 marginBottom: "4px",

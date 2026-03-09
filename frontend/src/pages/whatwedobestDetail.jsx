@@ -111,7 +111,7 @@ function FeatureCard({ text, accent, index }) {
         }}
       >
         <CheckCircle size={18} color={accent} strokeWidth={2} style={{ flexShrink: 0 }} />
-        <p style={{ color: "rgba(0,0,0,0.6)", fontSize: "0.9rem", fontFamily: "'Oxanium',sans-serif" }}>
+        <p style={{ color: "#475569", fontSize: "0.9rem", fontFamily: "'Oxanium',sans-serif" }}>
           {text}
         </p>
       </div>
@@ -130,7 +130,7 @@ const WhatWeDoBestDetail = () => {
   if (!service) return (
     <div style={{ background: "#ffffff", minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
       <div style={{ textAlign: "center" }}>
-        <p style={{ color: "rgba(0,0,0,0.6)", fontFamily: "'Oxanium',sans-serif", marginBottom: 16 }}>Service not found</p>
+        <p style={{ color: "#475569", fontFamily: "'Oxanium',sans-serif", marginBottom: 16 }}>Service not found</p>
         <Link to="/whatwedobest" style={{ color: "#818cf8", fontFamily: "'Oxanium',sans-serif", fontSize: "0.85rem" }}>← Back to Services</Link>
       </div>
     </div>
@@ -148,7 +148,7 @@ const WhatWeDoBestDetail = () => {
         {/* Orb */}
         <div style={{ position: "absolute", top: -80, left: "50%", transform: "translateX(-50%)", width: 500, height: 400, borderRadius: "50%", background: `radial-gradient(circle, ${service.glow.replace("0.5", "0.12")} 0%, transparent 70%)`, filter: "blur(50px)", pointerEvents: "none" }} />
 
-        <div style={{ maxWidth: 1000, margin: "0 auto", position: "relative", zIndex: 1 }}>
+        <div style={{ width: "90%", maxWidth: "1000px", margin: "0 auto", position: "relative", zIndex: 1 }}>
 
           {/* Back link */}
           <div style={{ marginBottom: 40, opacity: mounted ? 1 : 0, transition: "opacity 0.6s ease" }}>
@@ -188,7 +188,7 @@ const WhatWeDoBestDetail = () => {
               <h1 style={{
                 fontFamily: "'Oxanium',sans-serif", fontWeight: 800,
                 fontSize: "clamp(2rem, 4.5vw, 3.6rem)",
-                letterSpacing: "-0.02em", lineHeight: 1.05, color: "#1a1a1a",
+                letterSpacing: "-0.02em", lineHeight: 1.05, color: "#0f172a",
               }}>
                 {service.title}
               </h1>
@@ -200,7 +200,7 @@ const WhatWeDoBestDetail = () => {
             opacity: mounted ? 1 : 0, transform: mounted ? "none" : "translateY(14px)",
             transition: "all 0.85s ease 0.22s",
           }}>
-            <p style={{ color: "rgba(0,0,0,0.6)", fontSize: "1rem", lineHeight: 1.9, maxWidth: 660 }}>
+            <p style={{ color: "#475569", fontSize: "1rem", lineHeight: 1.9, width: "100%", maxWidth: "660px" }}>
               {service.longDescription}
             </p>
           </div>
@@ -209,11 +209,11 @@ const WhatWeDoBestDetail = () => {
 
       {/* ════ FEATURES ════ */}
       <section style={{ padding: "0 24px 80px" }}>
-        <div style={{ maxWidth: 1000, margin: "0 auto" }}>
+        <div style={{ width: "90%", maxWidth: "1000px", margin: "0 auto" }}>
           <Reveal>
             <div style={{ marginBottom: 36 }}>
               <span className="wwbd-label" style={{ color: service.accent }}>What's Included</span>
-              <h2 style={{ fontFamily: "'Oxanium',sans-serif", fontWeight: 800, fontSize: "clamp(1.6rem, 2.8vw, 2.2rem)", color: "#1a1a1a", letterSpacing: "-0.01em" }}>
+              <h2 style={{ fontFamily: "'Oxanium',sans-serif", fontWeight: 800, fontSize: "clamp(1.6rem, 2.8vw, 2.2rem)", color: "#0f172a", letterSpacing: "-0.01em" }}>
                 Key Capabilities
               </h2>
             </div>
@@ -229,16 +229,16 @@ const WhatWeDoBestDetail = () => {
 
       {/* ════ DIVIDER ════ */}
       <div style={{ padding: "0 24px", marginBottom: 72 }}>
-        <div className="wwbd-divider" style={{ maxWidth: 1000, margin: "0 auto" }} />
+        <div className="wwbd-divider" style={{ width: "90%", maxWidth: "1000px", margin: "0 auto" }} />
       </div>
 
       {/* ════ OTHER SERVICES ════ */}
       <section style={{ padding: "0 24px 80px" }}>
-        <div style={{ maxWidth: 1000, margin: "0 auto" }}>
+        <div style={{ width: "90%", maxWidth: "1000px", margin: "0 auto" }}>
           <Reveal>
             <div style={{ marginBottom: 28 }}>
               <span className="wwbd-label" style={{ color: service.accent }}>Explore More</span>
-              <h2 style={{ fontFamily: "'Oxanium',sans-serif", fontWeight: 800, fontSize: "clamp(1.4rem, 2.5vw, 2rem)", color: "#1a1a1a", letterSpacing: "-0.01em" }}>
+              <h2 style={{ fontFamily: "'Oxanium',sans-serif", fontWeight: 800, fontSize: "clamp(1.4rem, 2.5vw, 2rem)", color: "#0f172a", letterSpacing: "-0.01em" }}>
                 Other Services
               </h2>
             </div>
@@ -256,14 +256,14 @@ const WhatWeDoBestDetail = () => {
                     borderRadius: 50,
                     padding: "9px 18px",
                     textDecoration: "none",
-                    color: "rgba(0,0,0,0.5)",
+                    color: "#64748b",
                     fontSize: "0.82rem",
                     fontFamily: "'Oxanium',sans-serif",
                     fontWeight: 600,
                     transition: "all 0.25s",
                   }}
-                    onMouseEnter={e => { e.currentTarget.style.borderColor = `${s.accent}50`; e.currentTarget.style.color = "#fff"; e.currentTarget.style.background = "rgba(255,255,255,0.04)"; }}
-                    onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"; e.currentTarget.style.color = "rgba(255,255,255,0.5)"; e.currentTarget.style.background = "rgba(255,255,255,0.02)"; }}
+                    onMouseEnter={e => { e.currentTarget.style.borderColor = `${s.accent}50`; e.currentTarget.style.color = "#fff"; e.currentTarget.style.background = "rgba(0,0,0,0.04)"; }}
+                    onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(0,0,0,0.08)"; e.currentTarget.style.color = "rgba(255,255,255,0.5)"; e.currentTarget.style.background = "rgba(0,0,0,0.02)"; }}
                   >
                     <SIcon size={14} color={s.accent} strokeWidth={1.8} />
                     {s.title}
@@ -277,7 +277,7 @@ const WhatWeDoBestDetail = () => {
 
       {/* ════ CTA ════ */}
       <section style={{ padding: "0 24px 100px" }}>
-        <div style={{ maxWidth: 1000, margin: "0 auto" }}>
+        <div style={{ width: "90%", maxWidth: "1000px", margin: "0 auto" }}>
           <Reveal>
             <div style={{
               background: "rgba(0,0,0,0.02)",
@@ -292,10 +292,10 @@ const WhatWeDoBestDetail = () => {
               <div style={{ position: "absolute", bottom: -60, left: "50%", transform: "translateX(-50%)", width: 400, height: 200, background: `radial-gradient(ellipse, ${service.glow.replace("0.5", "0.12")} 0%, transparent 70%)`, pointerEvents: "none" }} />
 
               <span className="wwbd-label" style={{ color: service.accent }}>Get Started</span>
-              <h3 style={{ fontFamily: "'Oxanium',sans-serif", fontWeight: 800, fontSize: "clamp(1.5rem, 2.8vw, 2.2rem)", color: "#1a1a1a", letterSpacing: "-0.01em", marginBottom: 14 }}>
+              <h3 style={{ fontFamily: "'Oxanium',sans-serif", fontWeight: 800, fontSize: "clamp(1.5rem, 2.8vw, 2.2rem)", color: "#0f172a", letterSpacing: "-0.01em", marginBottom: 14 }}>
                 Interested in {service.title}?
               </h3>
-              <p style={{ color: "rgba(0,0,0,0.55)", fontSize: "0.93rem", lineHeight: 1.8, marginBottom: 36, maxWidth: 460, margin: "0 auto 36px" }}>
+              <p style={{ color: "#64748b", fontSize: "0.93rem", lineHeight: 1.8, marginBottom: 36, width: "100%", maxWidth: "460px", margin: "0 auto 36px" }}>
                 Let Agile ICO help you build scalable, intelligent solutions tailored to your business.
               </p>
               <Link to="/contact" className="wwbd-cta-btn">

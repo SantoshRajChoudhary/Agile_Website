@@ -65,7 +65,7 @@ const Footer = () => {
         top: "-60px",
         left: "50%",
         transform: "translateX(-50%)",
-        width: "600px",
+        width: "100%", maxWidth: "600px",
         height: "120px",
         background: "radial-gradient(ellipse, rgba(99,102,241,0.18) 0%, rgba(96,165,250,0.10) 40%, transparent 70%)",
         filter: "blur(20px)",
@@ -86,7 +86,7 @@ const Footer = () => {
               <img src={logo} alt="Agile ICO" style={{ height: "45px", width: "auto", objectFit: "contain" }} />
             </Link>
 
-            <p style={{ fontSize: "13px", lineHeight: 1.75, color: "rgba(0,0,0,0.5)", maxWidth: "240px" }}>
+            <p style={{ fontSize: "13px", lineHeight: 1.75, color: "#64748b", width: "100%", maxWidth: "240px" }}>
               Empowering operations with advanced Business Intelligence, predictive insights, and high-performance engineering solutions.
             </p>
 
@@ -134,11 +134,11 @@ const Footer = () => {
                 <li key={link.path}>
                   <Link to={link.path} style={{
                     display: "flex", alignItems: "center", gap: "6px",
-                    fontSize: "13.5px", color: "rgba(0,0,0,0.55)",
+                    fontSize: "13.5px", color: "#64748b",
                     textDecoration: "none", transition: "all 0.2s",
                   }}
                     onMouseEnter={e => { e.currentTarget.style.color = "#60a5fa"; e.currentTarget.style.paddingLeft = "4px"; }}
-                    onMouseLeave={e => { e.currentTarget.style.color = "rgba(0,0,0,0.55)"; e.currentTarget.style.paddingLeft = "0"; }}
+                    onMouseLeave={e => { e.currentTarget.style.color = "#64748b"; e.currentTarget.style.paddingLeft = "0"; }}
                   >
                     <ChevronRight size={12} style={{ opacity: 0.4 }} />
                     {link.name}
@@ -158,12 +158,12 @@ const Footer = () => {
                 <li key={s.name}>
                   <div style={{
                     display: "flex", alignItems: "center", gap: "6px",
-                    fontSize: "13.5px", color: "rgba(0,0,0,0.55)",
+                    fontSize: "13.5px", color: "#64748b",
                     transition: "all 0.2s",
                     cursor: "default"
                   }}
                     onMouseEnter={e => { e.currentTarget.style.color = "#34d399"; e.currentTarget.style.paddingLeft = "4px"; }}
-                    onMouseLeave={e => { e.currentTarget.style.color = "rgba(0,0,0,0.55)"; e.currentTarget.style.paddingLeft = "0"; }}
+                    onMouseLeave={e => { e.currentTarget.style.color = "#64748b"; e.currentTarget.style.paddingLeft = "0"; }}
                   >
                     <ChevronRight size={12} style={{ opacity: 0.4 }} />
                     {s.name}
@@ -195,10 +195,10 @@ const Footer = () => {
                       <Icon size={13} style={{ color: "#60a5fa" }} />
                     </span>
                     {href
-                      ? <a href={href} style={{ fontSize: "13px", color: "rgba(0,0,0,0.55)", textDecoration: "none", lineHeight: 1.5 }}
+                      ? <a href={href} style={{ fontSize: "13px", color: "#64748b", textDecoration: "none", lineHeight: 1.5 }}
                         onMouseEnter={e => e.currentTarget.style.color = "#60a5fa"}
-                        onMouseLeave={e => e.currentTarget.style.color = "rgba(0,0,0,0.55)"}>{text}</a>
-                      : <span style={{ fontSize: "13px", color: "rgba(0,0,0,0.55)", lineHeight: 1.5 }}>{text}</span>
+                        onMouseLeave={e => e.currentTarget.style.color = "#64748b"}>{text}</a>
+                      : <span style={{ fontSize: "13px", color: "#64748b", lineHeight: 1.5 }}>{text}</span>
                     }
                   </li>
                 ))}
@@ -278,7 +278,7 @@ const Footer = () => {
                 fontSize: "12px", color: "rgba(0,0,0,0.35)",
                 textDecoration: "none", transition: "color 0.2s",
               }}
-                onMouseEnter={e => e.currentTarget.style.color = "rgba(0,0,0,0.6)"}
+                onMouseEnter={e => e.currentTarget.style.color = "#475569"}
                 onMouseLeave={e => e.currentTarget.style.color = "rgba(0,0,0,0.35)"}
               >{t}</a>
             ))}

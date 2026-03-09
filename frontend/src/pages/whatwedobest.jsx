@@ -170,7 +170,7 @@ function StatCard({ value, label, delay }) {
           fontFamily: "'Syne',sans-serif",
           fontSize: "2.4rem",
           fontWeight: 800,
-          color: "#1a1a1a",
+          color: "#0f172a",
           lineHeight: 1,
         }}
       >
@@ -178,7 +178,7 @@ function StatCard({ value, label, delay }) {
       </div>
       <div
         style={{
-          color: "rgba(0,0,0,0.55)",
+          color: "#64748b",
           fontSize: "0.82rem",
           marginTop: 8,
           letterSpacing: "0.08em",
@@ -280,7 +280,7 @@ function ServiceCard({ service, index }) {
             fontFamily: "'Syne',sans-serif",
             fontWeight: 700,
             fontSize: "1.1rem",
-            color: "#1a1a1a",
+            color: "#0f172a",
             marginBottom: 10,
             lineHeight: 1.3,
           }}
@@ -290,7 +290,7 @@ function ServiceCard({ service, index }) {
 
         <p
           style={{
-            color: "rgba(0,0,0,0.6)",
+            color: "#475569",
             fontSize: "0.88rem",
             lineHeight: 1.7,
             marginBottom: 20,
@@ -460,7 +460,7 @@ const WhatWeDoBest = () => {
             <span
               style={{
                 background:
-                  "linear-gradient(135deg, #1a1a1a 30%, rgba(0,0,0,0.5))",
+                  "linear-gradient(135deg, #0f172a 30%, #64748b)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
               }}
@@ -482,7 +482,7 @@ const WhatWeDoBest = () => {
           {/* Sub */}
           <p
             style={{
-              color: "rgba(0,0,0,0.6)",
+              color: "#475569",
               fontSize: "1.05rem",
               lineHeight: 1.8,
               maxWidth: 580,
@@ -503,14 +503,14 @@ const WhatWeDoBest = () => {
       {/* ════ INTRO ════ */}
       <section style={{ padding: "0 24px 80px" }}>
         <RevealCard>
-          <div style={{ maxWidth: 760, margin: "0 auto", textAlign: "center" }}>
+          <div style={{ width: "100%", maxWidth: "760px", margin: "0 auto", textAlign: "center" }}>
             <span className="wwdb-label">Our Mission</span>
             <h2 className="wwdb-section-title" style={{ marginBottom: 20 }}>
               Building Technology That Solves Real Problems
             </h2>
             <p
               style={{
-                color: "rgba(0,0,0,0.6)",
+                color: "#475569",
                 lineHeight: 1.9,
                 fontSize: "1rem",
               }}
@@ -581,7 +581,7 @@ const WhatWeDoBest = () => {
 
       {/* ════ SERVICES GRID ════ */}
       <section id="services" style={{ padding: "0 24px 100px" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+        <div style={{ width: "95%", maxWidth: "1200px", margin: "0 auto" }}>
           <RevealCard style={{ marginBottom: 56, textAlign: "center" }}>
             <span className="wwdb-label">What We Do</span>
             <h2 className="wwdb-section-title">Our Core Services</h2>
@@ -612,7 +612,7 @@ const WhatWeDoBest = () => {
           height: "fit-content",
         }}
       >
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+        <div style={{ width: "95%", maxWidth: "1200px", margin: "0 auto" }}>
           <RevealCard style={{ textAlign: "center", marginBottom: 60 }}>
             <span className="wwdb-label">Our Process</span>
             <h2 className="wwdb-section-title">How We Deliver Value</h2>
@@ -659,7 +659,7 @@ const WhatWeDoBest = () => {
                         fontFamily: "'Syne',sans-serif",
                         fontWeight: 700,
                         fontSize: "1.05rem",
-                        color: "#1a1a1a",
+                        color: "#0f172a",
                         marginBottom: 10,
                       }}
                     >
@@ -667,7 +667,7 @@ const WhatWeDoBest = () => {
                     </h3>
                     <p
                       style={{
-                        color: "rgba(0,0,0,0.6)",
+                        color: "#475569",
                         fontSize: "0.88rem",
                         lineHeight: 1.75,
                       }}
@@ -725,7 +725,7 @@ const WhatWeDoBest = () => {
               fontWeight: 800,
               fontSize: "clamp(2rem, 4vw, 3.2rem)",
               letterSpacing: "-0.03em",
-              color: "#1a1a1a",
+              color: "#0f172a",
               marginBottom: 16,
               lineHeight: 1.1,
             }}
@@ -744,10 +744,10 @@ const WhatWeDoBest = () => {
           </h2>
           <p
             style={{
-              color: "rgba(0,0,0,0.55)",
+              color: "#64748b",
               fontSize: "1rem",
               marginBottom: 44,
-              maxWidth: 440,
+              width: "100%", maxWidth: "440px",
               marginLeft: "auto",
               marginRight: "auto",
             }}

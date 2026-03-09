@@ -1,0 +1,55 @@
+﻿
+> attractify-website@0.0.0 lint
+> eslint .
+
+
+C:\Users\chsan\Desktop\AT\Aggile_Website\frontend\src\components\ui\badge.jsx
+  35:17  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\chsan\Desktop\AT\Aggile_Website\frontend\src\components\ui\button.jsx
+  51:18  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\chsan\Desktop\AT\Aggile_Website\frontend\src\components\ui\form.jsx
+  179:3  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\chsan\Desktop\AT\Aggile_Website\frontend\src\components\ui\navigation-menu.jsx
+  111:3  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\chsan\Desktop\AT\Aggile_Website\frontend\src\components\ui\sidebar.jsx
+  114:7  warning  React Hook React.useMemo has a missing dependency: 'setOpen'. Either include it or remove the dependency array                  react-hooks/exhaustive-deps
+  284:3  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\chsan\Desktop\AT\Aggile_Website\frontend\src\components\ui\sonner.jsx
+  27:19  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\chsan\Desktop\AT\Aggile_Website\frontend\src\components\ui\toggle.jsx
+  40:18  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\chsan\Desktop\AT\Aggile_Website\frontend\src\pages\About.jsx
+   70:6  warning  React Hook useEffect has a missing dependency: 'delay'. Either include it or remove the dependency array                                                                                                                                     react-hooks/exhaustive-deps
+  105:6  warning  React Hook useEffect has a missing dependency: 'end'. Either include it or remove the dependency array. If 'setCount' needs the current value of 'end', you can also switch to useReducer instead of useState and read 'end' in the reducer  react-hooks/exhaustive-deps
+
+C:\Users\chsan\Desktop\AT\Aggile_Website\frontend\src\pages\Career.jsx
+  62:6  warning  React Hook useEffect has a missing dependency: 'delay'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\chsan\Desktop\AT\Aggile_Website\frontend\src\pages\Contact.jsx
+  24:6  warning  React Hook useEffect has a missing dependency: 'delay'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\chsan\Desktop\AT\Aggile_Website\frontend\src\pages\Products.jsx
+  24:6  warning  React Hook useEffect has a missing dependency: 'delay'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\chsan\Desktop\AT\Aggile_Website\frontend\src\pages\Services.jsx
+  92:6  warning  React Hook useEffect has a missing dependency: 'delay'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\chsan\Desktop\AT\Aggile_Website\frontend\src\pages\WhoWeServe.jsx
+  100:6  warning  React Hook useEffect has a missing dependency: 'delay'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\chsan\Desktop\AT\Aggile_Website\frontend\src\pages\whatwedobest.jsx
+  103:6  warning  React Hook useEffect has a missing dependency: 'threshold'. Either include it or remove the dependency array                                                                                                                                                         react-hooks/exhaustive-deps
+  126:6  warning  React Hook useEffect has missing dependencies: 'duration' and 'target'. Either include them or remove the dependency array. If 'setVal' needs the current value of 'target', you can also switch to useReducer instead of useState and read 'target' in the reducer  react-hooks/exhaustive-deps
+
+C:\Users\chsan\Desktop\AT\Aggile_Website\frontend\src\pages\whatwedobestDetail.jsx
+  81:6  warning  React Hook useEffect has a missing dependency: 'delay'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+Γ£û 18 problems (0 errors, 18 warnings)
+

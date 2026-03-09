@@ -127,11 +127,11 @@ function IndustryCard({ industry, index }) {
         onMouseEnter={() => setHov(true)}
         onMouseLeave={() => setHov(false)}
         style={{
-          background: "rgba(255,255,255,0.02)",
+          background: "rgba(0,0,0,0.02)",
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          border: `1px solid ${hov ? `${industry.accent}45` : "rgba(255,255,255,0.07)"}`,
+          border: `1px solid ${hov ? `${industry.accent}45` : "rgba(0,0,0,0.07)"}`,
           borderRadius: 18,
           overflow: "hidden",
           transform: hov ? "translateY(-6px)" : "none",
@@ -190,7 +190,7 @@ function IndustryCard({ industry, index }) {
               fontFamily: "'Oxanium', sans-serif",
               fontWeight: 700,
               fontSize: "1rem",
-              color: "#fff",
+              color: "#0f172a",
               marginBottom: 10,
               letterSpacing: "0.01em",
             }}
@@ -199,7 +199,7 @@ function IndustryCard({ industry, index }) {
           </h3>
           <p
             style={{
-              color: "rgba(255,255,255,0.42)",
+              color: "#64748b",
               fontSize: "0.85rem",
               lineHeight: 1.75,
             }}
@@ -270,7 +270,7 @@ const Products = () => {
 
         <div
           style={{
-            maxWidth: 1100,
+            width: "95%", maxWidth: "1100px",
             margin: "0 auto",
             position: "relative",
             zIndex: 1,
@@ -278,7 +278,7 @@ const Products = () => {
         >
           <div
             style={{
-              maxWidth: 680,
+              width: "100%", maxWidth: "680px",
               opacity: mounted ? 1 : 0,
               transform: mounted ? "none" : "translateY(24px)",
               transition: "all 0.85s ease",
@@ -293,7 +293,7 @@ const Products = () => {
                 fontSize: "clamp(2.4rem, 5.5vw, 4.4rem)",
                 letterSpacing: "-0.02em",
                 lineHeight: 1.05,
-                color: "#fff",
+                color: "#0f172a",
                 marginBottom: 24,
               }}
             >
@@ -311,10 +311,10 @@ const Products = () => {
 
             <p
               style={{
-                color: "rgba(255,255,255,0.42)",
+                color: "#64748b",
                 fontSize: "1rem",
                 lineHeight: 1.85,
-                maxWidth: 520,
+                width: "100%", maxWidth: "520px",
               }}
             >
               We partner with organizations that aim to innovate, automate, and
@@ -327,7 +327,7 @@ const Products = () => {
 
       {/* ════ INDUSTRIES ════ */}
       <section style={{ padding: "0 24px 90px" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+        <div style={{ width: "95%", maxWidth: "1100px", margin: "0 auto" }}>
           <Reveal>
             <div style={{ marginBottom: 48 }}>
               <span className="prd-label">Who We Work With</span>
@@ -352,12 +352,12 @@ const Products = () => {
 
       {/* ════ DIVIDER ════ */}
       <div style={{ padding: "0 24px", marginBottom: 80 }}>
-        <div className="prd-divider" style={{ maxWidth: 1100 }} />
+        <div className="prd-divider" style={{ width: "95%", maxWidth: "1100px" }} />
       </div>
 
       {/* ════ CLIENT JOURNEY ════ */}
       <section style={{ padding: "0 24px 90px" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+        <div style={{ width: "95%", maxWidth: "1100px", margin: "0 auto" }}>
           <Reveal>
             <div style={{ marginBottom: 48, textAlign: "center" }}>
               <span className="prd-label">How We Work</span>
@@ -398,7 +398,7 @@ const Products = () => {
                         fontFamily: "'Oxanium',sans-serif",
                         fontWeight: 700,
                         fontSize: "0.95rem",
-                        color: "#fff",
+                        color: "#0f172a",
                         marginBottom: 8,
                         letterSpacing: "0.01em",
                       }}
@@ -407,7 +407,7 @@ const Products = () => {
                     </h3>
                     <p
                       style={{
-                        color: "rgba(255,255,255,0.4)",
+                        color: "#64748b",
                         fontSize: "0.83rem",
                         lineHeight: 1.75,
                       }}
@@ -424,17 +424,17 @@ const Products = () => {
 
       {/* ════ DIVIDER ════ */}
       <div style={{ padding: "0 24px", marginBottom: 80 }}>
-        <div className="prd-divider" style={{ maxWidth: 1100 }} />
+        <div className="prd-divider" style={{ width: "95%", maxWidth: "1100px" }} />
       </div>
 
       {/* ════ IMPACT ════ */}
       <section style={{ padding: "0 24px 110px" }}>
         <div
           style={{
-            maxWidth: 1100,
+            width: "95%", maxWidth: "1100px",
             margin: "0 auto",
             display: "grid",
-            gridTemplateColumns: "1fr 1fr",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 350px), 1fr))",
             gap: 60,
             alignItems: "center",
           }}
@@ -458,11 +458,11 @@ const Products = () => {
 
               <p
                 style={{
-                  color: "rgba(255,255,255,0.42)",
+                  color: "#64748b",
                   fontSize: "0.93rem",
                   lineHeight: 1.85,
                   marginBottom: 32,
-                  maxWidth: 420,
+                  width: "100%", maxWidth: "420px",
                 }}
               >
                 Our solutions are designed to create long-term value — reducing
@@ -485,7 +485,7 @@ const Products = () => {
                       display: "flex",
                       alignItems: "center",
                       gap: 12,
-                      color: "rgba(255,255,255,0.65)",
+                      color: "#475569",
                       fontSize: "0.9rem",
                     }}
                   >

@@ -172,8 +172,8 @@ const HeroSection = () => {
 
       {/* ── hero text ── */}
       <motion.div
-        className="relative z-30 w-full pt-28 pb-20 flex justify-center items-center"
-        style={{ opacity: textOpacity, y: textY }}
+        className="relative z-30 w-full pt-12 pb-20 flex justify-center items-center"
+        style={{ opacity: textOpacity, y: textY, minHeight: "80vh" }}
       >
         <div className="section-container w-full flex justify-center">
           <div className="max-w-[760px] space-y-8 text-center">
@@ -190,10 +190,9 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="text-black font-extrabold leading-tight tracking-tight text-center"
-              style={{ fontSize: "clamp(2.6rem, 6vw, 4.2rem)" }}
+              style={{ fontFamily: "'Syne', sans-serif", fontSize: "clamp(2.6rem, 6vw, 4.2rem)" }}
             >
-              Driving Digital India
-              <br />
+              Driving Digital India{" "}
               <span className="bg-gradient-to-r from-blue-600 via-cyan-600 to-emerald-600 bg-clip-text text-transparent">
                 With Precision & Intelligence
               </span>
@@ -251,7 +250,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.65 }}
-              className="flex justify-center flex-wrap gap-12 pt-8 border-t border-black/10 mt-8"
+              className="flex justify-center flex-wrap gap-6 sm:gap-8 md:gap-12 pt-8 border-t border-black/10 mt-8"
             >
               {[
                 { val: "53+", lbl: "Projects" },
@@ -282,7 +281,7 @@ const HeroSection = () => {
 
       {/* scroll hint */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2"
+        className="hide-mobile absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex-col items-center gap-2"
         style={{ opacity: hintOpacity }}
       >
         <span className="text-[9px] tracking-[0.22em] uppercase text-black/40">
@@ -339,7 +338,7 @@ const ServiceCard = ({ service, Icon }) => {
         transition: "transform 0.45s ease",
         transformStyle: "preserve-3d",
         willChange: "transform",
-        boxShadow: `0 24px 48px rgba(0,0,0,0.5), 0 0 0 1px ${service.accent}55`,
+        boxShadow: `0 24px 48px #64748b, 0 0 0 1px ${service.accent}55`,
       }}
     >
       {/* ── image (always revealed) ── */}
@@ -425,7 +424,7 @@ const ServiceCard = ({ service, Icon }) => {
         <p
           style={{
             fontSize: "13px",
-            color: "rgba(0,0,0,0.6)",
+            color: "#475569",
             lineHeight: 1.65,
             margin: "0 0 15px 0",
           }}
@@ -435,7 +434,7 @@ const ServiceCard = ({ service, Icon }) => {
 
         <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "8px" }}>
           {service.points.map((pt, i) => (
-            <li key={i} style={{ display: "flex", alignItems: "center", gap: "10px", color: "rgba(0,0,0,0.5)", fontSize: "0.78rem" }}>
+            <li key={i} style={{ display: "flex", alignItems: "center", gap: "10px", color: "#64748b", fontSize: "0.78rem" }}>
               <span style={{ width: "5px", height: "5px", borderRadius: "50%", background: service.accent, flexShrink: 0, boxShadow: `0 0 6px ${service.accent}` }} />
               {pt}
             </li>
@@ -462,86 +461,101 @@ const ServiceCard = ({ service, Icon }) => {
 /* ═══════════════════════════════════════════════════════════════
    PAGE
 ═══════════════════════════════════════════════════════════════ */
-const Index = () => (
-  <div className="min-h-screen bg-background overflow-hidden">
-    {/* ── HERO ── */}
-    <HeroSection />
+const Index = () => {
+  useEffect(() => {
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/667e55aeeaf3bd8d4d1549ec/1i1entdhe';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin', '*');
+    if (s0 && s0.parentNode) {
+      s0.parentNode.insertBefore(s1, s0);
+    } else {
+      document.head.appendChild(s1);
+    }
+  }, []);
 
-    {/* ── SERVICES ── */}
-    <section className="py-24 overflow-hidden">
-      <div className="section-container">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-3xl md:text-4xl font-bold text-center text-primary mb-14"
-        >
-          What We Do
-        </motion.h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, i) => {
-            const Icon = service.icon;
-            return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: -80 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{
-                  duration: 0.55,
-                  delay: i * 0.15,
-                  ease: [0.25, 0.46, 0.45, 0.94],
-                }}
-              >
-                <ServiceCard service={service} Icon={Icon} />
-              </motion.div>
-            );
-          })}
+  return (
+    <div className="min-h-screen bg-background overflow-hidden">
+      {/* ── HERO ── */}
+      <HeroSection />
+
+      {/* ── SERVICES ── */}
+      <section className="py-24 overflow-hidden">
+        <div className="section-container">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-4xl font-bold text-center text-primary mb-14"
+          >
+            What We Do
+          </motion.h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((service, i) => {
+              const Icon = service.icon;
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -80 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{
+                    duration: 0.55,
+                    delay: i * 0.15,
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                  }}
+                >
+                  <ServiceCard service={service} Icon={Icon} />
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    {/* ── TECHNOLOGIES ── */}
-    <section className="py-24 bg-muted/20 relative overflow-hidden">
-      <div className="section-container">
-        {/* ───── HEADER ───── */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
-            Technologies & Process That Power Innovation
-          </h2>
+      {/* ── TECHNOLOGIES ── */}
+      <section className="py-24 bg-muted/20 relative overflow-hidden">
+        <div className="section-container">
+          {/* ───── HEADER ───── */}
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
+              Technologies & Process That Power Innovation
+            </h2>
 
-          <p className="text-muted-foreground">
-            At Agile ICO, we combine advanced technologies with a
-            structured engineering approach to build scalable, intelligent and
-            future-ready solutions for modern industries.
-          </p>
-        </div>
+            <p className="text-muted-foreground">
+              At Agile ICO, we combine advanced technologies with a
+              structured engineering approach to build scalable, intelligent and
+              future-ready solutions for modern industries.
+            </p>
+          </div>
 
-        {/* ───── TECHNOLOGIES GRID ───── */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-20">
-          {[
-            { name: "Business Intelligence", icon: Brain, color: "#22d3ee" },
-            { name: "Predictive Analysis", icon: Box, color: "#a78bfa" },
-            { name: "Microsoft Services", icon: Cpu, color: "#60a5fa" },
-            { name: "Axial Core Motors", icon: Globe, color: "#34d399" },
-            { name: "Bi-Polar Switching Induction Motor", icon: Shield, color: "#38bdf8" },
-            { name: "Electronic Controlled Module", icon: Layers, color: "#10b981" },
-          ].map((tech, i) => {
-            const Icon = tech.icon;
+          {/* ───── TECHNOLOGIES GRID ───── */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-20">
+            {[
+              { name: "Business Intelligence", icon: Brain, color: "#22d3ee" },
+              { name: "Predictive Analysis", icon: Box, color: "#a78bfa" },
+              { name: "Microsoft Services", icon: Cpu, color: "#60a5fa" },
+              { name: "Axial Core Motors", icon: Globe, color: "#34d399" },
+              { name: "Bi-Polar Switching Induction Motor", icon: Shield, color: "#38bdf8" },
+              { name: "Electronic Controlled Module", icon: Layers, color: "#10b981" },
+            ].map((tech, i) => {
+              const Icon = tech.icon;
 
-            return (
-              <div
-                key={i}
-                className="
+              return (
+                <div
+                  key={i}
+                  className="
           relative rounded-xl p-[1.5px]
           bg-gradient-to-r
           from-cyan-400 via-blue-500 to-emerald-400
         "
-              >
-                {/* INNER CARD */}
-                <div
-                  className="
+                >
+                  {/* INNER CARD */}
+                  <div
+                    className="
             h-[150px]
             rounded-xl
             bg-white
@@ -549,220 +563,221 @@ const Index = () => (
             flex flex-col items-center justify-center
             text-center
           "
-                >
-                  {/* ICON */}
-                  <Icon
-                    size={30}
-                    style={{
-                      color: tech.color,
-                      filter: `drop-shadow(0 0 10px ${tech.color})`,
-                    }}
-                    className="mb-3"
-                  />
+                  >
+                    {/* ICON */}
+                    <Icon
+                      size={30}
+                      style={{
+                        color: tech.color,
+                        filter: `drop-shadow(0 0 10px ${tech.color})`,
+                      }}
+                      className="mb-3"
+                    />
 
-                  {/* TEXT */}
-                  <p className="text-sm font-semibold text-black/80 leading-tight px-2">
-                    {tech.name}
-                  </p>
+                    {/* TEXT */}
+                    <p className="text-sm font-semibold text-black/80 leading-tight px-2">
+                      {tech.name}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* ───── PROCESS FLOW ───── */}
-        <div className="grid md:grid-cols-3 gap-8 text-center relative">
-          {/* subtle background glow */}
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute left-1/4 top-1/2 w-72 h-72 bg-blue-500/10 blur-[120px] rounded-full" />
-            <div className="absolute right-1/4 top-1/2 w-72 h-72 bg-emerald-500/10 blur-[120px] rounded-full" />
+              );
+            })}
           </div>
 
-          {[
-            {
-              title: "Understand",
-              desc: "We deeply analyze business challenges, workflows, and opportunities to define the right technological direction.",
-              icon: Target,
-              color: "#60a5fa",
-            },
-            {
-              title: "Design",
-              desc: "Our team architects scalable systems and intelligent experiences using modern frameworks and technologies.",
-              icon: Layers,
-              color: "#34d399",
-            },
-            {
-              title: "Build & Scale",
-              desc: "We develop, deploy, and continuously optimize solutions that grow with your business and users.",
-              icon: Rocket,
-              color: "#22c55e",
-            },
-          ].map((step, i) => {
-            const Icon = step.icon;
+          {/* ───── PROCESS FLOW ───── */}
+          <div className="grid md:grid-cols-3 gap-8 text-center relative">
+            {/* subtle background glow */}
+            <div className="absolute inset-0 pointer-events-none">
+              <div className="absolute left-1/4 top-1/2 w-72 h-72 bg-blue-500/10 blur-[120px] rounded-full" />
+              <div className="absolute right-1/4 top-1/2 w-72 h-72 bg-emerald-500/10 blur-[120px] rounded-full" />
+            </div>
 
-            return (
-              <div
-                key={i}
-                className="
+            {[
+              {
+                title: "Understand",
+                desc: "We deeply analyze business challenges, workflows, and opportunities to define the right technological direction.",
+                icon: Target,
+                color: "#60a5fa",
+              },
+              {
+                title: "Design",
+                desc: "Our team architects scalable systems and intelligent experiences using modern frameworks and technologies.",
+                icon: Layers,
+                color: "#34d399",
+              },
+              {
+                title: "Build & Scale",
+                desc: "We develop, deploy, and continuously optimize solutions that grow with your business and users.",
+                icon: Rocket,
+                color: "#22c55e",
+              },
+            ].map((step, i) => {
+              const Icon = step.icon;
+
+              return (
+                <div
+                  key={i}
+                  className="
           relative z-10
           p-8 rounded-xl
           bg-card border border-border
         "
-              >
-                {/* glowing icon container */}
-                <div
-                  className="mx-auto mb-4 w-14 h-14 rounded-lg flex items-center justify-center"
-                  style={{
-                    background: `${step.color}15`,
-                    boxShadow: `0 0 22px ${step.color}35`,
-                  }}
                 >
-                  <Icon size={30} style={{ color: step.color }} />
+                  {/* glowing icon container */}
+                  <div
+                    className="mx-auto mb-4 w-14 h-14 rounded-lg flex items-center justify-center"
+                    style={{
+                      background: `${step.color}15`,
+                      boxShadow: `0 0 22px ${step.color}35`,
+                    }}
+                  >
+                    <Icon size={30} style={{ color: step.color }} />
+                  </div>
+
+                  <h3 className="font-semibold mb-2">{step.title}</h3>
+
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {step.desc}
+                  </p>
                 </div>
-
-                <h3 className="font-semibold mb-2">{step.title}</h3>
-
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {step.desc}
-                </p>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-
-    {/* ── WHY CHOOSE US ── */}
-    <section className="py-24">
-      <div className="section-container grid lg:grid-cols-2 gap-12 items-center">
-        <div className="space-y-6">
-          <h2 className="text-3xl md:text-4xl font-bold">
-            Why Choose <span className="text-primary">Agile ICO</span>?
-          </h2>
-          <p className="text-muted-foreground">
-            We combine deep technical expertise with industry understanding to
-            deliver intelligent solutions that solve real-world problems.
-          </p>
-          <ul className="space-y-4">
-            {[
-              "AI-driven innovation approach",
-              "Industry-focused solutions",
-              "Scalable and future-ready architecture",
-              "Fast development and deployment",
-            ].map((item, i) => (
-              <li key={i} className="flex gap-3 items-start">
-                <ChevronRight className="text-primary mt-1" size={18} />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="relative">
-          <div className="h-[360px] rounded-2xl border border-border overflow-hidden bg-card shadow-xl">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full h-full object-cover"
-            >
-              <source src="/videos/whychossevid.mp4" type="video/mp4" />
-            </video>
-
-            <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
+              );
+            })}
           </div>
-          <div className="absolute -z-10 inset-0 blur-[120px] bg-primary/20 rounded-full" />
         </div>
-      </div>
-    </section>
+      </section>
 
-    {/* ── FEATURED SOLUTIONS ── */}
-    <section className="py-24 bg-muted/20 relative overflow-hidden">
-      <div className="section-container">
-        {/* heading */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            What We Build
-          </h2>
-          <p className="text-muted-foreground">
-            Explore our cutting-edge technologies and specialized services.
-          </p>
+      {/* ── WHY CHOOSE US ── */}
+      <section className="py-24">
+        <div className="section-container grid lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-6">
+            <h2 className="text-3xl md:text-4xl font-bold">
+              Why Choose <span className="text-primary">Agile ICO</span>?
+            </h2>
+            <p className="text-muted-foreground">
+              We combine deep technical expertise with industry understanding to
+              deliver intelligent solutions that solve real-world problems.
+            </p>
+            <ul className="space-y-4">
+              {[
+                "AI-driven innovation approach",
+                "Industry-focused solutions",
+                "Scalable and future-ready architecture",
+                "Fast development and deployment",
+              ].map((item, i) => (
+                <li key={i} className="flex gap-3 items-start">
+                  <ChevronRight className="text-primary mt-1" size={18} />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="relative">
+            <div className="h-[360px] rounded-2xl border border-border overflow-hidden bg-card shadow-xl">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-cover"
+              >
+                <source src="/videos/whychossevid.mp4" type="video/mp4" />
+              </video>
+
+              <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
+            </div>
+            <div className="absolute -z-10 inset-0 blur-[120px] bg-primary/20 rounded-full" />
+          </div>
         </div>
+      </section>
 
-        {/* cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((item, i) => {
-            const Icon = item.icon;
+      {/* ── FEATURED SOLUTIONS ── */}
+      <section className="py-24 bg-muted/20 relative overflow-hidden">
+        <div className="section-container">
+          {/* heading */}
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              What We Build
+            </h2>
+            <p className="text-muted-foreground">
+              Explore our cutting-edge technologies and specialized services.
+            </p>
+          </div>
 
-            return (
-              <div
-                key={i}
-                className="
+          {/* cards */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((item, i) => {
+              const Icon = item.icon;
+
+              return (
+                <div
+                  key={i}
+                  className="
               relative p-6 rounded-xl
               bg-card border border-border
               h-full flex flex-col
             "
-              >
-                {/* glow background */}
-                <div
-                  className="absolute inset-0 rounded-xl opacity-40 pointer-events-none"
-                  style={{
-                    background: `radial-gradient(circle at 20% 10%, ${item.accent}22, transparent 70%)`,
-                  }}
-                />
-
-                {/* icon */}
-                <div
-                  className="w-12 h-12 rounded-lg flex items-center justify-center mb-4"
-                  style={{
-                    background: `${item.accent}15`,
-                    boxShadow: `0 0 18px ${item.accent}40`,
-                  }}
                 >
-                  <Icon size={24} style={{ color: item.accent }} />
+                  {/* glow background */}
+                  <div
+                    className="absolute inset-0 rounded-xl opacity-40 pointer-events-none"
+                    style={{
+                      background: `radial-gradient(circle at 20% 10%, ${item.accent}22, transparent 70%)`,
+                    }}
+                  />
+
+                  {/* icon */}
+                  <div
+                    className="w-12 h-12 rounded-lg flex items-center justify-center mb-4"
+                    style={{
+                      background: `${item.accent}15`,
+                      boxShadow: `0 0 18px ${item.accent}40`,
+                    }}
+                  >
+                    <Icon size={24} style={{ color: item.accent }} />
+                  </div>
+
+                  {/* title */}
+                  <h2 className="font-semibold mb-3">{item.title}</h2>
+
+                  {/* description */}
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                    {item.description}
+                  </p>
+
+                  {/* points */}
+                  <ul className="space-y-2 mt-auto">
+                    {item.points.map((pt, idx) => (
+                      <li key={idx} className="flex items-center gap-3 text-[0.78rem] text-muted-foreground">
+                        <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: item.accent, boxShadow: `0 0 6px ${item.accent}` }} />
+                        {pt}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-
-                {/* title */}
-                <h2 className="font-semibold mb-3">{item.title}</h2>
-
-                {/* description */}
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                  {item.description}
-                </p>
-
-                {/* points */}
-                <ul className="space-y-2 mt-auto">
-                  {item.points.map((pt, idx) => (
-                    <li key={idx} className="flex items-center gap-3 text-[0.78rem] text-muted-foreground">
-                      <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: item.accent, boxShadow: `0 0 6px ${item.accent}` }} />
-                      {pt}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
 
 
-    {/* ── CTA ── */}
-    <section className="py-24 text-center">
-      <h2 className="text-3xl font-semibold mb-4">
-        Ready to Build the Future?
-      </h2>
-      <p className="text-muted-foreground mb-8">
-        Let's transform your ideas into intelligent digital solutions.
-      </p>
-      <Button size="lg" asChild>
-        <Link to="/contact">
-          Start Your Project <ChevronRight className="ml-2" />
-        </Link>
-      </Button>
-    </section>
-  </div>
-);
+      {/* ── CTA ── */}
+      <section className="py-24 text-center">
+        <h2 className="text-3xl font-semibold mb-4">
+          Ready to Build the Future?
+        </h2>
+        <p className="text-muted-foreground mb-8">
+          Let's transform your ideas into intelligent digital solutions.
+        </p>
+        <Button size="lg" asChild>
+          <Link to="/contact">
+            Start Your Project <ChevronRight className="ml-2" />
+          </Link>
+        </Button>
+      </section>
+    </div>
+  );
+};
 
 export default Index;

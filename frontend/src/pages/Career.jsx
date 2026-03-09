@@ -123,7 +123,7 @@ function ApplicationForm({ formData, setFormData }) {
       onSubmit={handleSubmit}
       style={{ display: "flex", flexDirection: "column", gap: 12 }}
     >
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 150px), 1fr))", gap: 12 }}>
         <input
           name="name"
           placeholder="Full Name"
@@ -146,7 +146,7 @@ function ApplicationForm({ formData, setFormData }) {
           style={inputStyle("email")}
         />
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 150px), 1fr))", gap: 12 }}>
         <input
           name="phone"
           placeholder="Phone Number"
@@ -188,7 +188,7 @@ function ApplicationForm({ formData, setFormData }) {
           borderRadius: 10,
           padding: "12px 16px",
           cursor: "pointer",
-          color: "rgba(0,0,0,0.45)",
+          color: "#64748b",
           fontSize: "0.83rem",
           fontFamily: "'Oxanium',sans-serif",
           transition: "border-color 0.25s",
@@ -197,12 +197,12 @@ function ApplicationForm({ formData, setFormData }) {
           (e.currentTarget.style.borderColor = "rgba(129,140,248,0.4)")
         }
         onMouseLeave={(e) =>
-          (e.currentTarget.style.borderColor = "rgba(255,255,255,0.12)")
+          (e.currentTarget.style.borderColor = "rgba(0,0,0,0.12)")
         }
       >
         <span style={{ color: "#818cf8", fontSize: "0.8rem" }}>📎</span>
         {resume ? (
-          <span style={{ color: "rgba(0,0,0,0.6)" }}>{resume.name}</span>
+          <span style={{ color: "#475569" }}>{resume.name}</span>
         ) : (
           "Attach Resume (PDF, DOC)"
         )}
@@ -353,7 +353,7 @@ const Career = () => {
           style={{
             position: "relative",
             zIndex: 1,
-            maxWidth: 640,
+            width: "100%", maxWidth: "640px",
             margin: "0 auto",
           }}
         >
@@ -401,7 +401,7 @@ const Career = () => {
               fontSize: "clamp(2.4rem, 5.5vw, 4.2rem)",
               letterSpacing: "-0.02em",
               lineHeight: 1.06,
-              color: "#fff",
+              color: "#0f172a",
               marginBottom: 20,
               opacity: mounted ? 1 : 0,
               transform: mounted ? "none" : "translateY(20px)",
@@ -437,7 +437,7 @@ const Career = () => {
 
       {/* ════ WHY JOIN ════ */}
       <section style={{ padding: "0 24px 80px" }}>
-        <div style={{ maxWidth: 1000, margin: "0 auto" }}>
+        <div style={{ width: "90%", maxWidth: "1000px", margin: "0 auto" }}>
           <Reveal>
             <div style={{ marginBottom: 36 }}>
               <span className="cr-label">Benefits</span>
@@ -446,7 +446,7 @@ const Career = () => {
                   fontFamily: "'Oxanium',sans-serif",
                   fontWeight: 800,
                   fontSize: "clamp(1.6rem, 2.8vw, 2.2rem)",
-                  color: "#1a1a1a",
+                  color: "#0f172a",
                   letterSpacing: "-0.01em",
                 }}
               >
@@ -467,7 +467,7 @@ const Career = () => {
                   <span style={{ fontSize: "1.4rem" }}>{p.emoji}</span>
                   <p
                     style={{
-                      color: "rgba(0,0,0,0.65)",
+                      color: "#334155",
                       fontSize: "0.9rem",
                       fontWeight: 500,
                     }}
@@ -485,13 +485,13 @@ const Career = () => {
       <div style={{ padding: "0 24px", marginBottom: 72 }}>
         <div
           className="cr-divider"
-          style={{ maxWidth: 1000, margin: "0 auto", opacity: 0.15 }}
+          style={{ width: "90%", maxWidth: "1000px", margin: "0 auto", opacity: 0.15 }}
         />
       </div>
 
       {/* ════ OPEN POSITIONS ════ */}
       <section style={{ padding: "0 24px 80px" }}>
-        <div style={{ maxWidth: 1000, margin: "0 auto" }}>
+        <div style={{ width: "90%", maxWidth: "1000px", margin: "0 auto" }}>
           <Reveal>
             <div
               style={{
@@ -510,7 +510,7 @@ const Career = () => {
                     fontFamily: "'Oxanium',sans-serif",
                     fontWeight: 800,
                     fontSize: "clamp(1.6rem, 2.8vw, 2.2rem)",
-                    color: "#1a1a1a",
+                    color: "#0f172a",
                     letterSpacing: "-0.01em",
                   }}
                 >
@@ -542,7 +542,7 @@ const Career = () => {
                         fontFamily: "'Oxanium',sans-serif",
                         fontWeight: 700,
                         fontSize: "0.98rem",
-                        color: "#1a1a1a",
+                        color: "#0f172a",
                         marginBottom: 6,
                       }}
                     >
@@ -561,7 +561,7 @@ const Career = () => {
                           display: "flex",
                           alignItems: "center",
                           gap: 5,
-                          color: "rgba(0,0,0,0.45)",
+                          color: "#64748b",
                           fontSize: "0.78rem",
                         }}
                       >
@@ -572,7 +572,7 @@ const Career = () => {
                           display: "flex",
                           alignItems: "center",
                           gap: 5,
-                          color: "rgba(0,0,0,0.45)",
+                          color: "#64748b",
                           fontSize: "0.78rem",
                         }}
                       >
@@ -612,13 +612,13 @@ const Career = () => {
       <div style={{ padding: "0 24px", marginBottom: 72 }}>
         <div
           className="cr-divider"
-          style={{ maxWidth: 1000, margin: "0 auto" }}
+          style={{ width: "90%", maxWidth: "1000px", margin: "0 auto" }}
         />
       </div>
 
       {/* ════ HIRING PROCESS ════ */}
       <section style={{ padding: "0 24px 80px" }}>
-        <div style={{ maxWidth: 1000, margin: "0 auto" }}>
+        <div style={{ width: "90%", maxWidth: "1000px", margin: "0 auto" }}>
           <Reveal>
             <div style={{ marginBottom: 36, textAlign: "center" }}>
               <span className="cr-label">Process</span>
@@ -627,7 +627,7 @@ const Career = () => {
                   fontFamily: "'Oxanium',sans-serif",
                   fontWeight: 800,
                   fontSize: "clamp(1.6rem, 2.8vw, 2.2rem)",
-                  color: "#fff",
+                  color: "#0f172a",
                   letterSpacing: "-0.01em",
                 }}
               >
@@ -660,7 +660,7 @@ const Career = () => {
                   </div>
                   <p
                     style={{
-                      color: "rgba(0,0,0,0.65)",
+                      color: "#334155",
                       fontSize: "0.88rem",
                       fontWeight: 600,
                     }}
@@ -678,13 +678,13 @@ const Career = () => {
       <div style={{ padding: "0 24px", marginBottom: 72 }}>
         <div
           className="cr-divider"
-          style={{ maxWidth: 1000, margin: "0 auto" }}
+          style={{ width: "90%", maxWidth: "1000px", margin: "0 auto" }}
         />
       </div>
 
       {/* ════ APPLICATION FORM ════ */}
       <section ref={formRef} style={{ padding: "0 24px 100px" }}>
-        <div style={{ maxWidth: 720, margin: "0 auto" }}>
+        <div style={{ width: "90%", maxWidth: "720px", margin: "0 auto" }}>
           <Reveal>
             <div style={{ marginBottom: 32 }}>
               <span className="cr-label">Applications</span>
@@ -693,7 +693,7 @@ const Career = () => {
                   fontFamily: "'Oxanium',sans-serif",
                   fontWeight: 800,
                   fontSize: "clamp(1.6rem, 2.8vw, 2.2rem)",
-                  color: "#fff",
+                  color: "#0f172a",
                   letterSpacing: "-0.01em",
                 }}
               >
