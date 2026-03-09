@@ -11,15 +11,15 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t agile-website .'
+                bat 'docker build -t agile-website .'
             }
         }
 
         stage('Run Docker Container') {
             steps {
-                sh '''
-                docker stop agile-container || true
-                docker rm agile-container || true
+                bat '''
+                docker stop agile-container
+                docker rm agile-container
                 docker run -d -p 80:3000 --name agile-container agile-website
                 '''
             }
