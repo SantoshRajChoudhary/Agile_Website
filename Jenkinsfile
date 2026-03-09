@@ -9,19 +9,9 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image') {
+        stage('Build & Run Containers') {
             steps {
-                bat 'docker build -t agile-website .'
-            }
-        }
-
-        stage('Run Docker Container') {
-            steps {
-                bat '''
-                docker stop agile-container
-                docker rm agile-container
-                docker run -d -p 80:3000 --name agile-container agile-website
-                '''
+                bat 'docker compose up -d --build'
             }
         }
 
